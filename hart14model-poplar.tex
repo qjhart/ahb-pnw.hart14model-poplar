@@ -1,0 +1,388 @@
+%% 
+%% Copyright 2007, 2008, 2009 Elsevier Ltd
+%% 
+%% This file is part of the 'Elsarticle Bundle'.
+%% ---------------------------------------------
+%% 
+%% It may be distributed under the conditions of the LaTeX Project Public
+%% License, either version 1.2 of this license or (at your option) any
+%% later version.  The latest version of this license is in
+%%    http://www.latex-project.org/lppl.txt
+%% and version 1.2 or later is part of all distributions of LaTeX
+%% version 1999/12/01 or later.
+%% 
+%% The list of all files belonging to the 'Elsarticle Bundle' is
+%% given in the file `manifest.txt'.
+%% 
+
+%% Template article for Elsevier's document class `elsarticle'
+%% with numbered style bibliographic references
+%% SP 2008/03/01
+
+\documentclass[preprint,12pt]{elsarticle}
+
+%% Use the option review to obtain double line spacing
+%% \documentclass[authoryear,preprint,review,12pt]{elsarticle}
+
+%% Use the options 1p,twocolumn; 3p; 3p,twocolumn; 5p; or 5p,twocolumn
+%% for a journal layout:
+%% \documentclass[final,1p,times]{elsarticle}
+%% \documentclass[final,1p,times,twocolumn]{elsarticle}
+%% \documentclass[final,3p,times]{elsarticle}
+%% \documentclass[final,3p,times,twocolumn]{elsarticle}
+%% \documentclass[final,5p,times]{elsarticle}
+%% \documentclass[final,5p,times,twocolumn]{elsarticle}
+
+%% For including figures, graphicx.sty has been loaded in
+%% elsarticle.cls. If you prefer to use the old commands
+%% please give \usepackage{epsfig}
+
+%% The amssymb package provides various useful mathematical symbols
+\usepackage{xspace}
+\usepackage{amssymb}
+\usepackage{subcaption}
+\input{ahb-pnw-acronyms}
+%\newcommand{\degree}{\ensuremath{{}^{\circ}}\xspace}
+\newcommand{\degree}{\ensuremath{{}^{\circ}}\xspace}
+
+%% The amsthm package provides extended theorem environments
+%% \usepackage{amsthm}
+
+%% The lineno packages adds line numbers. Start line numbering with
+%% \begin{linenumbers}, end it with \end{linenumbers}. Or switch it on
+%% for the whole article with \linenumbers.
+%% \usepackage{lineno}
+
+\journal{Biomass \& Bioenergy}
+
+\begin{document}
+
+\begin{frontmatter}
+
+%% Title, authors and addresses
+
+%% use the tnoteref command within \title for footnotes;
+%% use the tnotetext command for theassociated footnote;
+%% use the fnref command within \author or \address for footnotes;
+%% use the fntext command for theassociated footnote;
+%% use the corref command within \author for corresponding author footnotes;
+%% use the cortext command for theassociated footnote;
+%% use the ead command for the email address,
+%% and the form \ead[url] for the home page:
+%% \title{Title\tnoteref{label1}}
+%% \tnotetext[label1]{}
+%% \author{Name\corref{cor1}\fnref{label2}}
+%% \ead{email address}
+%% \ead[url]{home page}
+%% \fntext[label2]{}
+%% \cortext[cor1]{}
+%% \address{Address\fnref{label3}}
+%% \fntext[label3]{}
+
+\title{Modeling Poplar Growth as a Short Rotation Woody Crop for Biofuels in the Pacific Northwest}
+
+%% use optional labels to link authors explicitly to addresses:
+%% \author[label1,label2]{}
+%% \address[label1]{}
+%% \address[label2]{}
+
+\author[lawr]{Q. J. Hart}
+%\author[en]{N. C. Parker}
+%\author[plant]{B.L. Yeo}
+\author[en]{V. Bandaru}
+%\author[lawr]{J. R. Merz}
+\author[bioag]{B. M. Jenkins}
+
+\address{Department of Land, Air, and Water, University of California, Davis, USA\fnref{lawr}}
+%\address{Department of Plant Sciences, University of California, Davis, USA\fnref{plant}}
+\address{Energy Institute, University of California, Davis, USA\fnref{en}}
+\address{Department of Biological and Agricultural Engineering, University of California, Davis, USA\fnref{bioag}}
+
+\begin{abstract}
+%% Text of abstract
+  The Advanced Hardwood Biofuels Northwest (AHB) is a consortium of
+  university and industry partners investigating the development of a
+  sustainable hardwood biofuels industry in Washington, Oregon,
+  Northern California and Northern Idaho in the U.S.  Inspired in part
+  by the U.S. Energy Independence and Security Act 2022 targets for
+  renewable fuel (renewable fuel standard), AHB is carrying out
+  research and development to support a system for growing and
+  converting hardwoods, such as hybrid poplars, into liquid biofuels
+  that are fully compatible with existing infrastructure.
+
+  Predicting the economic viability and environmental sustainability
+  of a biofuels industry based on this feedstock requires spatial
+  predictions of the growth and yield of short rotation woody crops
+  (SRWC) under various environmental conditions and throughout the
+  entire Pacific Northwest region.  The Physiological Principles in
+  Predicting Growth (3-PG) model was selected and modified for SRWC,
+  particularly for poplar plantation methodologies.  This included
+  developing a sub-model which takes into account the coppicing
+  strategy for harvesting poplar.
+
+  A physiological growth model such as 3-PG is advantageous because it
+  allows variation of growth parameters and assumptions regarding
+  management practices for poplar species.  Because it is a canopy
+  carbon balance model, allocations for both above and below ground
+  biomass can be tracked for life-cycle analysis of the product fuels.
+
+  The original 3-PG model does not include coppicing as a management
+  practice, which is problematic as it cannot reasonably account for
+  post-coppicing regrowth.  The extended model includes coppicing with
+  a general model that allows a monthly growth contribution from an
+  existing root mass.  The model specifies a relatively small
+  contribution of aboveground growth from the accumulated root mass
+  after coppicing in order to initiate the next cycle of production.
+
+  The 3-PG model was validated against a number of field studies
+  related to the growth of poplar as a SRWC biofuel feedstock.  The
+  parameterized model was then applied to the entire Pacific Northwest
+  region, using appropriate climatological and soil input data.
+  Climate data included both historical patterns as well as predicted
+  patterns from simulations under various climate scenarios.  The
+  result was a map of predicted yields and expected bounds on the
+  variation of these yields useful for determining when it becomes
+  economically feasible for poplar to be grown within the study
+  area. Results were integrated with other models that allow for
+  optimizing the crop selection and biorefinery site selection.
+  Important findings from the model include; validation of the 3-PG
+  model for coppiced SRWC plantings, estimates of biomass feedstock
+  yields under different irrigation patterns and weather conditions,
+  and annual estimates for feedstock availability when combined with
+  crop adoption scenarios.
+
+\end{abstract}
+
+\begin{keyword}
+%% keywords here, in the form: keyword \sep keyword
+  Short rotation woody crops \sep Poplar \sep 3-PG \sep Yield
+  estimations \sep Pacific Northwest, USA.
+
+%% PACS codes here, in the form: \PACS code \sep code
+
+%% MSC codes here, in the form: \MSC code \sep code
+%% or \MSC[2008] code \sep code (2000 is the default)
+
+\end{keyword}
+
+\end{frontmatter}
+
+%% \linenumbers
+
+%% main text
+\section{Introduction}
+\label{sec:introduction}
+
+Using climatological and soil parameters along with the 3PG forest
+growth model, yield predictions for poplar plantations can be made for
+the entire Pacific Northwest.  This yield model can be overlaid with
+land use patterns to predict yields for potential plantation
+locations.  Yield maps are the results of running the 3-PG Model for
+the entire AHB region. Weather information is derived from the PRISM
+Climate Group, (Daly, 2008) and the National Renewable Energy
+Laboratory (NREL), monthly radiation data (Marion, 1994). Soils data
+is derived from STATSGO (Soil Survey Staff, 2012).
+
+With appropriate input information, the 3-PG model can predict yields
+for the entire Pacific Northwest study region, under various
+irrigation scenarios.  When linked with models of crop adoption,
+annual feedstock estimates are possible.
+
+For example, a companion model, the Bioenergy Crop Adoption Model
+(BCAM) predicts price levels where poplar competes with existing crops
+in general cropping regions.  The yield results, along with the BCAM
+predictions can be used in the Geospatial Bioenergy Systems Model
+(GBSM) in order to optimize where in the region poplar might be
+adopted.
+
+The current model makes these estimations on an 8x8 km2 grid, a
+resolution that is fairly taxing for the solver of the GBSM model.
+Subsequent model runs at a finer scale can test the best scales for
+application of these models.
+
+\section{Methods and Calculation}
+
+The goal of this study is to create a map of poplar growth potential
+for this region that can inform our participants, and subsequent
+models on the predicted yields from \ac{SRWC} plantations.
+
+Figure~\ref{fig:grid} shows the study area, the Pacific Northwest of
+the United States, incorporating Washington, Oregon, Northern
+California, and Western Idaho.  This definition of the Pacific
+Northwest is somewhat inclusive in the South, including the northern
+part of California.
+
+A regular grid is used to partition the region.  The initial size of
+the grid is relatively coarse $8192 \times 8192$ (m x m), and designed
+to reduce some of the complexity of our regional optimization models.
+The projection is an Albers equal area projection with standard
+longitude 120\degree West, and parallels at latitudes 41\degree and
+47\degree North~\cite{Butler}. This somewhat specialized projection
+insures the pixels maintain a constant area, while maintaining good
+conformity for our transportation networks.  The pixel size is
+$2^{13}$ (m).  This allows easy scaling up and down of the data to
+different resolutions while maintaining common edges.  For example,
+the \ac{NLCD} dataset, used in this study, was originally imported at
+$2^5$ (m), and scaled upwards to determine percentages of landcover
+for each pixel.
+
+\begin{figure}[hp]
+  \centering
+  \includegraphics[width=1.0\linewidth]{grid}
+  \caption{Location of the study area, with grid layer overlaid.}
+  \label{fig:grid}
+\end{figure}
+
+Data processing was carried out with a postgresql database, with the
+postgis geospatial extensions~\cite{pgsql,Holl2009,postgis}.
+Specialized calculations were implemented as postgresql functions, using
+various scripting languages; SQL, PLSQL, Javascript, and R.
+
+\subsection{\acs{3pg} Model Formulation}
+\label{sec:3pg}
+
+The \acf{3pg} model~\cite{Landsberg1997, landsberg2010physiological,
+  Sands2004} takes as inputs weather data, and site factors, including
+soil parameters, initial stocking conditions, management practices,
+and species definitions.  In this study, the \ac{3pg} model is run at
+a monthly timestep. At each step the physiological parameters are
+calculated and carried forward to the next month.  These incremental
+physiological parameters can be plotted to compare model predictions
+with field results at multiple stages in the plantation’s history.
+Figure~\ref{fig:overview} gives an overview of the \acf{3pg} model.
+
+\begin{figure}[p]
+\includegraphics[width=\linewidth]{model_overview}
+\caption{ The 3-PG model’s main inputs.  Running at a monthly timestep, with
+appropriate input parameters, the model predicts tree growth and a
+number of other parameters.}
+\label{fig:overview}
+\end{figure}
+
+The original 3PG Model allocates mass produced from transpiration into
+the the creation of new roots, stems and foliage.  After coppicing
+however, the model has no mechanism to increase start of re-growth
+from the root.  A simple coppicing model has been developed to add an
+additional production from the root system after
+coppicing\cite{hart14-coppice}.  The seasonal timing of the
+contribution is moderated by comparing the actual NPP to the NPP the
+root could produce if it had a more complete canopy.  This difference
+serves as a target for the root contribution.  This method times
+regrowth with climatic conditions that are favorable for growth.  The
+monthly root contribution affects the length of time for the
+contribution to be made.  In poplar plantations, the initial planting
+is modeled the same way, however with different parameters to model
+initial propagation methods.
+
+In order to calculate the t
+
+\subsubsection{Climatic and Radiation Data}
+\label{sec:climate}
+
+%http://cses.washington.edu/cig/pnwc/pnwc.shtml
+%http://en.wikipedia.org/wiki/Climate_of_California
+
+The Pacific Northwest weather patterns are influenced primarily by the
+Pacific storm track, which brings in the bulk of precipitation in the
+months of October through March, and the location and size of the
+mountain ranges, which moderate both the precipitation, and the
+temperatures throughout the year.
+
+
+\begin{figure}[hp]
+  \centering
+  \includegraphics[width=1.0\linewidth]{hart14poplar-model-weather}  
+  \caption{Example temperature and precipitation maps.}
+  \label{fig:temp}
+\end{figure}
+
+\subsection{Land Classification and Irrigation}
+\label{sec:land}
+
+\begin{figure}[hp]
+  \centering
+  
+  \caption{Land Classification}
+  \label{fig:land}
+\end{figure}
+
+% \subsection{Agricultural Budgets}
+% \label{sec:bcam}
+
+\subsection{Climate Change}
+\label{sec:climate}
+
+\begin{figure}[hp]
+  \centering
+  
+  \caption{Predicted changes in temperature, precipitation }
+  \label{fig:temp}
+\end{figure}
+
+
+\section{Results and Discussion}
+
+\subsection{Poplar Yields}
+\label{sec:yield}
+
+\begin{figure}[hp]
+  \centering
+  
+  \caption{Example Poplar growth predictions}
+  \label{fig:examples}
+\end{figure}
+
+
+
+\subsection{Poplar Crop Adoption}
+\label{sec:bcam-out}
+
+\begin{table}[hp]
+  \centering
+  \begin{tabular}{|l|c|c|}
+    
+  \end{tabular}
+  \caption{Potential Poplar Amounts}
+  \label{tab:potential}
+\end{table}
+
+\subsection{Optimized Biorefinery Sitings}
+\label{sec:gbsm-out}
+
+\section{Conclusions}
+\label{sec:conclude}
+
+
+
+%% The Appendices part is started with the command \appendix;
+%% appendix sections are then done as normal sections
+%% \appendix
+
+%% \section{}
+%% \label{}
+
+%% If you have bibdatabase file and want bibtex to generate the
+%% bibitems, please use
+%%
+\bibliographystyle{elsarticle-num} 
+\bibliography{ahb-pnw}
+
+%% else use the following coding to input the bibitems directly in the
+%% TeX file.
+
+% \begin{thebibliography}{00}
+
+% %% \bibitem{label}
+% %% Text of bibliographic item
+
+% \bibitem{}
+
+% \end{thebibliography}
+
+\end{document}
+\endinput
+%%
+%% End of file `elsarticle-template-num.tex'.
+
+%  LocalWords:  dataset Albers landcover postgresql geospatial SQL
+%  LocalWords:  postgis PLSQL Javascript timestep coppicing
