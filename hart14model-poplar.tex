@@ -100,33 +100,32 @@
 
 \begin{abstract}
 %% Text of abstract
-  The Advanced Hardwood Biofuels Northwest (AHB) is a consortium of
-  university and industry partners investigating the development of a
-  sustainable hardwood biofuels industry in Washington, Oregon,
-  Northern California and Northern Idaho in the U.S.  Inspired in part
-  by the U.S. Energy Independence and Security Act 2022 targets for
-  renewable fuel (renewable fuel standard), AHB is carrying out
-  research and development to support a system for growing and
-  converting hardwoods, such as hybrid poplars, into liquid biofuels
-  that are fully compatible with existing infrastructure.
+  The \acf{AHB} is a consortium of university and industry partners
+  investigating the development of a sustainable hardwood biofuels
+  industry in Washington, Oregon, Northern California and Northern
+  Idaho in the U.S.  Inspired in part by the U.S. Energy Independence
+  and Security Act 2022 targets for renewable fuel (renewable fuel
+  standard), \ac{AHB} is carrying out research and development to
+  support a system for growing and converting hardwoods, such as
+  hybrid poplars, into liquid biofuels that are fully compatible with
+  existing infrastructure.
 
   Predicting the economic viability and environmental sustainability
   of a biofuels industry based on this feedstock requires spatial
-  predictions of the growth and yield of short rotation woody crops
-  (SRWC) under various environmental conditions and throughout the
-  entire Pacific Northwest region.  The Physiological Principles in
-  Predicting Growth (3-PG) model was selected and modified for SRWC,
+  predictions of the growth and yield of \acf{SWRC} under various
+  environmental conditions and throughout the entire Pacific Northwest
+  region.  The \acf{3pg} model was selected and modified for \ac{SRWC},
   particularly for poplar plantation methodologies.  This included
   developing a sub-model which takes into account the coppicing
   strategy for harvesting poplar.
 
-  A physiological growth model such as 3-PG is advantageous because it
+  A physiological growth model such as \ac{3pg} is advantageous because it
   allows variation of growth parameters and assumptions regarding
   management practices for poplar species.  Because it is a canopy
   carbon balance model, allocations for both above and below ground
   biomass can be tracked for life-cycle analysis of the product fuels.
 
-  The original 3-PG model does not include coppicing as a management
+  The original \ac{3pg} model does not include coppicing as a management
   practice, which is problematic as it cannot reasonably account for
   post-coppicing regrowth.  The extended model includes coppicing with
   a general model that allows a monthly growth contribution from an
@@ -134,8 +133,8 @@
   contribution of aboveground growth from the accumulated root mass
   after coppicing in order to initiate the next cycle of production.
 
-  The 3-PG model was validated against a number of field studies
-  related to the growth of poplar as a SRWC biofuel feedstock.  The
+  The \ac{3pg} model was validated against a number of field studies
+  related to the growth of poplar as a \ac{SRWC} biofuel feedstock.  The
   parameterized model was then applied to the entire Pacific Northwest
   region, using appropriate climatological and soil input data.
   Climate data included both historical patterns as well as predicted
@@ -145,8 +144,8 @@
   economically feasible for poplar to be grown within the study
   area. Results were integrated with other models that allow for
   optimizing the crop selection and biorefinery site selection.
-  Important findings from the model include; validation of the 3-PG
-  model for coppiced SRWC plantings, estimates of biomass feedstock
+  Important findings from the model include; validation of the \ac{3pg}
+  model for coppiced \ac{SRWC} plantings, estimates of biomass feedstock
   yields under different irrigation patterns and weather conditions,
   and annual estimates for feedstock availability when combined with
   crop adoption scenarios.
@@ -155,13 +154,13 @@
 
 \begin{keyword}
 %% keywords here, in the form: keyword \sep keyword
-  Short rotation woody crops \sep Poplar \sep 3-PG \sep Yield
+  Short rotation woody crops \sep Poplar \sep \ac{3pg} \sep Yield
   estimations \sep Pacific Northwest, USA.
 
 %% PACS codes here, in the form: \PACS code \sep code
 
 %% MSC codes here, in the form: \MSC code \sep code
-%% or \MSC[2008] code \sep code (2000 is the default)
+%% or \MSC[2008] code \sep code 
 
 \end{keyword}
 
@@ -173,32 +172,31 @@
 \section{Introduction}
 \label{sec:introduction}
 
-Using climatological and soil parameters along with the 3PG forest
+Using climatological and soil parameters along with the \ac{3pg} forest
 growth model, yield predictions for poplar plantations can be made for
 the entire Pacific Northwest.  This yield model can be overlaid with
 land use patterns to predict yields for potential plantation
-locations.  Yield maps are the results of running the 3-PG Model for
-the entire AHB region. Weather information is derived from the PRISM
-Climate Group, (Daly, 2008) and the National Renewable Energy
-Laboratory (NREL), monthly radiation data (Marion, 1994). Soils data
-is derived from STATSGO (Soil Survey Staff, 2012).
+locations.  Yield maps are the results of running the \ac{3pg} Model for
+the entire \ac{AHB} region. Weather information is derived from the PRISM
+Climate Group~\cite{daly2008} and the \acf{NREL} monthly radiation
+data (Marion, 1994). Soils data is derived from
+\acf{STATSGO}~cite{soil-statsgo2012}.
 
-With appropriate input information, the 3-PG model can predict yields
-for the entire Pacific Northwest study region, under various
+With appropriate input information, the \ac{3pg} model can predict
+yields for the entire Pacific Northwest study region, under various
 irrigation scenarios.  When linked with models of crop adoption,
 annual feedstock estimates are possible.
 
-For example, a companion model, the Bioenergy Crop Adoption Model
-(BCAM) predicts price levels where poplar competes with existing crops
-in general cropping regions.  The yield results, along with the BCAM
-predictions can be used in the Geospatial Bioenergy Systems Model
-(GBSM) in order to optimize where in the region poplar might be
-adopted.
+For example, a companion model, the \acf{BCAM} predicts price levels
+where poplar competes with existing crops in general cropping regions.
+The yield results, along with the \ac{BCAM} predictions can be used in
+the \acf{GBSM} in order to optimize where in the region poplar might
+be adopted.
 
 The current model makes these estimations on an 8x8 km2 grid, a
-resolution that is fairly taxing for the solver of the GBSM model.
-Subsequent model runs at a finer scale can test the best scales for
-application of these models.
+resolution that is fairly taxing for the solver of the \ac{GBSM}
+model.  Subsequent model runs at a finer scale can test the best
+scales for application of these models.
 
 \section{Methods and Calculation}
 
@@ -238,6 +236,20 @@ postgis geospatial extensions~\cite{pgsql,Holl2009,postgis}.
 Specialized calculations were implemented as postgresql functions, using
 various scripting languages; SQL, PLSQL, Javascript, and R.
 
+\begin{table}
+  \centering
+  \begin{tabular}[hp]{|l|l|}
+    \hline
+    Parameter & Source(s) \\
+    \hline
+    Temperature & \ac{PRSIM} \\
+    Precipitation & \ac{PRISM} \\
+    Solar Radiation & \ac{USGS} \\
+    \hline
+  \end{tabular}
+  \caption{Required Model Inputs}
+  \label{tab:input}
+\end{table}
 \subsection{\acs{3pg} Model Formulation}
 \label{sec:3pg}
 
@@ -253,26 +265,26 @@ Figure~\ref{fig:overview} gives an overview of the \acf{3pg} model.
 
 \begin{figure}[p]
 \includegraphics[width=\linewidth]{model_overview}
-\caption{ The 3-PG model’s main inputs.  Running at a monthly timestep, with
+\caption{ The \ac{3pg} model's main inputs.  Running at a monthly timestep, with
 appropriate input parameters, the model predicts tree growth and a
 number of other parameters.}
 \label{fig:overview}
 \end{figure}
 
-The original 3PG Model allocates mass produced from transpiration into
-the the creation of new roots, stems and foliage.  After coppicing
-however, the model has no mechanism to increase start of re-growth
-from the root.  A simple coppicing model has been developed to add an
-additional production from the root system after
+The original \ac{3pg} model allocates mass produced from transpiration
+into the the creation of new roots, stems and foliage.  After
+coppicing however, the model has no mechanism to increase start of
+re-growth from the root.  A simple coppicing model has been developed
+to add an additional production from the root system after
 coppicing\cite{hart14-coppice}.  The seasonal timing of the
-contribution is moderated by comparing the actual NPP to the NPP the
-root could produce if it had a more complete canopy.  This difference
-serves as a target for the root contribution.  This method times
-regrowth with climatic conditions that are favorable for growth.  The
-monthly root contribution affects the length of time for the
-contribution to be made.  In poplar plantations, the initial planting
-is modeled the same way, however with different parameters to model
-initial propagation methods.
+contribution is moderated by comparing the actual \ac{NPP} to the
+\ac{NPP} the root could produce if it had a more complete canopy.
+This difference serves as a target for the root contribution.  This
+method times regrowth with climatic conditions that are favorable for
+growth.  The monthly root contribution affects the length of time for
+the contribution to be made.  In poplar plantations, the initial
+planting is modeled the same way, however with different parameters to
+model initial propagation methods.
 
 In order to calculate the t
 
@@ -288,6 +300,22 @@ months of October through March, and the location and size of the
 mountain ranges, which moderate both the precipitation, and the
 temperatures throughout the year.
 
+In order to predict temperatures and precipitation on the near term,
+the \acf{PRISM} dataset was used.  \ac{PRISM} extrapolates station
+data spatially to a uniform grid using weights derived from the
+physiographic similarity of the station to the grid cell. These
+similarity measures include location, elevation, coastal proximity,
+topographic facet orientation, vertical atmospheric layer, topographic
+position, and orographic effectiveness of the terrain.  \ac{PRISM}
+data is available on a 2.5 minute geographic grid.
+
+16 years of \ac{PRISM} data were interpolated (cubic spline) to the
+\ac{AHB} grid averaged to determine a representative weather pattern
+used near term modeling for the \ac{AHB} yield predictions.
+Figure~\ref{fig:temp} show annual mean temperature and precipitation
+variation of the region.  Isolines show the standard deviation between
+annual mean temperature to the monthly mean temperature.  Similarly
+isolines are shown on the precipitation map.
 
 \begin{figure}[hp]
   \centering
@@ -295,6 +323,51 @@ temperatures throughout the year.
   \caption{Example temperature and precipitation maps.}
   \label{fig:temp}
 \end{figure}
+
+\subsubsection{Soil Parameters}
+\label{sec:soil}
+
+\ac{3pg} uses a single layer soil model that maintains an estimate of
+the amount of water available at any timestep in the model.  In
+addition, \ac{3pg} includes a growth limiter related to the available
+water in the soil, and the soil type.  These require a number of soil
+parameters.  \ac{maxAWS} determines the maximum holding capacity of
+the soil.  The limiter \ac{fSW} is parameterized with two values,
+$\ac{fSW} = \frac{1-(1-\ac{AWS}/\ac{maxAWS})^\ac{swp}
+{1+((1-\ac{AWS}/\ac{maxAWS})/\ac{swc})^\ac{swp}}$, where \ac{swp}
+and \ac{swc} are functions of the soil type.  
+
+These parameters are all determined using the \ac{STATSGO} database.
+\ac{STATSGO} is a national soil database, distributed by the
+\ac{NRCS}.  \ac{STATSGO} maps are designed for regional studies, and
+the soil inventories are typically generalized from more detailed
+surveys, or from a combination of ancillary datasets.  Individual
+\ac{STATSGO} areas can contain multiple soil components, and the map
+units are linked to attributes the soil data base which gives the
+proportionate extent of the component soils and their associated
+properties.  The \ac{mmu} is about 625 (ha).  For each pixel in the
+modeling grid, intersecting map units are averged for the estimated
+pixel values.  1887 different soil were used, contributing anywhere
+from 144 to 1.3M (ha).
+
+\ac{maxAWS} is directly taken from the \ac{STATSGO} database which
+Figure~\ref{fig:aws} shows the \ac{maxAWS} estimates.
+
+Included in the figure are the lines designating the soil polygons
+used.  
+
+\ac{swp} and \ac{swc} 
+
+
+
+\begin{figure}
+  \centering
+  
+  \caption{\ac{STATSGO} derived maximum available water estimates. }
+  \label{fig:aws}
+\end{figure}
+
+
 
 \subsection{Land Classification and Irrigation}
 \label{sec:land}
@@ -319,7 +392,6 @@ temperatures throughout the year.
   \label{fig:temp}
 \end{figure}
 
-
 \section{Results and Discussion}
 
 \subsection{Poplar Yields}
@@ -332,6 +404,8 @@ temperatures throughout the year.
   \label{fig:examples}
 \end{figure}
 
+% \subsection{Average Weather patterns}
+% Compare the yield from the AVERAGE weather to the yield from the ACTUAL last 16 years of data.
 
 
 \subsection{Poplar Crop Adoption}
