@@ -160,7 +160,7 @@
 %% PACS codes here, in the form: \PACS code \sep code
 
 %% MSC codes here, in the form: \MSC code \sep code
-%% or \MSC[2008] code \sep code 
+%% or \MSC[2008] code \sep code (2000 is the default)
 
 \end{keyword}
 
@@ -329,45 +329,62 @@ isolines are shown on the precipitation map.
 
 \ac{3pg} uses a single layer soil model that maintains an estimate of
 the amount of water available at any timestep in the model.  In
-addition, \ac{3pg} includes a growth limiter related to the available
-water in the soil, and the soil type.  These require a number of soil
-parameters.  \ac{maxAWS} determines the maximum holding capacity of
-the soil.  The limiter \ac{fSW} is parameterized with two values,
-$\ac{fSW} = \frac{1-(1-\ac{AWS}/\ac{maxAWS})^\ac{swp}
-{1+((1-\ac{AWS}/\ac{maxAWS})/\ac{swc})^\ac{swp}}$, where \ac{swp}
-and \ac{swc} are functions of the soil type.  
+addition, \ac{3pg} includes a limiter, the \ac{fSW} related to the
+available water in the soil and the soil type.  These require a number
+of soil parameters.  \ac{maxAWS} determines the maximum water holding
+capacity of the soil.  
 
 These parameters are all determined using the \ac{STATSGO} database.
 \ac{STATSGO} is a national soil database, distributed by the
 \ac{NRCS}.  \ac{STATSGO} maps are designed for regional studies, and
 the soil inventories are typically generalized from more detailed
 surveys, or from a combination of ancillary datasets.  Individual
-\ac{STATSGO} areas can contain multiple soil components, and the map
-units are linked to attributes the soil data base which gives the
-proportionate extent of the component soils and their associated
-properties.  The \ac{mmu} is about 625 (ha).  For each pixel in the
+\ac{STATSGO} areas can contain multiple soil components.
+Additionally, soil components are made up of a number of vertical soil
+horizons, with their own composition parameters.  Each map unit is
+linked to attributes the soil data base which gives the proportionate
+extent of the component soils and their associated properties and
+horizons.  The \ac{mmu} is about 625 (ha).  For each pixel in the
 modeling grid, intersecting map units are averged for the estimated
 pixel values.  1887 different soil were used, contributing anywhere
 from 144 to 1.3M (ha).
 
-\ac{maxAWS} is directly taken from the \ac{STATSGO} database which
-Figure~\ref{fig:aws} shows the \ac{maxAWS} estimates.
-
+\ac{maxAWS} is directly taken from the \ac{STATSGO} database
+\textit{(table MUAGGGATT, field AWS0100WTA; the volume of water that
+  the soil, to a depth of 100 cm, can store that is available to
+  plants)}. In \ac{STATSGO} it is reported as the weighted average of
+all components in the map unit.  For each pixel in the \ac{AHB}
+region, it is estimated as the weighted average from the intersection
+map units.  Figure~\ref{fig:aws} shows the \ac{maxAWS} estimates.
 Included in the figure are the lines designating the soil polygons
-used.  
-
-\ac{swp} and \ac{swc} 
-
-
+used.
 
 \begin{figure}
   \centering
-  
+  \includegraphics[width=1.0\linewidth]{hart14poplar-model-soil}    
   \caption{\ac{STATSGO} derived maximum available water estimates. }
   \label{fig:aws}
 \end{figure}
 
+\ac{fSW} is parameterized with two values, $\ac{fSW} =
+\frac{1-(1-\acs{AWS}/\acs{maxAWS})^{\acs{swp}}}
+{1+((1-\acs{AWS}/\acs{maxAWS})/\acs{swc})^{\acs{swp}}}$, where
+\acf{swp} and \acf{swc} are derived from the soil particle
+compositions (Figure~\ref{fig:swc}).  Each horizon of each component
+(up to 100 (cm) in depth) is identified into a texture class, from
+it's sand,silt, and clay percentages.  \ac{swc} and \ac{swp} are then
+calculated as the weighted average from these classes over an \ac{AHB}
+pixel.  This method calculates the average soil water parameters over
+top most 100 (cm) of soil over the pixel area.
 
+\begin{figure}
+  \centering
+  \includegraphics[width=1.0\linewidth]{soil_triangle}    
+  \caption{\ac{STATSGO} derived soil water modifier parameters for
+    various texture classes. For each class, the parameters are shown
+    as (\ac{swc},\ac{swp}).}
+  \label{fig:swc}
+\end{figure}
 
 \subsection{Land Classification and Irrigation}
 \label{sec:land}
@@ -384,6 +401,13 @@ used.
 
 \subsection{Climate Change}
 \label{sec:climate}
+
+Development of poplar plantations includes substantial investment and
+a commitment to long-term investment into that particular crop for a
+grower.  This is due both do the establishment of a stump and root
+system, as well as access to maintenance and harvesting machinery. 
+
+In addition, 
 
 \begin{figure}[hp]
   \centering
