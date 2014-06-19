@@ -358,8 +358,6 @@ used.
 
 \ac{swp} and \ac{swc} 
 
-
-
 \begin{figure}
   \centering
   
@@ -368,9 +366,23 @@ used.
 \end{figure}
 
 
-
 \subsection{Land Classification and Irrigation}
 \label{sec:land}
+
+Available climatic data makes it possible to make estimations for
+Poplar growth throughout the \ac{PNW} region.  This may provide
+interesting comparisons of changes in yield, but is not very suitable
+for determining regional trends, as not all lands are equally likely
+to be available for Poplar plantations.  Variables like land
+ownership, topography and salinity, influence the technical capability
+of growing Poplar.  
+
+In addition, the ability to irrigate a poplar plantation can have
+large effects on the predicted yields of poplar.  Determining which
+areas in the \ac{PNW} region are liable to be available for irrigation
+can significantly influence regional polar harvest estimations.  
+
+
 
 \begin{figure}[hp]
   \centering
@@ -379,18 +391,45 @@ used.
   \label{fig:land}
 \end{figure}
 
-% \subsection{Agricultural Budgets}
-% \label{sec:bcam}
-
 \subsection{Climate Change}
 \label{sec:climate}
+
+Three different climate change scenarios were tested; AB1: foo, B2:
+bar, and DF: fubar.  These represent some of the more commonly used
+IPCC climate change scenarios.  Estimations of the expected change in
+climate came from the IPCC ensemble estimations~\cite{ipcc-ensemble}.
+These estimations are an amalgamation of 32 different climate change
+scenarios.  The ensemble predictions are available at 0.5 minute grid
+cells.  Estimations of change in the next fifty years were used in
+these climate change estimations.
+
+The \ac{IPCC} estimations cannot be used directly, especially
+comparitively to the the current estimations using the \ac{PRISM}
+data.  This is because when comparing the \ac{IPCC}'s somewhat coarse
+scale estimations, to the more detailed \ac{PRISM} estimations the
+current (2000-2014) predictions exhibit bias in their estimations.
+Therefore, the \ac{IPCC} estimations were used to determine the
+predicted change in temperature and precipitation for the \ac {AHB}
+region, and these changes were then applied to the current \ac{PRISM}
+estimations. For example, the 50 year change in temperature, and
+precipitation for the \ac{FOO} \ac{IPCC} scenario shows a mean
+increase in temperature of about ? degrees Celcius, with larger
+changes in the foo and the bar.  Mean annual precipitation throughout
+the region stays relatively constant, but shows modfications in both
+location, and timing of the precipitation do undergo
+changes~(Figure~\cite{fig:new-temp}).
 
 \begin{figure}[hp]
   \centering
   
   \caption{Predicted changes in temperature, precipitation }
-  \label{fig:temp}
+  \label{fig:new-temp}
 \end{figure}
+
+In total, the three \ac{IPCC} scenarios were compared at three
+distinct initial planting dates; 2020, 2040 and 2060, and under the
+same set of 8 different \ac{3pg} poplar parameterizations, for a total
+of 79 estimations per pixel in the \ac{AHB} region.  
 
 \section{Results and Discussion}
 
@@ -407,24 +446,89 @@ used.
 % \subsection{Average Weather patterns}
 % Compare the yield from the AVERAGE weather to the yield from the ACTUAL last 16 years of data.
 
+% \subsection{Poplar Crop Adoption}
+% \label{sec:bcam-out}
 
-\subsection{Poplar Crop Adoption}
-\label{sec:bcam-out}
+% \begin{table}[hp]
+%   \centering
+%   \begin{tabular}{|l|c|c|}
+    
+%   \end{tabular}
+%   \caption{Potential Poplar Amounts}
+%   \label{tab:potential}
+% \end{table}
+
+\subsection{Climate Change}
+\label{sec:climate-change}
+
 
 \begin{table}[hp]
   \centering
-  \begin{tabular}{|l|c|c|}
-    
+  \begin{tabular}{|l|c|c|c|}
+    \hline
+    Scenario & 2020-2038 & 2040-2058 & 2060-2078 \\
+    \hline
+    \ac{AB1} & 1 & 2 & 3 \\
+    \ac{AB1} & 1 & 2 & 3 \\
+    \ac{AB1} & 1 & 2 & 3 \\
+    \hline    
   \end{tabular}
-  \caption{Potential Poplar Amounts}
+  \caption{Mean annual changes in irrigated Poplar yields  over the entire \ac{AHB} region.  
+These yields are the mean annual yield for plantations with 5 coppice events, on three year cycles.
+The initial year of the predictions are 2020, 2040, and 2060.}
   \label{tab:potential}
 \end{table}
 
-\subsection{Optimized Biorefinery Sitings}
-\label{sec:gbsm-out}
+The mean change in yields are not necessarily a good estimation of
+local estimations of changes in yield predictions.  Regional changes
+in temperature and precipitation induce considerable heterogenity in
+the yield change estimations.  Looking again, at \ac{IPCC} scenario
+\ac{AB2}, for the 2060-2078 time frame, we see considerable -- blah
+blah blah -.  These patterns are somewhat similar to all \ac{IPCC}
+scenarios, becoming more pronounced as the estimation is moved into
+the future~(Figure~\cite{fig:new-change}.
+
+\begin{figure}[hp]
+  \centering
+  
+  \caption{Changes in predicted yield for \ac{IPCC} scenario \ac{AB1}
+    for a plantation planting in 2060-2078.}
+  \label{fig:land}
+\end{figure}
+
+Such estimations can inform both the individual farmer in terms of
+predicting long term viability of Poplar plantations as a \ac{SRWC}
+feedstock, as well as regional estimations on the mid-term ability of
+such a feedstock to provide an expected harvest, and therefore an
+expected level of biofuel production.  Not only changes in expected
+overall yields, but changes in the spatial distribution of the yields
+can have impacts on economic analysis of a \sc{SRWC} based biofuel
+industry in the \ac{PNW}.  
+
+Next Steps 
+
+- For irrigated land, Current yields are input into a \ac{BCAM} model
+where they compete with existing crops to determine there economic
+viability.  It's hard to add water into the system as a direct cost of
+operation, because it's a confusing mush of real costs; availability
+and rights.  One way to address this issue is to include water as a
+zero-sum game in the adoption model.
+
+- For non-irrigated land, marginal and under utilized lands can be
+added into the overall agricultural economy as newly minted lands.
+These may compete with other agriculture crops, but they can also 
 
 \section{Conclusions}
 \label{sec:conclude}
+
+Yields provide viability
+Yields help farmers make decisions
+
+TODO
+- Look at more localized estimations
+- Compare mean estimations to changes in yield based on actual more changing weather patterns
+- - IN that same context, look at different time frames for your estimations. 
+- - These can provide some larger error bounds on our 
 
 
 
