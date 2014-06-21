@@ -242,8 +242,8 @@ various scripting languages; SQL, PLSQL, Javascript, and R.
     \hline
     Parameter & Source(s) \\
     \hline
-    Temperature & \ac{PRSIM} \\
-    Precipitation & \ac{PRISM} \\
+    Temperature & \acs{PRISM} \\
+    Precipitation & \acs{PRISM} \\
     Solar Radiation & \ac{USGS} \\
     \hline
   \end{tabular}
@@ -318,9 +318,18 @@ annual mean temperature to the monthly mean temperature.  Similarly
 isolines are shown on the precipitation map.
 
 \begin{figure}[hp]
-  \centering
-  \includegraphics[width=1.0\linewidth]{hart14poplar-model-weather}  
-  \caption{Example temperature and precipitation maps.}
+  \centering  
+  \includegraphics[width=1\linewidth]{dailytemp}  
+  \includegraphics[width=0.45\linewidth]{precip}  
+\caption{Mean annual Temperature, with isolines showing the standard deviation in monthly temperature.}
+  \label{fig:temp}
+\end{figure}
+
+\begin{figure}[hp]
+  \centering  
+  \includegraphics[width=0.45\linewidth]{dailytemp}  
+  \includegraphics[width=0.45\linewidth]{precip}  
+\caption{Total annual rainfall maps, with iso lines showing the maximum monthly rainfall.}
   \label{fig:temp}
 \end{figure}
 
@@ -333,9 +342,8 @@ addition, \ac{3pg} includes a growth limiter related to the available
 water in the soil, and the soil type.  These require a number of soil
 parameters.  \ac{maxAWS} determines the maximum holding capacity of
 the soil.  The limiter \ac{fSW} is parameterized with two values,
-$\ac{fSW} = \frac{1-(1-\ac{AWS}/\ac{maxAWS})^\ac{swp}
-{1+((1-\ac{AWS}/\ac{maxAWS})/\ac{swc})^\ac{swp}}$, where \ac{swp}
-and \ac{swc} are functions of the soil type.  
+$\acs{fSW} = \frac{1-(1-\acs{AWS}/\acs{maxAWS})^{\acs{swp}}}{1+((1-\acs{AWS}/\acs{maxAWS})/\acs{swc})^{\acs{swp}}}$, 
+where \ac{swp} and \ac{swc} are functions of the soil type.
 
 These parameters are all determined using the \ac{STATSGO} database.
 \ac{STATSGO} is a national soil database, distributed by the
@@ -346,7 +354,7 @@ surveys, or from a combination of ancillary datasets.  Individual
 units are linked to attributes the soil data base which gives the
 proportionate extent of the component soils and their associated
 properties.  The \ac{mmu} is about 625 (ha).  For each pixel in the
-modeling grid, intersecting map units are averged for the estimated
+modeling grid, intersecting map units are averaged for the estimated
 pixel values.  1887 different soil were used, contributing anywhere
 from 144 to 1.3M (ha).
 
@@ -563,4 +571,4 @@ TODO
 %% End of file `elsarticle-template-num.tex'.
 
 %  LocalWords:  dataset Albers landcover postgresql geospatial SQL
-%  LocalWords:  postgis PLSQL Javascript timestep coppicing
+%  LocalWords:  postgis PLSQL Javascript timestep coppicing datasets
