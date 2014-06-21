@@ -1,0 +1,22 @@
+Bio:
+
+Quinn Hart is a reasearcher with interests in agricultural modeling,
+databases and geographic information.  This particular modeling work
+was supported by the Advanced Hardwood Biofuels Northwest (AHB)
+project.
+
+Abstract: 
+
+Predicting the economic viability and environmental sustainability of
+a biofuels industry based on this feedstock requires spatial
+predictions of the growth and yield of short rotation woody crops
+(SRWC) under various environmental conditions and throughout large
+regions.  The Physiological Principles in Predicting Growth (3-PG)
+model was modified for SRWC, particularly for poplar plantation
+methodologies.  This included developing a sub-model which takes into
+account the coppicing strategy for harvesting poplar, that allows a
+monthly growth contribution from an existing root mass.
+
+The parameterized model was then applied to the entire Pacific
+Northwest of the United States, using appropriate climatological and
+soil input data.

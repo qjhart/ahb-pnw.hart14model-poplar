@@ -40,6 +40,7 @@
 %% The amssymb package provides various useful mathematical symbols
 \usepackage{xspace}
 \usepackage{amssymb}
+\usepackage{amsmath}
 \usepackage{subcaption}
 \input{ahb-pnw-acronyms}
 %\newcommand{\degree}{\ensuremath{{}^{\circ}}\xspace}
@@ -112,7 +113,7 @@
 
   Predicting the economic viability and environmental sustainability
   of a biofuels industry based on this feedstock requires spatial
-  predictions of the growth and yield of \acf{SWRC} under various
+  predictions of the growth and yield of \acf{SRWC} under various
   environmental conditions and throughout the entire Pacific Northwest
   region.  The \acf{3pg} model was selected and modified for \ac{SRWC},
   particularly for poplar plantation methodologies.  This included
@@ -136,7 +137,7 @@
   The \ac{3pg} model was validated against a number of field studies
   related to the growth of poplar as a \ac{SRWC} biofuel feedstock.  The
   parameterized model was then applied to the entire Pacific Northwest
-  region, using appropriate climatological and soil input data.
+  region, using appropriate climatology and soil input data.
   Climate data included both historical patterns as well as predicted
   patterns from simulations under various climate scenarios.  The
   result was a map of predicted yields and expected bounds on the
@@ -172,13 +173,13 @@
 \section{Introduction}
 \label{sec:introduction}
 
-Using climatological and soil parameters along with the \ac{3pg} forest
+Using weather and soil parameters along with the \ac{3pg} forest
 growth model, yield predictions for poplar plantations can be made for
 the entire Pacific Northwest.  This yield model can be overlaid with
 land use patterns to predict yields for potential plantation
 locations.  Yield maps are the results of running the \ac{3pg} Model for
 the entire \ac{AHB} region. Weather information is derived from the PRISM
-Climate Group~\cite{daly2008} and the \acf{NREL} monthly radiation
+Climate Group~\cite{Daly2008a} and the \acf{NREL} monthly radiation
 data (Marion, 1994). Soils data is derived from
 \acf{STATSGO}~cite{soil-statsgo2012}.
 
@@ -276,7 +277,7 @@ into the the creation of new roots, stems and foliage.  After
 coppicing however, the model has no mechanism to increase start of
 re-growth from the root.  A simple coppicing model has been developed
 to add an additional production from the root system after
-coppicing\cite{hart14-coppice}.  The seasonal timing of the
+coppicing\cite{Hart2014}.  The seasonal timing of the
 contribution is moderated by comparing the actual \ac{NPP} to the
 \ac{NPP} the root could produce if it had a more complete canopy.
 This difference serves as a target for the root contribution.  This
@@ -319,18 +320,16 @@ isolines are shown on the precipitation map.
 
 \begin{figure}[hp]
   \centering  
-  \includegraphics[width=1\linewidth]{dailytemp}  
-  \includegraphics[width=0.45\linewidth]{precip}  
+  \includegraphics[width=1\linewidth]{temp}  
 \caption{Mean annual Temperature, with isolines showing the standard deviation in monthly temperature.}
   \label{fig:temp}
 \end{figure}
 
 \begin{figure}[hp]
   \centering  
-  \includegraphics[width=0.45\linewidth]{dailytemp}  
-  \includegraphics[width=0.45\linewidth]{precip}  
-\caption{Total annual rainfall maps, with iso lines showing the maximum monthly rainfall.}
-  \label{fig:temp}
+  \includegraphics[width=1.0\linewidth]{precip}  
+\caption{Total annual rainfall, with iso lines showing the maximum monthly rainfall.}
+  \label{fig:precip}
 \end{figure}
 
 \subsubsection{Soil Parameters}
@@ -342,7 +341,11 @@ addition, \ac{3pg} includes a growth limiter related to the available
 water in the soil, and the soil type.  These require a number of soil
 parameters.  \ac{maxAWS} determines the maximum holding capacity of
 the soil.  The limiter \ac{fSW} is parameterized with two values,
-$\acs{fSW} = \frac{1-(1-\acs{AWS}/\acs{maxAWS})^{\acs{swp}}}{1+((1-\acs{AWS}/\acs{maxAWS})/\acs{swc})^{\acs{swp}}}$, 
+
+\begin{equation*}
+\acs{fSW} = \frac{1-(1-\acs{AWS}/\acs{maxAWS})^{\acs{swp}}}{1+((1-\acs{AWS}/\acs{maxAWS})/\acs{swc})^{\acs{swp}}}
+\end{equation*} 
+
 where \ac{swp} and \ac{swc} are functions of the soil type.
 
 These parameters are all determined using the \ac{STATSGO} database.
@@ -368,7 +371,7 @@ used.
 
 \begin{figure}
   \centering
-  
+  Waiting for MaxAWS
   \caption{\ac{STATSGO} derived maximum available water estimates. }
   \label{fig:aws}
 \end{figure}
@@ -390,7 +393,78 @@ large effects on the predicted yields of poplar.  Determining which
 areas in the \ac{PNW} region are liable to be available for irrigation
 can significantly influence regional polar harvest estimations.  
 
+% Abstract A suitability analysis for potential to grow poplar was performed over the five state region using the analytic hierarchy process. First, permanently non-suitable land was removed, including Federal ownership, developed land, slopes greater than 15%, and soil salinity greater than 4 deciSiemens per meter. For remaining land, nine variables considered important for poplar growth were identified: growing season precipitation, temperature, and length; soil texture and drainage, pH, salinity, and depth; water table depth; and slope. Normalizing functions were developed for each variable, and contribution to overall suitability was defined by assigning pairwise importance weights. Normalized values and weights were multiplied together to calculate a final suitability value for each cell. Finally, cells were classified into Highly, Moderately, Marginally or Currently Not Suitable.
+% Of the 354 million acres in the region, 188 million acres were identified as permanently non-suitable due to Federal ownership, development, presence of water bodies, steep slopes, or high soil salinity. Without irrigation, 4.4 million acres were classified as highly suitable, with 400 thousand of these acres not classified as agriculture, forestry, disturbed, developed, or water. Irrigation increased the amount of highly suitable acres to 54 million, with 20 million acres not classified agriculture, forestry, disturbed, developed, or water. Growing season precipitation was the most important factor under the without irrigation scenario. When irrigation was considered, soil texture and drainage and growing season temperature were the most important factors.
 
+% Input Data Layers
+% Input data sources were used to characterize ownership, climate, soils, terrain, and water.
+% Permanently Non-Suitable Mask Permanently non-suitable land removed from the analysis included all Federal ownership, developed land, water, slopes greater than 15%, and soil salinity greater than 4 deciSiemens per meter.
+% Normalizing Functions
+% Functions were developed from the literature and survey results to convert input data to normalized values between 0 (least suitable) and 1 (most suitable). An alternative with irrigation ignores precipitation and adjusts water table depth and drainage functions.
+% Precipitation Average monthly precipitation (in) from April to September. Monthly normalized scores are averaged.
+% Suitability Ranges
+% 0 – 1 inch Too dry 1 – 2 inches Marginal dry >= 2 Ideal
+% Temperature Average monthly high temperature (F) from April to September. Monthly normalized scores are averaged.
+% Suitability Ranges
+% 0 – 32 degrees F Too cold 32 – 60 degrees F Marginal cool 60 – 85 degrees F Ideal 85 – 95 Marginal hot >= 95 Too hot
+% Season Length The number of days between the first frost free day in Spring and the last frost free day in Autumn.
+% Suitability Ranges
+% 0 – 89 days Too short 90 – 210 days Marginal short
+% Soil pH Ideal pH ranges from 5.5 to 7.5. Marginal pH extends down to 4.5 and up to 8.
+% Suitability Ranges
+% 0 – 4.5 pH Too acidic 4.5 – 5.5 pH Marginal acidic 5.5 – 7.5 pH Ideal 7.5 – 8.0 pH Marginal alkaline >= 8.0 pH Too alkaline
+% Soil Salinity Any areas with salinity above 4 dS/m were permanently excluded.
+% Suitability Ranges
+% 0 – 2 dS/m Ideal 2 – 4 dS/m Marginal saline >= 5 dS/m Too saline
+% Soil Depth Depth (in) of soil. Minimum limit of 20 in. (≈ 0.5 meters)
+% Suitability Ranges
+% 0 – 20 inches Too shallow 20 – 40 inches Marginal shallow >= 40 inches Ideal
+% Water Table Depth Depth (in) to water table. Function remains at 1 after 40 inches with irrigation.
+% Suitability Ranges
+% 0 – 20 inches Too shallow 20 – 40 inches Marginal shallow 40 – 100 inches Ideal >= 100 inches Marginal deep
+% Slope Percent slope for land less than 15%.
+% Suitability Ranges
+% 0 – 10% Ideal 10 – 15% Marginal steep
+% Soil Texture and Drainage Soil texture was classified from percent sand, silt, and clay. Drainage class was provided in the soil data.
+% For the Excessively Drained and Somewhat Excessively Drained categories below, values assume no irrigation, and values in parentheses assume irrigation.
+% Weights Variables were first compared to each other and assigned values from 1 to 9 representing “equal” importance to “extreme more” importance. The matrix of pairwise comparisons was then converted to a single column vector of weights.
+% Final Calculation/Suitability Classification An overall suitability score for each cell was calculated by multiplying each normalized raster by its factor weight, then summing the resulting rasters. Suitability classes were defined as Highly Suitable (0.8 – 1), Moderately Suitable (0.6 - 0.8), Marginally Suitable (0.4 - 0.6), and Currently Not Suitable (0 - 0.4).
+% Results without Irrigation
+% Class
+% Acres
+% Acres (Weighted Factors) %
+% (Unweighted Factors) %
+% Currently Not Suitable 3,208,868 3% 664 0%
+% Marginally Suitable 39,179,659 39% 3,196,997 3%
+% Moderately Suitable 52,386,887 53% 67,487,374 68%
+% Highly Suitable, Forest 2,237,550 2% 6,371,906 6%
+% Highly Suitable, Ag 707,934 1% 11,454,276 12%
+% Highly Suitable, Developed 170,234 0% 1,296,564 1%
+% Highly Suitable, Disturbed 902,865 1% 1,373,779 1%
+% Highly Suitable, Other 396,242 0% 7,914,299 8%
+% Results with Irrigation
+% Class Acres With Irrigation % Acres With Irrigation %
+% Currently Not Suitable 1,069 0% 275 0%
+% Marginally Suitable 4,004,008 4% 1,281,325 1%
+% Moderately Suitable 41,430,392 42% 46,689,684 47%
+% Highly Suitable, Forest 9,163,155 9% 8,545,359 9%
+% Highly Suitable, Ag 20,675,617 21% 21,738,173 22%
+% Highly Suitable, Developed 1,926,296 2% 2,112,417 2%
+% Highly Suitable, Disturbed 1,510,798 2% 1,491,819 2%
+% Highly Suitable, Other 20,365,010 21% 17,180,823 17%
+% Conclusions
+% • The "Irrigation" scenario reweights the factors without precipitation and adjusts the soil depth and soil texture and drainage class normalization functions. It does not consider whether irrigation is possible or practical.
+% • Growing season precipitation is the most important factor when irrigation is not considered.
+% • Growing season temperature and soil texture and drainage class are the most important factors with irrigation.
+% • Using pairwise importance weights with the analytic hierarchy process increases the contribution of precipitation to overall suitability from .11 to .33 under the “Rainfall” scenario, and reduces “highly suitable” acres from 7,914,299 to 396,242.
+% • With "Irrigation" and equally weighted factors, growing season length and slope had a larger influence on suitability.
+% • Next steps:
+% • Improve categorization of suitable areas by using improved higher resolution land classification data.
+% • Integrate suitable areas with parcel data to identify owners of properties with adequate size and land use for extension outreach efforts and to eliminate unsuitable properties from further economic and optimization modeling.
+% References FAO. 1976. FAO A framework for land evaluation. Soils Bulletin 32. Food and Agriculture Organization of the United Nations, Rome (1976).
+% Saaty, Thomas L. (2008-06). "Relative Measurement and its Generalization in Decision Making: Why Pairwise Comparisons are Central in Mathematics for the Measurement of Intangible Factors – The Analytic Hierarchy/Network Process". Review of the Royal Academy of Exact, Physical and Natural Sciences, Series A: Mathematics (RACSAM) 102 (2): 251–318.
+% Schutte, Bill. Selecting sites for poplar plantation establishment. Retrieved from http://www.fs.fed.us/pnw/olympia/silv/hardwoods/site_assessment_poplar.pdf.
+% van Oosten, Cees. 2006. Hybrid Poplar Crop Manual for the Prairie Provinces. Prepared by SilviConsult Woody Crops Technology Inc. for the Saskatchewan Forest Centre.
 
 \begin{figure}[hp]
   \centering
@@ -402,17 +476,27 @@ can significantly influence regional polar harvest estimations.
 \subsection{Climate Change}
 \label{sec:climate}
 
-Three different climate change scenarios were tested; AB1: foo, B2:
-bar, and DF: fubar.  These represent some of the more commonly used
-IPCC climate change scenarios.  Estimations of the expected change in
-climate came from the IPCC ensemble estimations~\cite{ipcc-ensemble}.
-These estimations are an amalgamation of 32 different climate change
-scenarios.  The ensemble predictions are available at 0.5 minute grid
-cells.  Estimations of change in the next fifty years were used in
-these climate change estimations.
+In order to asses
+One climate change scenarios was tested, A1B. 
+%
+The A1 storyline and scenario family describes a future world of very
+rapid economic growth, global population that peaks in mid-century and
+declines thereafter, and the rapid introduction of new and more
+efficient technologies. A1B predicts a balanced utiliziation of
+avilable energy sources, defined as not relying too heavily on one
+particular energy source, on the assumption that similar improvement
+rates apply to all energy supply and end-use technologies~\cite{}.
+%
+This represents a commonly used \ac{IPCC} climate change scenario.
+Estimations of the expected change in climate came from the IPCC
+ensemble estimations~\cite{ipcc-ensemble}.  These estimations are an
+amalgamation of 32 different climate change scenarios.  The ensemble
+predictions are available at 0.5 minute grid cells.  Estimations of
+change in the next fifty years were used in these climate change
+estimations.
 
 The \ac{IPCC} estimations cannot be used directly, especially
-comparitively to the the current estimations using the \ac{PRISM}
+comparatively to the current estimations using the \ac{PRISM}
 data.  This is because when comparing the \ac{IPCC}'s somewhat coarse
 scale estimations, to the more detailed \ac{PRISM} estimations the
 current (2000-2014) predictions exhibit bias in their estimations.
@@ -420,18 +504,19 @@ Therefore, the \ac{IPCC} estimations were used to determine the
 predicted change in temperature and precipitation for the \ac {AHB}
 region, and these changes were then applied to the current \ac{PRISM}
 estimations. For example, the 50 year change in temperature, and
-precipitation for the \ac{FOO} \ac{IPCC} scenario shows a mean
-increase in temperature of about ? degrees Celcius, with larger
+precipitation for the A1B \ac{IPCC} scenario shows a mean
+increase in temperature of about ? degrees Celsius, with larger
 changes in the foo and the bar.  Mean annual precipitation throughout
-the region stays relatively constant, but shows modfications in both
+the region stays relatively constant, but shows modifications in both
 location, and timing of the precipitation do undergo
-changes~(Figure~\cite{fig:new-temp}).
+changes~(Figure~\ref{fig:change}).
 
 \begin{figure}[hp]
   \centering
-  
-  \caption{Predicted changes in temperature, precipitation }
-  \label{fig:new-temp}
+  \includegraphics[width=0.45\linewidth]{temp_change}
+  \includegraphics[width=0.45\linewidth]{precip_change.png}
+  \caption{Predicted changes in temperature and precipitation under \ac{IPCC} sceanario A1B for plantation planted in 2040.}
+  \label{fig:change}
 \end{figure}
 
 In total, the three \ac{IPCC} scenarios were compared at three
@@ -446,9 +531,16 @@ of 79 estimations per pixel in the \ac{AHB} region.
 
 \begin{figure}[hp]
   \centering
-  
-  \caption{Example Poplar growth predictions}
-  \label{fig:examples}
+  \includegraphics[width=1.0\linewidth]{irrigated_yield}
+  \caption{Predicted annual irrigated yields for a 15 year 5 coppice plantation cycle for areas in the \ac{PNW} currently under agricultural practice.}
+  \label{fig:irrigated_yield}
+\end{figure}
+
+\begin{figure}[hp]
+  \centering
+  \includegraphics[width=1.0\linewidth]{nonirrigated_yield}
+  \caption{Predicted annual nonirrigated yields for a 15 year 5 coppice plantation cycle for areas in the \ac{PNW} identified as rangeland or marginal land.}
+  \label{fig:nonirrigated_yield}
 \end{figure}
 
 % \subsection{Average Weather patterns}
@@ -469,39 +561,46 @@ of 79 estimations per pixel in the \ac{AHB} region.
 \subsection{Climate Change}
 \label{sec:climate-change}
 
-
-\begin{table}[hp]
-  \centering
-  \begin{tabular}{|l|c|c|c|}
-    \hline
-    Scenario & 2020-2038 & 2040-2058 & 2060-2078 \\
-    \hline
-    \ac{AB1} & 1 & 2 & 3 \\
-    \ac{AB1} & 1 & 2 & 3 \\
-    \ac{AB1} & 1 & 2 & 3 \\
-    \hline    
-  \end{tabular}
-  \caption{Mean annual changes in irrigated Poplar yields  over the entire \ac{AHB} region.  
-These yields are the mean annual yield for plantations with 5 coppice events, on three year cycles.
-The initial year of the predictions are 2020, 2040, and 2060.}
-  \label{tab:potential}
-\end{table}
+% \begin{table}[hp]
+%   \centering
+%   \begin{tabular}{|l|c|c|c|}
+%     \hline
+%     Scenario & 2020-2038 & 2040-2058 & 2060-2078 \\
+%     \hline
+%     \ac{AB1} & 1 & 2 & 3 \\
+%     \ac{AB1} & 1 & 2 & 3 \\
+%     \ac{AB1} & 1 & 2 & 3 \\
+%     \hline    
+%   \end{tabular}
+%   \caption{Mean annual changes in irrigated Poplar yields  over the entire \ac{AHB} region.  
+% These yields are the mean annual yield for plantations with 5 coppice events, on three year cycles.
+% The initial year of the predictions are 2020, 2040, and 2060.}
+%   \label{tab:potential}
+% \end{table}
 
 The mean change in yields are not necessarily a good estimation of
 local estimations of changes in yield predictions.  Regional changes
-in temperature and precipitation induce considerable heterogenity in
+in temperature and precipitation induce considerable heterogeneity in
 the yield change estimations.  Looking again, at \ac{IPCC} scenario
-\ac{AB2}, for the 2060-2078 time frame, we see considerable -- blah
+A1B, for the 2040-2058 time frame, we see considerable -- blah
 blah blah -.  These patterns are somewhat similar to all \ac{IPCC}
 scenarios, becoming more pronounced as the estimation is moved into
-the future~(Figure~\cite{fig:new-change}.
+the future~(Figure~\ref{fig:new-change}.
 
 \begin{figure}[hp]
   \centering
-  
-  \caption{Changes in predicted yield for \ac{IPCC} scenario \ac{AB1}
-    for a plantation planting in 2060-2078.}
-  \label{fig:land}
+  Submitted to Mui
+  \caption{Changes in predicted irrigated yield for \ac{IPCC} scenario \ac{AB1}
+    for a plantation planting in 2040-2058.}
+  \label{fig:new_irrigated}
+\end{figure}
+
+\begin{figure}[hp]
+  \centering
+  Submitted to Mui
+  \caption{Changes in predicted nonirrigated yield for \ac{IPCC} scenario \ac{AB1}
+    for a plantation planting in 2040-2058.}
+  \label{fig:new_nonirrigated}
 \end{figure}
 
 Such estimations can inform both the individual farmer in terms of
@@ -510,19 +609,19 @@ feedstock, as well as regional estimations on the mid-term ability of
 such a feedstock to provide an expected harvest, and therefore an
 expected level of biofuel production.  Not only changes in expected
 overall yields, but changes in the spatial distribution of the yields
-can have impacts on economic analysis of a \sc{SRWC} based biofuel
+can have impacts on economic analysis of a \ac{SRWC} based biofuel
 industry in the \ac{PNW}.  
 
 Next Steps 
 
-- For irrigated land, Current yields are input into a \ac{BCAM} model
+For irrigated land, Current yields are input into a \ac{BCAM} model
 where they compete with existing crops to determine there economic
 viability.  It's hard to add water into the system as a direct cost of
 operation, because it's a confusing mush of real costs; availability
 and rights.  One way to address this issue is to include water as a
 zero-sum game in the adoption model.
 
-- For non-irrigated land, marginal and under utilized lands can be
+For non-irrigated land, marginal and under utilized lands can be
 added into the overall agricultural economy as newly minted lands.
 These may compete with other agriculture crops, but they can also 
 
@@ -537,7 +636,6 @@ TODO
 - Compare mean estimations to changes in yield based on actual more changing weather patterns
 - - IN that same context, look at different time frames for your estimations. 
 - - These can provide some larger error bounds on our 
-
 
 
 %% The Appendices part is started with the command \appendix;
@@ -572,3 +670,6 @@ TODO
 
 %  LocalWords:  dataset Albers landcover postgresql geospatial SQL
 %  LocalWords:  postgis PLSQL Javascript timestep coppicing datasets
+%  LocalWords:  biorefinery aboveground coppiced biofuels feedstock
+%  LocalWords:  SRWC parameterized physiographic orographic Isolines
+%  LocalWords:  isolines parameterizations

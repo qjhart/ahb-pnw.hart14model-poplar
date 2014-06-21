@@ -1,0 +1,86 @@
+\documentclass[10pt]{article}
+
+% amsmath package, useful for mathematical formulas
+\usepackage{amsmath}
+% amssymb package, useful for mathematical symbols
+\usepackage{amssymb}
+% graphicx package, useful for including eps and pdf graphics
+% include graphics with the command \includegraphics
+\usepackage{graphicx}
+\usepackage{color}
+\pdfpagebox5
+\usepackage{pgfplots}
+\usepgfplotslibrary{dateplot}
+
+\begin{document}
+
+\pgfplotscreateplotcyclelist{pontvariety}{%
+{blue},
+{green},
+{red},
+{orange}
+}
+
+\newcommand{\fn}[1]{#1.csv}
+%\newcommand{\fn}[1]{validation/pontailler1999/coppice/#1.csv}
+
+\pgfplotstableread[col sep=comma]{ws.csv}\ws
+%\pgfplotstableread[col sep=comma]{validation/pontailler1999/ws.csv}\ws
+
+\newcommand{\plotvarieties}[1]{
+    \pgfplotsset{cycle list name={pontvariety},cycle list shift=#1}
+    \addplot table [x=date, y=Beaupre] {\ws};
+    \addplot table [x=date, y=Raspalje]{\ws};
+    \addplot table [x=date, y=Pauley] {\ws};
+    \addplot table [x=date, y=Robusta] {\ws};
+}
+
+\begin{tikzpicture}
+  \begin{axis}[
+    width=\linewidth,
+    height=3in,
+    date coordinates in=x,
+    xmin={1987-01-15},
+    xmax={1997-12-15},
+    xtick={
+      {1987-12-15},
+      {1988-12-15},
+      {1989-12-15},
+      {1990-12-15},
+      {1991-12-15},
+      {1992-12-15},
+      {1993-12-15},
+      {1994-12-15},
+      {1995-12-15},
+      {1996-12-15},
+      {1997-12-15}
+    },
+    x tick label style={rotate=45, anchor=east},
+    xticklabel={\year-\month},
+    ylabel=Stem Biomass (Mg ha-1),
+    legend entries={Beaupre,Pauley-Fritzi,Raspalje,Robusta},
+    legend style={
+       at={(0.5,1.0)},anchor=south,yshift=2pt,legend columns=-1
+     },
+     table/col sep=comma,
+     cycle list name = pontvariety,
+     no markers,
+     every axis plot/.append style={line width=1pt},
+     every mark/.append style={solid}
+    ]
+    \addplot+[only marks] table [x=date, y=Beaupre] {\ws};
+%    \addplot+[boxplot={data={y}} ] table [x=date,y=Beaupre} {\ws};
+    \addplot+[only marks] table [x=date, y=Raspalje]{\ws};
+    \addplot+[only marks] table [x=date, y=Pauley] {\ws};
+    \addplot+[only marks] table [x=date, y=Robusta] {\ws};
+%    \plotvarieties{-5}
+    \pgfplotsset{cycle list shift=-4}
+    \addplot table [x=date, y=WS] {\fn{pont-beaupre-best}};
+    \addplot table [x=date, y=WS] {\fn{pont-fritzi-best}};
+    \addplot table [x=date, y=WS] {\fn{pont-raspalje-best}};
+    \addplot table [x=date, y=WS] {\fn{pont-robusta-best}};
+    \addplot+[color=black,bold] table [x=date, y=WS] {\fn{pont-raspalje}};
+
+  \end{axis}
+\end{tikzpicture}
+\end{document}
