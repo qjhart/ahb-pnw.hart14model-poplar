@@ -1,0 +1,71 @@
+
+\pgfplotsset{
+      no markers,
+      width=0.5\linewidth,
+      height=0.25\linewidth,
+      every axis plot/.append style={line width=1pt},
+      date coordinates in=x,
+      xmin={2017-03-15},
+      xmax={2019-10-15},
+      xtick={
+      2017-06-15,2017-09-15,2017-12-15,
+      2018-03-15,2018-06-15,2018-09-15,2018-12-15,
+      2019-03-15,2019-06-15,2019-09-15},
+      xticklabels=\empty,
+}
+  \begin{tikzpicture}
+    \begin{axis}[
+      name=ws11,
+      ymin=0,ymax=80,
+      ytick={20,40,60},
+      yticklabels={20,40,60},
+      ylabel=Stem~$\frac{T}{ha}$,
+      legend entries={$\Rdp=0.001$,$\Rdp=0.01$,$\Rdp=0.1$,$\Rdp=0.5$,$\Rdp=1$},
+      legend style={
+        at={(1.0,1.0)},anchor=south,legend columns=-1,yshift=2pt}
+      ]
+      \node at (axis cs:{2018-02-15},50) {Nov};
+      \addplot+[color=red] table [x=date, y=m11f0.001, col sep=comma] {hart12coppice-coppice-ws.csv};
+      \addplot+[color=orange] table [x=date, y=m11f0.01, col sep=comma] {hart12coppice-coppice-ws.csv};
+      \addplot+[color=yellow] table [x=date, y=m11f0.1, col sep=comma] {hart12coppice-coppice-ws.csv};
+      \addplot+[color=green] table [x=date, y=m11f0.5, col sep=comma] {hart12coppice-coppice-ws.csv};
+      \addplot+[color=blue] table [x=date, y=m11f1, col sep=comma] {hart12coppice-coppice-ws.csv};
+    \end{axis}
+    \begin{axis}[
+      name=wf11,
+      ylabel=Foliage,
+      at={(ws11.below south west)},yshift=5pt,
+      anchor=north west,
+      ymin=0,ymax=30,
+      ytick={10,20},
+      yticklabels={10,20},
+      ]
+      \addplot+[color=red] table [x=date, y=m11f0.001, col sep=comma] {hart12coppice-coppice-wf.csv};
+      \addplot+[color=orange] table [x=date, y=m11f0.01, col sep=comma] {hart12coppice-coppice-wf.csv};
+      \addplot+[color=yellow] table [x=date, y=m11f0.1, col sep=comma] {hart12coppice-coppice-wf.csv};
+      \addplot+[color=green] table [x=date, y=m11f0.5, col sep=comma] {hart12coppice-coppice-wf.csv};
+      \addplot+[color=blue] table [x=date, y=m11f1, col sep=comma] {hart12coppice-coppice-wf.csv};
+    \end{axis}
+
+    \begin{axis}[
+      name=wr11,
+      at={(wf11.below south west)},yshift=5pt,
+      anchor=north west,
+      x tick label style={rotate=45, anchor=east},
+      xticklabels={
+      Y3-06,Y3-09,Y3-12,
+      Y4-03,Y4-06,Y4-09,Y4-12,
+      Y5-03,Y5-06,Y5-09},
+      ymin=5,ymax=30,
+      ytick={10,20},
+      yticklabels={10,20},
+      ylabel=Root,
+      ]
+      \addplot+[color=red] table [x=date, y=m11f0.001, col sep=comma] {hart12coppice-coppice-wr.csv};
+      \addplot+[color=orange] table [x=date, y=m11f0.01, col sep=comma] {hart12coppice-coppice-wr.csv};
+      \addplot+[color=yellow] table [x=date, y=m11f0.1, col sep=comma] {hart12coppice-coppice-wr.csv};
+      \addplot+[color=green] table [x=date, y=m11f0.5, col sep=comma] {hart12coppice-coppice-wr.csv};
+      \addplot+[color=blue] table [x=date, y=m11f1, col sep=comma] {hart12coppice-coppice-wr.csv};
+    \end{axis}
+
+  \end{tikzpicture}

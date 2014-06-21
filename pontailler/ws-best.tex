@@ -12,6 +12,10 @@
 \usepackage{pgfplots}
 \usepgfplotslibrary{dateplot}
 
+\newcommand{\Rdp}{\ensuremath{R_{\Delta\%}}}
+\newcommand{\fR}{\ensuremath{f_R}}
+
+
 \begin{document}
 
 \pgfplotscreateplotcyclelist{pontvariety}{%
@@ -79,8 +83,18 @@
     \addplot table [x=date, y=WS] {\fn{pont-fritzi-best}};
     \addplot table [x=date, y=WS] {\fn{pont-raspalje-best}};
     \addplot table [x=date, y=WS] {\fn{pont-robusta-best}};
-    \addplot+[color=black,bold] table [x=date, y=WS] {\fn{pont-raspalje}};
+    \addplot+[color=black] table [x=date, y=WS] {\fn{pont-raspalje}};
 
   \end{axis}
 \end{tikzpicture}
+
+\begin{figure}[p]
+  \centering
+  \input{rdp-by-type.tex}
+  \caption{ { \bf Coppice regrowth model results for various levels of Root
+      contribution \Rdp.}  Y-axis is the dry mass of each component of the
+    plantation, in terms of $\frac{T}{ha}$. $\Rdp=100$ and $\fR=1$.}
+  \label{fig:rdp}
+\end{figure}
+
 \end{document}
