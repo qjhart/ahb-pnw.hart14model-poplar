@@ -10,7 +10,7 @@ with m as (
 select a.* 
 from harvest_avg a 
 join m using (pid)
-where fraction > 0.15;
+where fraction > 0.15 and date='2020-09-01'::date;
 
 \COPY marginal to marginal.csv with csv header
 
