@@ -1,31 +1,24 @@
-
-% \pgfplotsset{
-%       no markers,
-%       width=0.45\linewidth,
-%       height=0.45\linewidth,
-%       every axis plot/.append style={line width=1pt},
-% }
   \begin{tikzpicture}
     \begin{axis}[
       name=fsw,
       xmin=0,xmax=1,
       xtick={0,.2,.4,.6,.8,1},
       xticklabels={0,.2,.4,.6,.8,1},
-      xlabel=$\ac{AWS}/\ac{maxAWS}$,
+      xlabel=$\acs{AWS}/\acs{maxAWS}$,
       ymin=0,ymax=1,
       ytick={0,.2,.4,.6,.8,1},
       yticklabels={0,.2,.4,.6,.8,1},
-      ylabel=$\ac{fSW}$,
+      ylabel=$\acs{fSW}$,
       no markers,
       width=0.45\linewidth,
       height=0.45\linewidth,
       every axis plot/.append style={line width=1pt},
       legend entries={sand,clay,silt},
       legend style={
-        at={(1.0,1.0)},anchor=south,legend columns=-1,yshift=2pt}
+        at={(0.5,1.0)},anchor=south,legend columns=-1,yshift=2pt}
       ]
-      \addplot+[color=red] table [x=awsp, y=sand, col sep=comma] {soil-fsw.csv};
-      \addplot+[color=orange] table [x=awsp, y=clay, col sep=comma] {soil-fsw.csv};
-      \addplot+[color=green] table [x=date, y=silt, col sep=comma] {soil-fsw.csv};
+      \addplot+[color=red] table [x=awsp, y=Sand, col sep=comma] {soil-fsw.csv};
+      \addplot+[color=orange] table [x=awsp, y=Clay, col sep=comma] {soil-fsw.csv};
+      \addplot+[color=green] table [x=awsp, y=Silt, col sep=comma] {soil-fsw.csv};
     \end{axis}
   \end{tikzpicture}

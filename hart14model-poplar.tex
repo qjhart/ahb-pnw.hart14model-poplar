@@ -219,7 +219,7 @@ Idaho.  This definition of the \acs{PNW} is somewhat inclusive in the
 South, including the northern part of California~(Figure~\ref{fig:grid}).
 
 A regular grid partitions the region.  The individual pixel size is
-relatively coarse $8192 \times 8192$ (m^2), and designed to reduce
+relatively coarse $8192 \times 8192$ (m\^2), and designed to reduce
 some of the complexity of subsequent regional optimization models.
 The projection is an Albers equal area projection with standard
 longitude 120\degree West, and parallels at latitudes 41\degree and
@@ -418,9 +418,9 @@ The limiter \ac{fSW} is parameterized with two values, \ac{swp} and
 
 \begin{figure}
   \centering
-  \includegraphics[0.45\linewidth]{soil-triangle}
-  \input{fsw-soil.tex}
-  \caption{\acs{swc} and \acs{swp} as determined by soil composition.  Included is a graph for the function  }
+  \includegraphics[width=0.45\linewidth]{soil_triangle}
+  \input{soil-fsw.tex}
+  \caption{\acs{swc} and \acs{swp} as determined by soil composition.  Included is a graph for the function $\acs{fSW} = \frac{1-(1-\acs{AWS}/\acs{maxAWS})^{\acs{swp}}}{1+((1-\acs{AWS}/\acs{maxAWS})/\acs{swc})^{\acs{swp}}}$ for sand,silt and clay. }
   \label{fig:soil-triangle}
 \end{figure}
 
