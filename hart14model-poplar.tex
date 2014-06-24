@@ -53,6 +53,11 @@
 %% \begin{linenumbers}, end it with \end{linenumbers}. Or switch it on
 %% for the whole article with \linenumbers.
 %% \usepackage{lineno}
+\usepackage{graphicx}
+\usepackage{color}
+\pdfpagebox5
+\usepackage{pgfplots}
+
 
 \journal{Biomass \& Bioenergy}
 
@@ -100,56 +105,32 @@
 \address{Department of Biological and Agricultural Engineering, University of California, Davis, USA\fnref{bioag}}
 
 \begin{abstract}
-%% Text of abstract
-  The \acf{AHB} is a consortium of university and industry partners
-  investigating the development of a sustainable hardwood biofuels
-  industry in Washington, Oregon, Northern California and Northern
-  Idaho in the U.S.  Inspired in part by the U.S. Energy Independence
-  and Security Act 2022 targets for renewable fuel (renewable fuel
-  standard), \ac{AHB} is carrying out research and development to
-  support a system for growing and converting hardwoods, such as
-  hybrid poplars, into liquid biofuels that are fully compatible with
-  existing infrastructure.
-
   Predicting the economic viability and environmental sustainability
   of a biofuels industry based on this feedstock requires spatial
   predictions of the growth and yield of \acf{SRWC} under various
-  environmental conditions and throughout the entire Pacific Northwest
-  region.  The \acf{3pg} model was selected and modified for \ac{SRWC},
-  particularly for poplar plantation methodologies.  This included
-  developing a sub-model which takes into account the coppicing
-  strategy for harvesting poplar.
+  environmental conditions and throughout large regions.  The \acf{3pg}
+  model was modified for modeling SRWC, particularly for poplar
+  plantation methodologies.  This included developing a sub-model
+  which takes into account the coppicing strategy for harvesting
+  poplar that allows a monthly growth contribution from an existing
+  root mass.
 
-  A physiological growth model such as \ac{3pg} is advantageous because it
-  allows variation of growth parameters and assumptions regarding
-  management practices for poplar species.  Because it is a canopy
-  carbon balance model, allocations for both above and below ground
-  biomass can be tracked for life-cycle analysis of the product fuels.
+  The parameterized model was then applied to the entire Pacific
+  Northwest of the United States, using appropriate climatological and
+  soil input data.  Existing agricultural patterns were used to
+  estimate regional water availability for irrigation, and for
+  nonirrigated regions, land cover features includeing ownership,
+  slope , soil salinity and water table depth where used to limit
+  predictions to areas with a real potential to support a \ac{SRWC}
+  plantation.
 
-  The original \ac{3pg} model does not include coppicing as a management
-  practice, which is problematic as it cannot reasonably account for
-  post-coppicing regrowth.  The extended model includes coppicing with
-  a general model that allows a monthly growth contribution from an
-  existing root mass.  The model specifies a relatively small
-  contribution of aboveground growth from the accumulated root mass
-  after coppicing in order to initiate the next cycle of production.
-
-  The \ac{3pg} model was validated against a number of field studies
-  related to the growth of poplar as a \ac{SRWC} biofuel feedstock.  The
-  parameterized model was then applied to the entire Pacific Northwest
-  region, using appropriate climatology and soil input data.
-  Climate data included both historical patterns as well as predicted
-  patterns from simulations under various climate scenarios.  The
-  result was a map of predicted yields and expected bounds on the
-  variation of these yields useful for determining when it becomes
-  economically feasible for poplar to be grown within the study
-  area. Results were integrated with other models that allow for
+  Results can be integrated with other models that allow for
   optimizing the crop selection and biorefinery site selection.
-  Important findings from the model include; validation of the \ac{3pg}
-  model for coppiced \ac{SRWC} plantings, estimates of biomass feedstock
-  yields under different irrigation patterns and weather conditions,
-  and annual estimates for feedstock availability when combined with
-  crop adoption scenarios.
+  Important findings from the model include; validation of the
+  \ac{3pg} model for coppiced \ac{SRWC} plantings, estimates of
+  biomass feedstock yields under different irrigation patterns and
+  weather conditions, and annual estimates for feedstock availability
+  when combined with crop adoption scenarios.
 
 \end{abstract}
 
@@ -172,58 +153,85 @@
 %% main text
 \section{Introduction}
 \label{sec:introduction}
+%% Text of abstract
+The \acf{AHB} is a consortium of university and industry partners
+investigating the development of a sustainable hardwood biofuels
+industry in Washington, Oregon, Northern California and Western Idaho
+in the U.S.  Inspired in part by the U.S. Energy Independence and
+Security Act 2022 targets for renewable fuel, \ac{AHB} is carrying out
+research and development to support a system for growing and
+converting hardwoods, such as hybrid poplars, into liquid biofuels
+that are fully compatible with existing infrastructure.
 
-Using weather and soil parameters along with the \ac{3pg} forest
-growth model, yield predictions for poplar plantations can be made for
-the entire Pacific Northwest.  This yield model can be overlaid with
-land use patterns to predict yields for potential plantation
-locations.  Yield maps are the results of running the \ac{3pg} Model for
-the entire \ac{AHB} region. Weather information is derived from the PRISM
-Climate Group~\cite{Daly2008a} and the \acf{NREL} monthly radiation
-data (Marion, 1994). Soils data is derived from
-\acf{STATSGO}~cite{soil-statsgo2012}.
+Predicting the economic viability and environmental sustainability of
+a biofuels industry based on poplar requires spatial predictions of
+the growth and yield of \acf{SRWC} under various environmental
+conditions and throughout the entire \acf{PNW} region.  The \acf{3pg}
+model was selected and modified for \ac{SRWC}, particularly for poplar
+plantation methodologies.  This included developing a sub-model which
+takes into account the coppicing strategy for harvesting poplar.
+
+A physiological growth model such as \ac{3pg} is advantageous because
+it allows variation of growth parameters and assumptions regarding
+management practices for poplar species.  In addtion to biomass growth
+and yield estimations, because it is a canopy carbon balance model,
+allocations for both above and below ground biomass can be tracked for
+life-cycle analysis of the product fuels.
+
+The original \ac{3pg} model does not include coppicing as a management
+practice, which is problematic as it cannot reasonably account for
+post-coppicing regrowth.  The extended model includes coppicing with a
+general model that allows a monthly growth contribution from an
+existing root mass.  The model specifies a relatively small
+contribution of aboveground growth from the accumulated root mass
+after coppicing in order to initiate the next cycle of production.
+
+The \ac{3pg} model was validated against a number of field studies
+related to the growth of poplar as a \ac{SRWC} biofuel feedstock.  The
+parameterized model was then applied to the entire Pacific Northwest
+region, using appropriate climatology and soil input data.  Climate
+data included both historical patterns as well as predicted patterns
+from simulations predicting climate change.  These inputs produce
+Polar yield prediction maps and expected bounds on the variation of
+these yields useful for determining when it becomes economically
+feasible for poplar to be grown within the study area. 
+
+This yield model is overlaid with surface and land cover
+parameters to predict yields for potential plantation locations.
+Yield maps are the results of running the \ac{3pg} Model for the
+entire \ac{AHB} region. 
 
 With appropriate input information, the \ac{3pg} model can predict
 yields for the entire Pacific Northwest study region, under various
 irrigation scenarios.  When linked with models of crop adoption,
 annual feedstock estimates are possible.
 
-For example, a companion model, the \acf{BCAM} predicts price levels
-where poplar competes with existing crops in general cropping regions.
-The yield results, along with the \ac{BCAM} predictions can be used in
-the \acf{GBSM} in order to optimize where in the region poplar might
-be adopted.
-
-The current model makes these estimations on an 8x8 km2 grid, a
-resolution that is fairly taxing for the solver of the \ac{GBSM}
-model.  Subsequent model runs at a finer scale can test the best
-scales for application of these models.
-
 \section{Methods and Calculation}
 
-The goal of this study is to create a map of poplar growth potential
-for this region that can inform our participants, and subsequent
-models on the predicted yields from \ac{SRWC} plantations.
+The main goal of this study was to create spatially explicit poplar
+growth potential for the \ac{PNW} that can inform our participants and
+subsequent modeling efforts on the predicted yields from \ac{SRWC}
+plantations.
 
-Figure~\ref{fig:grid} shows the study area, the Pacific Northwest of
-the United States, incorporating Washington, Oregon, Northern
-California, and Western Idaho.  This definition of the Pacific
-Northwest is somewhat inclusive in the South, including the northern
-part of California.
+The study area, the Pacific Northwest of the United States,
+incorporates Washington, Oregon, Northern California, and Western
+Idaho.  This definition of the \acs{PNW} is somewhat inclusive in the
+South, including the northern part of California~(Figure~\ref{fig:grid}).
 
-A regular grid is used to partition the region.  The initial size of
-the grid is relatively coarse $8192 \times 8192$ (m x m), and designed
-to reduce some of the complexity of our regional optimization models.
+A regular grid partitions the region.  The individual pixel size is
+relatively coarse $8192 \times 8192$ (m^2), and designed to reduce
+some of the complexity of subsequent regional optimization models.
 The projection is an Albers equal area projection with standard
 longitude 120\degree West, and parallels at latitudes 41\degree and
-47\degree North~\cite{Butler}. This somewhat specialized projection
-insures the pixels maintain a constant area, while maintaining good
-conformity for our transportation networks.  The pixel size is
-$2^{13}$ (m).  This allows easy scaling up and down of the data to
-different resolutions while maintaining common edges.  For example,
-the \ac{NLCD} dataset, used in this study, was originally imported at
-$2^5$ (m), and scaled upwards to determine percentages of landcover
-for each pixel.
+47\degree North~\cite{Butler}. This projection insures the pixels
+maintain a constant area, while maintaining good conformity for
+transportation networks.  The pixel edge length, $8192 = 2^{13}$~(m)
+is defined as a binary factor to allow easy scaling up and down of the
+data to different resolutions while maintaining common edges.  For
+example, the \ac{NLCD} dataset, used in this study, was originally
+imported and projected to $2^5$ (m), and aggegated upwards to
+determine percentages of each landcover type for each
+pixel~(Figure~\ref{fig:land}).
 
 \begin{figure}[hp]
   \centering
@@ -232,37 +240,39 @@ for each pixel.
   \label{fig:grid}
 \end{figure}
 
-Data processing was carried out with a postgresql database, with the
+Data processing was carried out within a postgresql database, with the
 postgis geospatial extensions~\cite{pgsql,Holl2009,postgis}.
 Specialized calculations were implemented as postgresql functions, using
 various scripting languages; SQL, PLSQL, Javascript, and R.
 
-\begin{table}
-  \centering
-  \begin{tabular}[hp]{|l|l|}
-    \hline
-    Parameter & Source(s) \\
-    \hline
-    Temperature & \acs{PRISM} \\
-    Precipitation & \acs{PRISM} \\
-    Solar Radiation & \ac{USGS} \\
-    \hline
-  \end{tabular}
-  \caption{Required Model Inputs}
-  \label{tab:input}
-\end{table}
+% \begin{table}
+%   \centering
+%   \begin{tabular}[hp]{|l|l|}
+%     \hline
+%     Parameter & Source(s) \\
+%     \hline
+%     Temperature & \acs{PRISM} \\
+%     Precipitation & \acs{PRISM} \\
+%     Solar Radiation & \ac{USGS} \\
+%     \hline
+%   \end{tabular}
+%   \caption{Required Model Inputs}
+%   \label{tab:input}
+% \end{table}
+
 \subsection{\acs{3pg} Model Formulation}
 \label{sec:3pg}
 
 The \acf{3pg} model~\cite{Landsberg1997, landsberg2010physiological,
-  Sands2004} takes as inputs weather data, and site factors, including
-soil parameters, initial stocking conditions, management practices,
-and species definitions.  In this study, the \ac{3pg} model is run at
+  Sands2004} is the primary tool used for the \ac{SRWC} yield
+estimations, and takes as inputs weather data, soil parameters, site
+factors, including soil parameters, initial stocking conditions,
+management practices, and species
+definitions~(Figure~\ref{fig:overview}).  The \ac{3pg} model is run at
 a monthly timestep. At each step the physiological parameters are
 calculated and carried forward to the next month.  These incremental
-physiological parameters can be plotted to compare model predictions
-with field results at multiple stages in the plantation’s history.
-Figure~\ref{fig:overview} gives an overview of the \acf{3pg} model.
+physiological parameters can be compared to model predictions with
+field results at multiple stages in the plantation's history.
 
 \begin{figure}[p]
 \includegraphics[width=\linewidth]{model_overview}
@@ -272,20 +282,37 @@ number of other parameters.}
 \label{fig:overview}
 \end{figure}
 
-The original \ac{3pg} model allocates mass produced from transpiration
-into the the creation of new roots, stems and foliage.  After
-coppicing however, the model has no mechanism to increase start of
-re-growth from the root.  A simple coppicing model has been developed
-to add an additional production from the root system after
-coppicing\cite{Hart2014}.  The seasonal timing of the
-contribution is moderated by comparing the actual \ac{NPP} to the
-\ac{NPP} the root could produce if it had a more complete canopy.
-This difference serves as a target for the root contribution.  This
-method times regrowth with climatic conditions that are favorable for
-growth.  The monthly root contribution affects the length of time for
-the contribution to be made.  In poplar plantations, the initial
-planting is modeled the same way, however with different parameters to
-model initial propagation methods.
+The original \ac{3pg} model allocates production from transpiration
+into the creation of new roots, stems and foliage.  After coppicing
+however, the model has no mechanism to increase start of re-growth
+from the root.  A simple coppicing model has been developed to add an
+additional production from the root system after
+coppicing~\cite{Hart2014}.  When a \ac{SWRC} is coppiced, there is a
+surfeit of root mass when compared to the aboveground biomass.  This
+surfeit is allowed to contribute some of this surfeit as an additional
+production at each monthly timestep, along with the \ac{NPP} of the
+original model.  The seasonal timing of any root contribution is
+moderated by comparing the actual \ac{NPP} to a potential \ac{NPP} the
+tree would have a specified target \ac{LAI}.  This difference serves
+as a maximum limit for the root contribution.  Using a potential
+\ac{NPP} from a target \ac{LAI} serves two purposes. First, it allows
+root contributions up to, but not beyond a certain foliage amount, as
+specified by the \ac{LAI}.  More importantly, since the root
+contribution is tied to a potential \ac{NPP}, the method times
+regrowth with climatic conditions that are favorable for growth, and
+does not initiate growth when conditions are not favorable.  A maximum
+allowable monthly root contribution fraction limits the total
+contribution for any one moneth, and affects the length of time for
+the contribution to be made.  In poplar plantations, where plantings
+are initiaated with bare cuttings as propogation, the initial growth
+is modeled the same way, however with different parameters to model
+initial root dynamics.
+
+Hart et. al. validated a set of \ac{3pg} tree parameters that
+reasonably model a generic poplar species.  In addition, and set of
+variations on these parameters were shown to match other field study
+results.
+
 
 In order to calculate the t
 
@@ -302,13 +329,13 @@ mountain ranges, which moderate both the precipitation, and the
 temperatures throughout the year.
 
 In order to predict temperatures and precipitation on the near term,
-the \acf{PRISM} dataset was used.  \ac{PRISM} extrapolates station
-data spatially to a uniform grid using weights derived from the
-physiographic similarity of the station to the grid cell. These
-similarity measures include location, elevation, coastal proximity,
-topographic facet orientation, vertical atmospheric layer, topographic
-position, and orographic effectiveness of the terrain.  \ac{PRISM}
-data is available on a 2.5 minute geographic grid.
+the \acf{PRISM} dataset was used~\cite{Daly2008a}.  \ac{PRISM}
+extrapolates station data spatially to a uniform grid using weights
+derived from the physiographic similarity of the station to the grid
+cell. These similarity measures include location, elevation, coastal
+proximity, topographic facet orientation, vertical atmospheric layer,
+topographic position, and orographic effectiveness of the terrain.
+\ac{PRISM} data is available on a 2.5 minute geographic grid.
 
 16 years of \ac{PRISM} data were interpolated (cubic spline) to the
 \ac{AHB} grid averaged to determine a representative weather pattern
@@ -332,6 +359,21 @@ isolines are shown on the precipitation map.
   \label{fig:precip}
 \end{figure}
 
+In order to determine incoming monthly solar radiation, monthly
+\acf{NREL} global incident radiation data were
+utilized~\cite{perez2002new,nrel-l48-ghi}.  The incident radiation data product
+provides monthly average and annual average daily total solar resource
+averaged over surface cells of 0.1 degrees.  Hourly radiance images
+from geostationary weather satellites, daily snow cover data, and
+monthly averages of atmospheric water vapor, trace gases, aerosols are
+used to calculate the hourly total direct aand diffuse insolation
+falling on a horizontal surface.  Existing ground measurement stations
+validate the data where available.
+
+The incident radiation data is available on a gridded format with a
+scale similar to this project and is interpolated (cubic-spline)
+onto the \ac{AHB} grid for use.
+
 \subsubsection{Soil Parameters}
 \label{sec:soil}
 
@@ -340,40 +382,46 @@ the amount of water available at any timestep in the model.  In
 addition, \ac{3pg} includes a growth limiter related to the available
 water in the soil, and the soil type.  These require a number of soil
 parameters.  \ac{maxAWS} determines the maximum holding capacity of
-the soil.  The limiter \ac{fSW} is parameterized with two values,
+the soil.  
 
-\begin{equation*}
-\acs{fSW} = \frac{1-(1-\acs{AWS}/\acs{maxAWS})^{\acs{swp}}}{1+((1-\acs{AWS}/\acs{maxAWS})/\acs{swc})^{\acs{swp}}}
-\end{equation*} 
-
-where \ac{swp} and \ac{swc} are functions of the soil type.
-
-These parameters are all determined using the \ac{STATSGO} database.
-\ac{STATSGO} is a national soil database, distributed by the
-\ac{NRCS}.  \ac{STATSGO} maps are designed for regional studies, and
-the soil inventories are typically generalized from more detailed
-surveys, or from a combination of ancillary datasets.  Individual
-\ac{STATSGO} areas can contain multiple soil components, and the map
-units are linked to attributes the soil data base which gives the
-proportionate extent of the component soils and their associated
-properties.  The \ac{mmu} is about 625 (ha).  For each pixel in the
-modeling grid, intersecting map units are averaged for the estimated
-pixel values.  1887 different soil were used, contributing anywhere
-from 144 to 1.3M (ha).
+These parameters are all determined using the \acf{STATSGO}
+database~\cite{SoilSurveyStaff2012-STATSGO}.  \ac{STATSGO} is a
+national soil database, distributed by the \ac{NRCS}.  \ac{STATSGO}
+maps are designed for regional studies, and the soil inventories are
+typically generalized from more detailed surveys, or from a
+combination of ancillary datasets.  Individual \ac{STATSGO} areas can
+contain multiple soil components, and the map units are linked to
+attributes the soil data base which gives the proportionate extent of
+the component soils and their associated properties.  The \ac{mmu} is
+about 625 (ha).  For each pixel in the modeling grid, intersecting map
+units are averaged for the estimated pixel values.  1887 different
+soil were used, contributing anywhere from 144 to 1.3M (ha).
 
 \ac{maxAWS} is directly taken from the \ac{STATSGO} database which
-Figure~\ref{fig:aws} shows the \ac{maxAWS} estimates.
-
-Included in the figure are the lines designating the soil polygons
-used.  
-
-\ac{swp} and \ac{swc} 
+determines the maximium water holding capacity through the complete
+soild horizon over the topmost 1 (m) of soil (Figure~\ref{fig:aws}).
 
 \begin{figure}
   \centering
   Waiting for MaxAWS
   \caption{\ac{STATSGO} derived maximum available water estimates. }
   \label{fig:aws}
+\end{figure}
+
+The limiter \ac{fSW} is parameterized with two values, \ac{swp} and
+\ac{swc} are functions of the soil type (Figure~\ref{fig:soil}
+
+\begin{equation*}
+\acs{fSW} = \frac{1-(1-\acs{AWS}/\acs{maxAWS})^{\acs{swp}}}{1+((1-\acs{AWS}/\acs{maxAWS})/\acs{swc})^{\acs{swp}}}
+\end{equation*} 
+
+
+\begin{figure}
+  \centering
+  \includegraphics[0.45\linewidth]{soil-triangle}
+  \input{fsw-soil.tex}
+  \caption{\acs{swc} and \acs{swp} as determined by soil composition.  Included is a graph for the function  }
+  \label{fig:soil-triangle}
 \end{figure}
 
 
@@ -393,82 +441,35 @@ large effects on the predicted yields of poplar.  Determining which
 areas in the \ac{PNW} region are liable to be available for irrigation
 can significantly influence regional polar harvest estimations.  
 
-% Abstract A suitability analysis for potential to grow poplar was performed over the five state region using the analytic hierarchy process. First, permanently non-suitable land was removed, including Federal ownership, developed land, slopes greater than 15%, and soil salinity greater than 4 deciSiemens per meter. For remaining land, nine variables considered important for poplar growth were identified: growing season precipitation, temperature, and length; soil texture and drainage, pH, salinity, and depth; water table depth; and slope. Normalizing functions were developed for each variable, and contribution to overall suitability was defined by assigning pairwise importance weights. Normalized values and weights were multiplied together to calculate a final suitability value for each cell. Finally, cells were classified into Highly, Moderately, Marginally or Currently Not Suitable.
-% Of the 354 million acres in the region, 188 million acres were identified as permanently non-suitable due to Federal ownership, development, presence of water bodies, steep slopes, or high soil salinity. Without irrigation, 4.4 million acres were classified as highly suitable, with 400 thousand of these acres not classified as agriculture, forestry, disturbed, developed, or water. Irrigation increased the amount of highly suitable acres to 54 million, with 20 million acres not classified agriculture, forestry, disturbed, developed, or water. Growing season precipitation was the most important factor under the without irrigation scenario. When irrigation was considered, soil texture and drainage and growing season temperature were the most important factors.
+% Modify
+In order to limit the areas within the \ac{AHB} region to areas that
+are technically suitable to poplar plantations, a set of masks were
+used, derived from a suitability analysis for potential plantation
+locations~\cite{Cooke2014}. Permanently non-suitable land was
+identifed for removal from consideration. Lands under Federal
+ownership~\cite{NationalAtlasoftheUnitedStates201} and currently
+developed land~\cite{nlcd2011} were excluded from consideration.
+Physical features including slopes greater than 15\%~\cite{Gesch2007},
+and soil salinity greater than 4 (dS / m) were also excluded.
 
-% Input Data Layers
-% Input data sources were used to characterize ownership, climate, soils, terrain, and water.
-% Permanently Non-Suitable Mask Permanently non-suitable land removed from the analysis included all Federal ownership, developed land, water, slopes greater than 15%, and soil salinity greater than 4 deciSiemens per meter.
-% Normalizing Functions
-% Functions were developed from the literature and survey results to convert input data to normalized values between 0 (least suitable) and 1 (most suitable). An alternative with irrigation ignores precipitation and adjusts water table depth and drainage functions.
-% Precipitation Average monthly precipitation (in) from April to September. Monthly normalized scores are averaged.
-% Suitability Ranges
-% 0 – 1 inch Too dry 1 – 2 inches Marginal dry >= 2 Ideal
-% Temperature Average monthly high temperature (F) from April to September. Monthly normalized scores are averaged.
-% Suitability Ranges
-% 0 – 32 degrees F Too cold 32 – 60 degrees F Marginal cool 60 – 85 degrees F Ideal 85 – 95 Marginal hot >= 95 Too hot
-% Season Length The number of days between the first frost free day in Spring and the last frost free day in Autumn.
-% Suitability Ranges
-% 0 – 89 days Too short 90 – 210 days Marginal short
-% Soil pH Ideal pH ranges from 5.5 to 7.5. Marginal pH extends down to 4.5 and up to 8.
-% Suitability Ranges
-% 0 – 4.5 pH Too acidic 4.5 – 5.5 pH Marginal acidic 5.5 – 7.5 pH Ideal 7.5 – 8.0 pH Marginal alkaline >= 8.0 pH Too alkaline
-% Soil Salinity Any areas with salinity above 4 dS/m were permanently excluded.
-% Suitability Ranges
-% 0 – 2 dS/m Ideal 2 – 4 dS/m Marginal saline >= 5 dS/m Too saline
-% Soil Depth Depth (in) of soil. Minimum limit of 20 in. (≈ 0.5 meters)
-% Suitability Ranges
-% 0 – 20 inches Too shallow 20 – 40 inches Marginal shallow >= 40 inches Ideal
-% Water Table Depth Depth (in) to water table. Function remains at 1 after 40 inches with irrigation.
-% Suitability Ranges
-% 0 – 20 inches Too shallow 20 – 40 inches Marginal shallow 40 – 100 inches Ideal >= 100 inches Marginal deep
-% Slope Percent slope for land less than 15%.
-% Suitability Ranges
-% 0 – 10% Ideal 10 – 15% Marginal steep
-% Soil Texture and Drainage Soil texture was classified from percent sand, silt, and clay. Drainage class was provided in the soil data.
-% For the Excessively Drained and Somewhat Excessively Drained categories below, values assume no irrigation, and values in parentheses assume irrigation.
-% Weights Variables were first compared to each other and assigned values from 1 to 9 representing “equal” importance to “extreme more” importance. The matrix of pairwise comparisons was then converted to a single column vector of weights.
-% Final Calculation/Suitability Classification An overall suitability score for each cell was calculated by multiplying each normalized raster by its factor weight, then summing the resulting rasters. Suitability classes were defined as Highly Suitable (0.8 – 1), Moderately Suitable (0.6 - 0.8), Marginally Suitable (0.4 - 0.6), and Currently Not Suitable (0 - 0.4).
-% Results without Irrigation
-% Class
-% Acres
-% Acres (Weighted Factors) %
-% (Unweighted Factors) %
-% Currently Not Suitable 3,208,868 3% 664 0%
-% Marginally Suitable 39,179,659 39% 3,196,997 3%
-% Moderately Suitable 52,386,887 53% 67,487,374 68%
-% Highly Suitable, Forest 2,237,550 2% 6,371,906 6%
-% Highly Suitable, Ag 707,934 1% 11,454,276 12%
-% Highly Suitable, Developed 170,234 0% 1,296,564 1%
-% Highly Suitable, Disturbed 902,865 1% 1,373,779 1%
-% Highly Suitable, Other 396,242 0% 7,914,299 8%
-% Results with Irrigation
-% Class Acres With Irrigation % Acres With Irrigation %
-% Currently Not Suitable 1,069 0% 275 0%
-% Marginally Suitable 4,004,008 4% 1,281,325 1%
-% Moderately Suitable 41,430,392 42% 46,689,684 47%
-% Highly Suitable, Forest 9,163,155 9% 8,545,359 9%
-% Highly Suitable, Ag 20,675,617 21% 21,738,173 22%
-% Highly Suitable, Developed 1,926,296 2% 2,112,417 2%
-% Highly Suitable, Disturbed 1,510,798 2% 1,491,819 2%
-% Highly Suitable, Other 20,365,010 21% 17,180,823 17%
-% Conclusions
-% • The "Irrigation" scenario reweights the factors without precipitation and adjusts the soil depth and soil texture and drainage class normalization functions. It does not consider whether irrigation is possible or practical.
-% • Growing season precipitation is the most important factor when irrigation is not considered.
-% • Growing season temperature and soil texture and drainage class are the most important factors with irrigation.
-% • Using pairwise importance weights with the analytic hierarchy process increases the contribution of precipitation to overall suitability from .11 to .33 under the “Rainfall” scenario, and reduces “highly suitable” acres from 7,914,299 to 396,242.
-% • With "Irrigation" and equally weighted factors, growing season length and slope had a larger influence on suitability.
-% • Next steps:
-% • Improve categorization of suitable areas by using improved higher resolution land classification data.
-% • Integrate suitable areas with parcel data to identify owners of properties with adequate size and land use for extension outreach efforts and to eliminate unsuitable properties from further economic and optimization modeling.
+The land suitability study included a other factors for poplar
+suitablility; nine variables considered important for poplar growth
+were identified: growing season precipitation, temperature, and
+length; soil texture and drainage, pH, salinity, and depth; water
+table depth; and slope.  Most of these parameters are included more
+explicitly in the \ac{3pg} model, and directly affect yield
+predictions.  Soil salinity and pH have not yet been integrated into
+the \ac{pg} model.
+
+
 % References FAO. 1976. FAO A framework for land evaluation. Soils Bulletin 32. Food and Agriculture Organization of the United Nations, Rome (1976).
-% Saaty, Thomas L. (2008-06). "Relative Measurement and its Generalization in Decision Making: Why Pairwise Comparisons are Central in Mathematics for the Measurement of Intangible Factors – The Analytic Hierarchy/Network Process". Review of the Royal Academy of Exact, Physical and Natural Sciences, Series A: Mathematics (RACSAM) 102 (2): 251–318.
-% Schutte, Bill. Selecting sites for poplar plantation establishment. Retrieved from http://www.fs.fed.us/pnw/olympia/silv/hardwoods/site_assessment_poplar.pdf.
-% van Oosten, Cees. 2006. Hybrid Poplar Crop Manual for the Prairie Provinces. Prepared by SilviConsult Woody Crops Technology Inc. for the Saskatchewan Forest Centre.
+
 
 \begin{figure}[hp]
   \centering
   
+This figure is the one I asked Mui to do that cobimes the different landcover together to get percentages of  different Landcover that is in each pixel.
+
   \caption{Land Classification}
   \label{fig:land}
 \end{figure}
@@ -613,6 +614,17 @@ can have impacts on economic analysis of a \ac{SRWC} based biofuel
 industry in the \ac{PNW}.  
 
 Next Steps 
+With appropriate input information, the \ac{3pg} model can predict
+yields for the entire Pacific Northwest study region, under various
+irrigation scenarios.  When linked with models of crop adoption,
+annual feedstock estimates are possible.
+
+For example, a companion model, the \acf{BCAM} predicts price levels
+where poplar competes with existing crops in general cropping regions.
+The yield results, along with the \ac{BCAM} predictions can be used in
+the \acf{GBSM} in order to optimize where in the region poplar might
+be adopted.
+
 
 For irrigated land, Current yields are input into a \ac{BCAM} model
 where they compete with existing crops to determine there economic
@@ -624,6 +636,12 @@ zero-sum game in the adoption model.
 For non-irrigated land, marginal and under utilized lands can be
 added into the overall agricultural economy as newly minted lands.
 These may compete with other agriculture crops, but they can also 
+
+The current model makes these estimations on an 8x8 km2 grid, a
+resolution that is fairly taxing for the solver of the \ac{GBSM}
+model.  Subsequent model runs at a finer scale can test the best
+scales for application of these models.
+
 
 \section{Conclusions}
 \label{sec:conclude}
