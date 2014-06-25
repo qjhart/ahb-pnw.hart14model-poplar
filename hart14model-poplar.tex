@@ -403,13 +403,13 @@ horizon over the topmost 1 (m) of soil (Figure~\ref{fig:aws}).
 
 \begin{figure}
   \centering
-\includegraphics{maxaws}
+\includegraphics[width=1\linewidth]{maxaws}
   \caption{\ac{STATSGO} derived maximum available water estimates. }
   \label{fig:aws}
 \end{figure}
 
 The limiter \ac{fSW} is parameterized with two values, \ac{swp} and
-\ac{swc} are functions of the soil type (Figure~\ref{fig:soil-triangle}.  The
+\ac{swc} are functions of the soil type (Figure~\ref{fig:soil-triangle}).  The
 soil type is determined from \ac{STATSGO} report  percentages of
 silt sand and clay within each soil component.
 
@@ -465,7 +465,7 @@ the \ac{3pg} model.
 
 Available water for irrigation is a difficult question when dealing
 with crops in the \ac{PNW}.  Irrigation is a combination of
-availability and rights, that is had to track on a regional scale.
+availability and rights, that is hard to track on a regional scale.
 However, one aspect of irrigation is that if it's available it is
 likely being used currently.  Therefore, for determining irrigated
 yield predictions for poplar, a mask of existing irrigated
@@ -477,8 +477,8 @@ data layer with a ground resolution of 30 meters.  The CDL is produced
 using satellite imagery with a classification emphasis on agricultural
 land cover~\cite{cdl2011}.  The CDL was projected unto the \ac{AHB}
 region as a scale of $2^5$.  Individual pixels from the CDL were then
-aggregated within the larger model's $2^13$ size pixels to determine
-fractional composition of each large pixel~(Figure~\ref{fig:land}.  An
+aggregated within the larger model's $2^{13}$ size pixels to determine
+fractional composition of each large pixel~(Figure~\ref{fig:land}).  An
 additional step was used to adjust the total area in each county to
 the values of hectares reported to the \ac{NASS}.  \ac{NASS} publishes
 U.S., State and County agricultural statistics for many
@@ -486,7 +486,7 @@ commodities~\cite{nass-quick-stats}.  Later modeling efforts rely on
 the \ac{NASS} reported hectares of the various commodities harvested.
 This was accomplished by uniformly adjusting the CDL derived pixel
 fractions, (the \ac{AHB} 8192 edge length pixels) so that sum of pixel
-fractions over nay county in the ac{AHB} region match the reported
+fractions over nay county in the \ac{AHB} region match the reported
 number of hectares harvested for that county and commodity.  This
 method allows the spatial patterns of the CDL to be retained with
 fractions that add to the \ac{NASS} reported values.
@@ -519,22 +519,22 @@ Estimations of the expected change in temperature and precipitation
 were derived from the \ac{CCSM3}.  The \ac{CCSM3} is a climate model
 with components including the atmosphere, ocean, sea ice, and land
 surface. \ac{CCSM3} is designed to produce realistic simulations over
-a wide range of spatial and spatial resolutions.  The coarse
-\ac{CCSM3} predictions are available at 0.5 degree grid cells.
-Estimations of change in the next fifty years were used in these
-climate change estimations.
+a wide range of spatial and spatial resolutions.  \ac{CCSM3}
+predictions are available at 0.5 degree grid cells.  Estimations of
+change in the next fifty years were used in these climate change
+estimations.
 
 The \ac{CCSM3} estimations cannot be used directly, especially
 comparatively to the current estimations using the \ac{PRISM} data.
 This is because when comparing the \ac{CCSM3}'s somewhat coarse scale
-estimations, to the more detailed \ac{PRISM} estimations the current
+estimations to the more detailed \ac{PRISM} estimations the current
 (2000-2014) predictions exhibit bias.  Therefore, the \ac{CCSM3}
 estimations were used to determine the predicted change in temperature
 and precipitation for the \ac {AHB} region, and these changes were
 then applied to the current \ac{PRISM} estimations. For example, the
 40 year change in temperature, and precipitation for the A1B scenario
 shows a mean increase in temperature of about 1\degree Celsius, with
-larger changes in the south and west.  Mean annual precipitation
+larger changes in the South and West.  Mean annual precipitation
 decreases by about 100 (mm) throughout the region with larger changes
 in along the coast~(Figure~\ref{fig:change}).
 
@@ -548,15 +548,15 @@ in along the coast~(Figure~\ref{fig:change}).
 
 \section{Results and Discussion}
 
-Seven representative poplar parameterizations were run over the
-\ac{AHB} region, using both a model that included irrigation and one
-that was nonirrigated.  The results were averaged over the set of
-species parameters.  The runs were over an 18 total lifetime, with a
-2.5 year initial coppicing event followed by 5 additional events on a
-three year cycle.  Initial planting was in March, with all coppicing
-events occurring in November.  The 6 total harvest events were
-annualized over the 18 year time span to report predicted yields on a
-per year basis.
+The \ac{3pg} model was run with seven representative poplar
+parameterizations were run over the \ac{AHB} region, using both a
+model that included irrigation and one that was nonirrigated.  The
+results were averaged over the set of species parameters.  The runs
+were over an 18 total lifetime, with a 2.5 year initial coppicing
+event followed by 5 additional events on a three year cycle.  Initial
+planting was in March, with all coppicing events occurring in
+November.  The 6 total harvest events were annualized over the 18 year
+time span to report predicted yields on a per year basis.
 
 Finally, the layer of current croplands was used to mask the yield
 maps to include only those areas where irrigation is likely, to
