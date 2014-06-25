@@ -58,7 +58,6 @@
 \pdfpagebox5
 \usepackage{pgfplots}
 
-
 \journal{Biomass \& Bioenergy}
 
 \begin{document}
@@ -119,7 +118,7 @@
   Northwest of the United States, using appropriate climatological and
   soil input data.  Existing agricultural patterns were used to
   estimate regional water availability for irrigation, and for
-  nonirrigated regions, land cover features includeing ownership,
+  nonirrigated regions, land cover features including ownership,
   slope , soil salinity and water table depth where used to limit
   predictions to areas with a real potential to support a \ac{SRWC}
   plantation.
@@ -163,17 +162,15 @@ research and development to support a system for growing and
 converting hardwoods, such as hybrid poplars, into liquid biofuels
 that are fully compatible with existing infrastructure.
 
-Predicting the economic viability and environmental sustainability of
-a biofuels industry based on poplar requires spatial predictions of
-the growth and yield of \acf{SRWC} under various environmental
-conditions and throughout the entire \acf{PNW} region.  The \acf{3pg}
-model was selected and modified for \ac{SRWC}, particularly for poplar
-plantation methodologies.  This included developing a sub-model which
-takes into account the coppicing strategy for harvesting poplar.
+To support economic and environmental models for a biofuels industry,
+spatial predictions of the growth and yield of \acf{SRWC} under
+various environmental conditions and throughout the entire \acf{PNW},
+the \acf{3pg} model was utilized.  The model was modified for
+\ac{SRWC}, particularly for poplar plantation methodologies.
 
 A physiological growth model such as \ac{3pg} is advantageous because
 it allows variation of growth parameters and assumptions regarding
-management practices for poplar species.  In addtion to biomass growth
+management practices for poplar species.  In addition to biomass growth
 and yield estimations, because it is a canopy carbon balance model,
 allocations for both above and below ground biomass can be tracked for
 life-cycle analysis of the product fuels.
@@ -192,13 +189,13 @@ parameterized model was then applied to the entire Pacific Northwest
 region, using appropriate climatology and soil input data.  Climate
 data included both historical patterns as well as predicted patterns
 from simulations predicting climate change.  These inputs produce
-Polar yield prediction maps and expected bounds on the variation of
+poplar yield prediction maps and expected bounds on the variation of
 these yields useful for determining when it becomes economically
 feasible for poplar to be grown within the study area. 
 
 This yield model is overlaid with surface and land cover
 parameters to predict yields for potential plantation locations.
-Yield maps are the results of running the \ac{3pg} Model for the
+Yield maps are the results of running the \ac{3pg} model for the
 entire \ac{AHB} region. 
 
 With appropriate input information, the \ac{3pg} model can predict
@@ -229,7 +226,7 @@ transportation networks.  The pixel edge length, $8192 = 2^{13}$~(m)
 is defined as a binary factor to allow easy scaling up and down of the
 data to different resolutions while maintaining common edges.  For
 example, the \ac{NLCD} dataset, used in this study, was originally
-imported and projected to $2^5$ (m), and aggegated upwards to
+imported and projected to $2^5$ (m), and aggregated upwards to
 determine percentages of each landcover type for each
 pixel~(Figure~\ref{fig:land}).
 
@@ -287,7 +284,7 @@ into the creation of new roots, stems and foliage.  After coppicing
 however, the model has no mechanism to increase start of re-growth
 from the root.  A simple coppicing model has been developed to add an
 additional production from the root system after
-coppicing~\cite{Hart2014}.  When a \ac{SWRC} is coppiced, there is a
+coppicing~\cite{Hart2014}.  When a \ac{SRWC} is coppiced, there is a
 surfeit of root mass when compared to the aboveground biomass.  This
 surfeit is allowed to contribute some of this surfeit as an additional
 production at each monthly timestep, along with the \ac{NPP} of the
@@ -302,19 +299,17 @@ contribution is tied to a potential \ac{NPP}, the method times
 regrowth with climatic conditions that are favorable for growth, and
 does not initiate growth when conditions are not favorable.  A maximum
 allowable monthly root contribution fraction limits the total
-contribution for any one moneth, and affects the length of time for
+contribution for any one month, and affects the length of time for
 the contribution to be made.  In poplar plantations, where plantings
-are initiaated with bare cuttings as propogation, the initial growth
+are initiated with bare cuttings as propagation, the initial growth
 is modeled the same way, however with different parameters to model
 initial root dynamics.
 
-Hart et. al. validated a set of \ac{3pg} tree parameters that
-reasonably model a generic poplar species.  In addition, and set of
-variations on these parameters were shown to match other field study
-results.
-
-
-In order to calculate the t
+Hart et al. validated a set of \ac{3pg} tree parameters, primarily
+following a poplar parameterization of Headlee et
+al.~\cite{Headlee2012} that reasonably model a generic poplar species.
+In addition, and set of variations on these parameters were shown to
+match other field study results.
 
 \subsubsection{Climatic and Radiation Data}
 \label{sec:climate}
@@ -340,10 +335,11 @@ topographic position, and orographic effectiveness of the terrain.
 16 years of \ac{PRISM} data were interpolated (cubic spline) to the
 \ac{AHB} grid averaged to determine a representative weather pattern
 used near term modeling for the \ac{AHB} yield predictions.
-Figure~\ref{fig:temp} show annual mean temperature and precipitation
-variation of the region.  Isolines show the standard deviation between
-annual mean temperature to the monthly mean temperature.  Similarly
-isolines are shown on the precipitation map.
+Figure~\ref{fig:temp} shows annual mean temperature and total
+precipitation variation of the region.  Isolines show the standard
+deviation between annual mean temperature to the monthly mean
+temperature.  Similarly isolines shown on the precipitation map show
+the maximum monthly contribution of preciptation.
 
 \begin{figure}[hp]
   \centering  
@@ -366,7 +362,7 @@ provides monthly average and annual average daily total solar resource
 averaged over surface cells of 0.1 degrees.  Hourly radiance images
 from geostationary weather satellites, daily snow cover data, and
 monthly averages of atmospheric water vapor, trace gases, aerosols are
-used to calculate the hourly total direct aand diffuse insolation
+used to calculate the hourly total direct and diffuse insolation
 falling on a horizontal surface.  Existing ground measurement stations
 validate the data where available.
 
@@ -381,8 +377,7 @@ onto the \ac{AHB} grid for use.
 the amount of water available at any timestep in the model.  In
 addition, \ac{3pg} includes a growth limiter related to the available
 water in the soil, and the soil type.  These require a number of soil
-parameters.  \ac{maxAWS} determines the maximum holding capacity of
-the soil.  
+parameters.
 
 These parameters are all determined using the \acf{STATSGO}
 database~\cite{SoilSurveyStaff2012-STATSGO}.  \ac{STATSGO} is a
@@ -397,24 +392,26 @@ about 625 (ha).  For each pixel in the modeling grid, intersecting map
 units are averaged for the estimated pixel values.  1887 different
 soil were used, contributing anywhere from 144 to 1.3M (ha).
 
+\ac{maxAWS} defines the maximum holding capacity of the soil.
 \ac{maxAWS} is directly taken from the \ac{STATSGO} database which
-determines the maximium water holding capacity through the complete
-soild horizon over the topmost 1 (m) of soil (Figure~\ref{fig:aws}).
+determines the maximum water holding capacity through the complete
+horizon over the topmost 1 (m) of soil (Figure~\ref{fig:aws}).
 
 \begin{figure}
   \centering
-  Waiting for MaxAWS
+\includegraphics{maxaws}
   \caption{\ac{STATSGO} derived maximum available water estimates. }
   \label{fig:aws}
 \end{figure}
 
 The limiter \ac{fSW} is parameterized with two values, \ac{swp} and
-\ac{swc} are functions of the soil type (Figure~\ref{fig:soil}
+\ac{swc} are functions of the soil type (Figure~\ref{fig:soil}.  The
+soil type is determined from \ac{STATSGO} report  percentages of
+silt sand and clay within each soil component.
 
-\begin{equation*}
-\acs{fSW} = \frac{1-(1-\acs{AWS}/\acs{maxAWS})^{\acs{swp}}}{1+((1-\acs{AWS}/\acs{maxAWS})/\acs{swc})^{\acs{swp}}}
-\end{equation*} 
-
+%\begin{equation*}
+%\acs{fSW} = \frac{1-(1-\acs{AWS}/\acs{maxAWS})^{\acs{swp}}}{1+((1-\acs{AWS}/\acs{maxAWS})/\acs{swc})^{\acs{swp}}}
+%\end{equation*} 
 
 \begin{figure}
   \centering
@@ -424,36 +421,35 @@ The limiter \ac{fSW} is parameterized with two values, \ac{swp} and
   \label{fig:soil-triangle}
 \end{figure}
 
-
 \subsection{Land Classification and Irrigation}
 \label{sec:land}
 
 Available climatic data makes it possible to make estimations for
-Poplar growth throughout the \ac{PNW} region.  This may provide
+poplar growth throughout the \ac{PNW} region.  This may provide
 interesting comparisons of changes in yield, but is not very suitable
 for determining regional trends, as not all lands are equally likely
-to be available for Poplar plantations.  Variables like land
+to be available for poplar plantations.  Variables like land
 ownership, topography and salinity, influence the technical capability
-of growing Poplar.  
+of growing poplar.  
 
 In addition, the ability to irrigate a poplar plantation can have
 large effects on the predicted yields of poplar.  Determining which
 areas in the \ac{PNW} region are liable to be available for irrigation
 can significantly influence regional polar harvest estimations.  
 
-% Modify
 In order to limit the areas within the \ac{AHB} region to areas that
 are technically suitable to poplar plantations, a set of masks were
 used, derived from a suitability analysis for potential plantation
 locations~\cite{Cooke2014}. Permanently non-suitable land was
-identifed for removal from consideration. Lands under Federal
+identified for removal from consideration. Lands under Federal
 ownership~\cite{NationalAtlasoftheUnitedStates201} and currently
 developed land~\cite{nlcd2011} were excluded from consideration.
 Physical features including slopes greater than 15\%~\cite{Gesch2007},
-and soil salinity greater than 4 (dS / m) were also excluded.
+and soil salinity greater than 4 (dS / m) were also
+excluded~(Figure~\ref{fig:nonirrigated_yield}).
 
-The land suitability study included a other factors for poplar
-suitablility; nine variables considered important for poplar growth
+The land suitability study included other factors for poplar
+suitability; nine variables considered important for poplar growth
 were identified: growing season precipitation, temperature, and
 length; soil texture and drainage, pH, salinity, and depth; water
 table depth; and slope.  Most of these parameters are included more
@@ -461,71 +457,95 @@ explicitly in the \ac{3pg} model, and directly affect yield
 predictions.  Soil salinity and pH have not yet been integrated into
 the \ac{pg} model.
 
-
 % References FAO. 1976. FAO A framework for land evaluation. Soils Bulletin 32. Food and Agriculture Organization of the United Nations, Rome (1976).
 
+Available water for irrigation is a difficult question when dealing
+with crops in the \ac{PNW}.  Irrigation is a combination of
+availability and rights, that is had to track on a regional scale.
+However, one aspect of irrigation is that if it's available it is
+likely being used currently.  Therefore, for determining irrigated
+yield predictions for poplar, a mask of existing irrigated
+agricultural areas was used.  These locations were determined in two
+steps.  First, the a cropland data layer was used to spatially locate
+agricultural crops in the region.  The USDA, NASS Cropland Data Layer
+(CDL) is a nationally available raster of crop specific land cover
+data layer with a ground resolution of 30 meters.  The CDL is produced
+using satellite imagery with a classification emphasis on agricultural
+land cover~\cite{cdl2011}.  The CDL was projected unto the \ac{AHB}
+region as a scale of $2^5$.  Individual pixels from the CDL were then
+aggregated within the larger model's $2^13$ size pixels to determine
+fractional composition of each large pixel~(Figure~\ref{fig:land}.  An
+additional step was used to adjust the total area in each county to
+the values of hectares reported to the \ac{NASS}.  \ac{NASS} publishes
+U.S., State and County agricultural statistics for many
+commodities~\cite{nass-quick-stats}.  Later modeling efforts rely on
+the \ac{NASS} reported hectares of the various commodities harvested.
+This was accomplished by uniformly adjusting the CDL derived pixel
+fractions, (the \ac{AHB} 8192 edge length pixels) so that sum of pixel
+fractions over nay county in the ac{AHB} region match the reported
+number of hectares harvested for that county and commodity.  This
+method allows the spatial patterns of the CDL to be retained with
+fractions that add to the \ac{NASS} reported values.
 
 \begin{figure}[hp]
   \centering
-  
-This figure is the one I asked Mui to do that cobimes the different landcover together to get percentages of  different Landcover that is in each pixel.
-
-  \caption{Land Classification}
+  \includegraphics[width=1\linewidth]{land.png}
+  \caption{Agricultural Land Classification.  Each \ac{AHB} pixel is made up of
+    many remotely sensed derived \ac{CDL} crop classifications.  This
+    are aggregated to determine fractional amount of coverage for each
+    \ac{AHB} pixel. }
   \label{fig:land}
 \end{figure}
 
 \subsection{Climate Change}
 \label{sec:climate}
 
-In order to asses
-One climate change scenarios was tested, A1B. 
-%
-The A1 storyline and scenario family describes a future world of very
-rapid economic growth, global population that peaks in mid-century and
-declines thereafter, and the rapid introduction of new and more
-efficient technologies. A1B predicts a balanced utiliziation of
-avilable energy sources, defined as not relying too heavily on one
-particular energy source, on the assumption that similar improvement
-rates apply to all energy supply and end-use technologies~\cite{}.
-%
-This represents a commonly used \ac{IPCC} climate change scenario.
-Estimations of the expected change in climate came from the IPCC
-ensemble estimations~\cite{ipcc-ensemble}.  These estimations are an
-amalgamation of 32 different climate change scenarios.  The ensemble
-predictions are available at 0.5 minute grid cells.  Estimations of
-change in the next fifty years were used in these climate change
-estimations.
+To demonstrate the effect of potential climate change on yield
+predictions in the near future, the A1B climate change scenario was
+used as an example for predicting yields with a plantation initially
+planted in 2040.
 
-The \ac{IPCC} estimations cannot be used directly, especially
-comparatively to the current estimations using the \ac{PRISM}
-data.  This is because when comparing the \ac{IPCC}'s somewhat coarse
-scale estimations, to the more detailed \ac{PRISM} estimations the
-current (2000-2014) predictions exhibit bias in their estimations.
-Therefore, the \ac{IPCC} estimations were used to determine the
-predicted change in temperature and precipitation for the \ac {AHB}
-region, and these changes were then applied to the current \ac{PRISM}
-estimations. For example, the 50 year change in temperature, and
-precipitation for the A1B \ac{IPCC} scenario shows a mean
-increase in temperature of about ? degrees Celsius, with larger
-changes in the foo and the bar.  Mean annual precipitation throughout
-the region stays relatively constant, but shows modifications in both
-location, and timing of the precipitation do undergo
-changes~(Figure~\ref{fig:change}).
+The A1B scenario predicts a balanced utilization of available energy
+sources, with similar improvement rates applied to all energy supply
+and end-use.  The future is one of rapid economic growth, global
+population that peaks in mid-century and declines thereafter, and a
+rapid introduction of new and more efficient
+technologies~\cite{IPCC2007,Parry2007}.
+
+Estimations of the expected change in temperature and precipitation
+were derived from the \ac{CCSM3}.  The \ac{CCSM3} is a climate model
+with components including the atmosphere, ocean, sea ice, and land
+surface. \ac{CCSM3} is designed to produce realistic simulations over
+a wide range of spatial and spatial resolutions.  The coarse
+\ac{CCSM3} predictions are available at 0.5 degree grid cells.
+Estimations of change in the next fifty years were used in these
+climate change estimations.
+
+The \ac{CCSM3} estimations cannot be used directly, especially
+comparatively to the current estimations using the \ac{PRISM} data.
+This is because when comparing the \ac{CCSM3}'s somewhat coarse scale
+estimations, to the more detailed \ac{PRISM} estimations the current
+(2000-2014) predictions exhibit bias.  Therefore, the \ac{CCSM3}
+estimations were used to determine the predicted change in temperature
+and precipitation for the \ac {AHB} region, and these changes were
+then applied to the current \ac{PRISM} estimations. For example, the
+40 year change in temperature, and precipitation for the A1B scenario
+shows a mean increase in temperature of about 1\degree Celsius, with
+larger changes in the south and west.  Mean annual precipitation
+decreases by about 100 (mm) throughout the region with larger changes
+in along the coast~(Figure~\ref{fig:change}).
 
 \begin{figure}[hp]
   \centering
   \includegraphics[width=0.45\linewidth]{temp_change}
   \includegraphics[width=0.45\linewidth]{precip_change.png}
-  \caption{Predicted changes in temperature and precipitation under \ac{IPCC} sceanario A1B for plantation planted in 2040.}
+  \caption{Predicted changes in temperature and precipitation under \ac{CCSM3} scenario A1B for plantation planted in 2040.}
   \label{fig:change}
 \end{figure}
 
-In total, the three \ac{IPCC} scenarios were compared at three
-distinct initial planting dates; 2020, 2040 and 2060, and under the
-same set of 8 different \ac{3pg} poplar parameterizations, for a total
-of 79 estimations per pixel in the \ac{AHB} region.  
-
 \section{Results and Discussion}
+
+
 
 \subsection{Poplar Yields}
 \label{sec:yield}
@@ -544,41 +564,11 @@ of 79 estimations per pixel in the \ac{AHB} region.
   \label{fig:nonirrigated_yield}
 \end{figure}
 
-% \subsection{Average Weather patterns}
-% Compare the yield from the AVERAGE weather to the yield from the ACTUAL last 16 years of data.
-
-% \subsection{Poplar Crop Adoption}
-% \label{sec:bcam-out}
-
-% \begin{table}[hp]
-%   \centering
-%   \begin{tabular}{|l|c|c|}
-    
-%   \end{tabular}
-%   \caption{Potential Poplar Amounts}
-%   \label{tab:potential}
-% \end{table}
 
 \subsection{Climate Change}
 \label{sec:climate-change}
 
-% \begin{table}[hp]
-%   \centering
-%   \begin{tabular}{|l|c|c|c|}
-%     \hline
-%     Scenario & 2020-2038 & 2040-2058 & 2060-2078 \\
-%     \hline
-%     \ac{AB1} & 1 & 2 & 3 \\
-%     \ac{AB1} & 1 & 2 & 3 \\
-%     \ac{AB1} & 1 & 2 & 3 \\
-%     \hline    
-%   \end{tabular}
-%   \caption{Mean annual changes in irrigated Poplar yields  over the entire \ac{AHB} region.  
-% These yields are the mean annual yield for plantations with 5 coppice events, on three year cycles.
-% The initial year of the predictions are 2020, 2040, and 2060.}
-%   \label{tab:potential}
-% \end{table}
-
+Results from the example climate change scenario is
 The mean change in yields are not necessarily a good estimation of
 local estimations of changes in yield predictions.  Regional changes
 in temperature and precipitation induce considerable heterogeneity in
@@ -590,22 +580,22 @@ the future~(Figure~\ref{fig:new-change}.
 
 \begin{figure}[hp]
   \centering
-  Submitted to Mui
-  \caption{Changes in predicted irrigated yield for \ac{IPCC} scenario \ac{AB1}
+  \includegraphics[width=1\linewidth]{climate_irrigated}
+  \caption{Changes in predicted irrigated yield for \ac{CCSM3} scenario \ac{AB1}
     for a plantation planting in 2040-2058.}
   \label{fig:new_irrigated}
 \end{figure}
 
 \begin{figure}[hp]
   \centering
-  Submitted to Mui
+  \includegraphics[width=1\linewidth]{climate_irrigated}
   \caption{Changes in predicted nonirrigated yield for \ac{IPCC} scenario \ac{AB1}
     for a plantation planting in 2040-2058.}
   \label{fig:new_nonirrigated}
 \end{figure}
 
 Such estimations can inform both the individual farmer in terms of
-predicting long term viability of Poplar plantations as a \ac{SRWC}
+predicting long term viability of poplar plantations as a \ac{SRWC}
 feedstock, as well as regional estimations on the mid-term ability of
 such a feedstock to provide an expected harvest, and therefore an
 expected level of biofuel production.  Not only changes in expected
