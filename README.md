@@ -1,6 +1,5 @@
 # hart14model-poplar 
-[![PDF Status](https://www.sharelatex.com/github/repos/qjhart/hart14model-poplar/builds/latest/badge.svg)]
-(https://www.sharelatex.com/github/repos/qjhart/hart12poplar-coppice/builds/latest/output.pdf)
+[![PDF Status](https://www.sharelatex.com/github/repos/qjhart/ahb-pnw.hart14model-poplar/builds/latest/badge.svg)](https://www.sharelatex.com/github/repos/qjhart/ahb-pnw.hart14model-poplar/builds/latest/output.pdf)
 
 Predicting the economic viability and environmental sustainability of a biofuels industry based on this
 feedstock requires spatial predictions of the growth and yield of SRWC under various environmental conditions
