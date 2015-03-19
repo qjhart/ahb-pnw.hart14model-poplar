@@ -1,0 +1,4 @@
+# In .latex.yml
+compiler: pdflatex
+
+root_file: hart14model-poplar.tex
