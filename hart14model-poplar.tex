@@ -107,14 +107,15 @@
 
 \begin{abstract}
   Predicting the economic viability and environmental sustainability
-  of a biofuels industry based on this feedstock requires spatial
-  predictions of the growth and yield of \acf{SRWC} under various
-  environmental conditions and throughout large regions.  The \acf{3pg}
-  model was modified for modeling SRWC, particularly for poplar
-  plantation methodologies.  This included developing a sub-model
-  which takes into account the coppicing strategy for harvesting
-  poplar that allows a monthly growth contribution from an existing
-  root mass.
+  of a biofuels industry based on intensively cultivated \acf{SRWC} requires spatial
+  predictions of growth and yield under various
+  environmental conditions and across large regions.  The \acf{3pg}
+  model was modified to evaluate the growth and yield of coppiced
+  poplar (\emph{Polulus spp}.  This included developing a sub-model 
+  which takes into account the impact of coppicing on post harvest
+  regeneration thus extending the applicability of the \acf{3pg} model
+  to coppice management regimes. The modified growth model almonthly growth
+  contribution from an existing root mass. 
 
   The parameterized model was then applied to the entire Pacific
   Northwest of the United States, using appropriate climatological and
@@ -167,8 +168,15 @@ that are fully compatible with existing infrastructure.
 To support economic and environmental models for a biofuels industry,
 spatial predictions of the growth and yield of \acf{SRWC} under
 various environmental conditions and throughout the entire \acf{PNW},
-the \acf{3pg} model was utilized.  The model was modified for
+the \acf{3pg} model was utilized.  The 
+\end{document}
+model was modified for
 \ac{SRWC}, particularly for poplar plantation methodologies.
+
+The \ac{3pg} model \cite{Landsberg1997} is a forest stand growth model that predicts total carbon
+based on photosynthetically active radiation and is parameterized by
+soil (water availability) and weather data. It produces monthly
+estimates of foliage stem and root biomass for up to 120 year cycles.
 
 A physiological growth model such as \ac{3pg} is advantageous because
 it allows variation of growth parameters and assumptions regarding
@@ -177,9 +185,19 @@ and yield estimations, because it is a canopy carbon balance model,
 allocations for both above and below ground biomass can be tracked for
 life-cycle analysis of the product fuels.
 
+The \ac{3pg} model has been used extensively to model \ac{SRWC}
+production. \citet{Amichev2010} used the \ac{3pg} to predict growth of
+the Walker poplar hybrid (\textit{Populus deltoides} x \textit{Populus
+  nigra}) in Saskatchewan, Canada. This analysis did not investigate
+the growth dynamics related to coppicing. \citet{Deckmyn2004}
+evaluated the Stand to Ecosystem CaRbon and EvapoTranspiration
+Simulator (SECRETS) for modeling coppice poplar production from two
+varieties under a range of soil fertility conditions.
+
+
 The original \ac{3pg} model does not include coppicing as a management
 practice, which is problematic as it cannot reasonably account for
-post-coppicing regrowth.  The extended model includes coppicing with a
+post-coppicing regrowth.  The extended model presented in this paper includes coppicing with a
 general model that allows a monthly growth contribution from an
 existing root mass.  The model specifies a relatively small
 contribution of aboveground growth from the accumulated root mass
@@ -213,9 +231,8 @@ subsequent modeling efforts on the predicted yields from \ac{SRWC}
 plantations.
 
 The study area, the Pacific Northwest of the United States,
-incorporates Washington, Oregon, Northern California, and Western
-Idaho.  This definition of the \acs{PNW} is somewhat inclusive in the
-South, including the northern part of California~(Figure~\ref{fig:grid}).
+includes Washington, Oregon, Northern California, and Western
+Idaho~(Figure~\ref{fig:grid}).
 
 A regular grid partitions the region.  The individual pixel size is
 relatively coarse $8192 \times 8192$ (m\^2), and designed to reduce
