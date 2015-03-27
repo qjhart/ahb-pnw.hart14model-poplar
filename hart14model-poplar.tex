@@ -54,6 +54,7 @@
 %% for the whole article with \linenumbers.
 %% \usepackage{lineno}
 \usepackage{graphicx}
+\usepackage{ednotes}
 \usepackage{color}
 \pdfpagebox5
 \usepackage{pgfplots}
@@ -119,7 +120,9 @@
 
   The parameterized model was then applied to the entire Pacific
   Northwest of the United States, using appropriate climatological and
-  soil input data.  Existing agricultural patterns were used to
+  soil input data.  Results predict the yield of poplar cultivation at
+  a spatial resolution of $\approx$ 8 km throughout the $\approx$8
+  million km\textsuperscript{2} of the study region. Existing agricultural cultivation patterns were used to
   estimate regional water availability for irrigation, and for
   nonirrigated regions, land cover features including ownership,
   slope , soil salinity and water table depth where used to limit
@@ -163,7 +166,7 @@ in the U.S.  Inspired in part by the U.S. Energy Independence and
 Security Act 2022 targets for renewable fuel, \ac{AHB} is carrying out
 research and development to support a system for growing and
 converting hardwoods, such as hybrid poplars, into liquid biofuels
-that are fully compatible with existing infrastructure.
+that are fully compatible with existing liquid transportation fuel infrastructure.
 
 To support economic and environmental models for a biofuels industry,
 spatial predictions of the growth and yield of \acf{SRWC} under
@@ -171,7 +174,29 @@ various environmental conditions and throughout the entire \acf{PNW},
 the \acf{3pg} model was utilized.  The 
 %%\end{document}
 model was modified for
-\ac{SRWC}, particularly for poplar plantation methodologies.
+\ac{SRWC}, particularly for poplar plantation methodologies. The
+motivation for the use of spatially resolved yield estimate is two-fold:
+\begin{description}
+\item[Biofuels production system optimization] Substantial investment
+  is required to construct facilites capable of producing drop-in
+  fuels \cite{Parker2010a}. Capitalization of these facilties will
+  depend upon a demonstrated
+  consistent supply of feedstock. While spot or commodity markets may
+  emerge to supply the demand for these facilties via bulk rail or
+  marine supply chains, first mover facilities will
+  likely depend on contracts with regional producers to supply a
+  substantial percent of the facility demand. This analysis helps
+  identify locations likely to have access to substantial local
+  supply.
+\item[Land use] The potential for displacement of food crops from
+  agricultural lands is a possible outcome of expanding biofuel
+  markets \textbf{Citation}. The impacts associated with an increase in food
+  prices on global food security raises ethical issues that relatively
+  developed and food-secure societies must consider
+  \cite{Pimentel2008}. This exercise helps identify land not currently
+  in food production most likely to be viable for \ac{SRWC} production.
+\item
+\end{description}
 
 The \ac{3pg} model \cite{Landsberg1997} is a forest stand growth model that predicts total carbon
 based on photosynthetically active radiation and is parameterized by
@@ -192,12 +217,23 @@ the Walker poplar hybrid (\textit{Populus deltoides} x \textit{Populus
 the growth dynamics related to coppicing. \citet{Deckmyn2004}
 evaluated the Stand to Ecosystem CaRbon and EvapoTranspiration
 Simulator (SECRETS) for modeling coppice poplar production from two
-varieties under a range of soil fertility conditions.
+varieties under a range of soil fertility conditions. The SECRETS
+model differs from \ac{3pg} in that....\textbf{Difference between 3PG
+  and SECRETS} To date, the use of
+physiological growth models such as the \ac{3pg} to evaluate spatial
+variability in yields of coppiced \ac{SRWC} at the scale and extent of
+the results presented here has not been attempted. 
 
 
 The original \ac{3pg} model does not include coppicing as a management
 practice, which is problematic as it cannot reasonably account for
-post-coppicing regrowth.  The extended model presented in this paper includes coppicing with a
+post-coppicing regrowth.  Coppicing of \ac{SRWC} has been widely
+demonstrated to increase growth rates post-coppice in comparison to
+un-coppiced stands
+\cite{Verwijst1996,Afas2008a,Sennerby-Forsse1992}. Thus, to employ the
+\ac{3pg} model in coppice management, the
+original model must be modified to reflect this increased
+productivity. The extended model presented in this paper includes coppicing with a
 general model that allows a monthly growth contribution from an
 existing root mass.  The model specifies a relatively small
 contribution of aboveground growth from the accumulated root mass
@@ -299,15 +335,16 @@ number of other parameters.}
 The original \ac{3pg} model allocates production from transpiration
 into the creation of new roots, stems and foliage.  After coppicing
 however, the model has no mechanism to increase start of re-growth
-from the root.  A simple coppicing model has been developed to add an
-additional production from the root system after
-coppicing~\cite{Hart2014}.  When a \ac{SRWC} is coppiced, there is a
-surfeit of root mass when compared to the aboveground biomass.  This
-surfeit is allowed to contribute some of this surfeit as an additional
-production at each monthly timestep, along with the \ac{NPP} of the
-original model.  The seasonal timing of any root contribution is
+from the root.  A simple coppicing model has been developed to account
+for transference of biomass from the root system to the regenerating stem after
+coppicing.  When a \ac{SRWC} is coppiced, there is a
+surfeit of root mass when compared to the aboveground biomass.  In the
+modified model, this surfeit is allowed to contribute to
+production at each monthly timestep, in accordance with the \ac{NPP}
+assumed in the original model.  The seasonal timing of any root contribution is
 moderated by comparing the actual \ac{NPP} to a potential \ac{NPP} the
-tree would have a specified target \ac{LAI}.  This difference serves
+tree would have a specified target \ac{LAI}.\textbf{This is unclear to
+me...PT}  This difference serves
 as a maximum limit for the root contribution.  Using a potential
 \ac{NPP} from a target \ac{LAI} serves two purposes. First, it allows
 root contributions up to, but not beyond a certain foliage amount, as
