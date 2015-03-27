@@ -169,7 +169,7 @@ To support economic and environmental models for a biofuels industry,
 spatial predictions of the growth and yield of \acf{SRWC} under
 various environmental conditions and throughout the entire \acf{PNW},
 the \acf{3pg} model was utilized.  The 
-\end{document}
+%%\end{document}
 model was modified for
 \ac{SRWC}, particularly for poplar plantation methodologies.
 
@@ -232,9 +232,7 @@ plantations.
 
 The study area, the Pacific Northwest of the United States,
 includes Washington, Oregon, Northern California, and Western
-Idaho~(Figure~\ref{fig:grid}).
-
-A regular grid partitions the region.  The individual pixel size is
+Idaho.  A regular grid partitions the region.  The individual pixel size is
 relatively coarse $8192 \times 8192$ (m\^2), and designed to reduce
 some of the complexity of subsequent regional optimization models.
 The projection is an Albers equal area projection with standard
@@ -249,12 +247,12 @@ imported and projected to $2^5$ (m), and aggregated upwards to
 determine percentages of each landcover type for each
 pixel~(Figure~\ref{fig:land}).
 
-\begin{figure}[hp]
-  \centering
-  \includegraphics[width=1.0\linewidth]{grid}
-  \caption{Location of the study area, with grid layer overlaid.}
-  \label{fig:grid}
-\end{figure}
+% \begin{figure}[hp]
+%   \centering
+%   \includegraphics[width=1.0\linewidth]{grid}
+%   \caption{Location of the study area, with grid layer overlaid.}
+%   \label{fig:grid}
+% \end{figure}
 
 Data processing was carried out within a postgresql database, with the
 postgis geospatial extensions~\cite{pgsql,Holl2009,postgis}.
@@ -510,6 +508,7 @@ fractions that add to the \ac{NASS} reported values.
 
 \begin{figure}[hp]
   \centering
+% https://docs.google.com/drawings/d/1oadbCuHL61duRoK8jAAtMSCu3bQYRyvM43AaDtOwpzw/edit?usp=sharing
   \includegraphics[width=1\linewidth]{land.png}
   \caption{Agricultural Land Classification.  Each \ac{AHB} pixel is made up of
     many remotely sensed derived \ac{CDL} crop classifications.  This
@@ -578,7 +577,7 @@ time span to report predicted yields on a per year basis.
 Finally, the layer of current croplands was used to mask the yield
 maps to include only those areas where irrigation is likely, to
 determine an overall predicted irrigated yield.  The results show an
-average yield over the entire region of 19.7 (Mg/ha).  3.8 (Mha) were
+average yield over the entire region of 19.7 (Mg/ha).  38000 (km^2) were
 included in the estimate.  Yields were highest in the central valley
 of California, a rich agricultural center, with similar yields along
 the temperate western parts of Oregon and Washington.  Yields
@@ -596,7 +595,7 @@ Similarly, the nonirrigated yield predictions were masked with the
 areas excluded in the land suitability study to include those areas
 likely to support nonirrigated poplar plantations.  Results for the
 nonirrigated lands predict a yield of 6.6 (Mg/ha) over an area under
-consideration of 5.7 (Mha).  In the case of nonirrigated yields, the
+consideration of 57000 (km^2).  In the case of nonirrigated yields, the
 highest yields were along the Pacific coast where precipitation is
 most plentiful, and more uniform in the inland areas of the \ac{AHB}
 region~(Figure~\ref{fig:nonirrigated_yield}).
