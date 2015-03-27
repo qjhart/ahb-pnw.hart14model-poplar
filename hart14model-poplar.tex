@@ -52,7 +52,7 @@
 %% The lineno packages adds line numbers. Start line numbering with
 %% \begin{linenumbers}, end it with \end{linenumbers}. Or switch it on
 %% for the whole article with \linenumbers.
-%% \usepackage{lineno}
+\usepackage{lineno}
 \usepackage{graphicx}
 \usepackage{ednotes}
 \usepackage{color}
@@ -112,16 +112,15 @@
   predictions of growth and yield under various
   environmental conditions and across large regions.  The \acf{3pg}
   model was modified to evaluate the growth and yield of coppiced
-  poplar (\emph{Polulus spp}.  This included developing a sub-model 
+  poplar (\emph{Polulus spp}).  This included developing a sub-model 
   which takes into account the impact of coppicing on post harvest
   regeneration thus extending the applicability of the \acf{3pg} model
-  to coppice management regimes. The modified growth model almonthly growth
-  contribution from an existing root mass. 
+  to coppice management regimes.
 
   The parameterized model was then applied to the entire Pacific
   Northwest of the United States, using appropriate climatological and
   soil input data.  Results predict the yield of poplar cultivation at
-  a spatial resolution of $\approx$ 8 km throughout the $\approx$8
+  a spatial resolution of $\approx$ 16 km\textsuperscript{2} throughout the $\approx$8
   million km\textsuperscript{2} of the study region. Existing agricultural cultivation patterns were used to
   estimate regional water availability for irrigation, and for
   nonirrigated regions, land cover features including ownership,
@@ -201,7 +200,13 @@ motivation for the use of spatially resolved yield estimate is two-fold:
 The \ac{3pg} model \cite{Landsberg1997} is a forest stand growth model that predicts total carbon
 based on photosynthetically active radiation and is parameterized by
 soil (water availability) and weather data. It produces monthly
-estimates of foliage stem and root biomass for up to 120 year cycles.
+estimates of foliage stem and root biomass for up to 120 year
+cycles. In this analysis the \ac{3pg} model is run for each 16
+km\textsuperscript{2} pixel. Each pixel is modeled as a stand. Input
+parameters that vary with geography (soil,weather) are used to
+parameterize the model for each pixel. The only modification to the
+original \ac{3pg} model is the inclusion of a root contribution to
+regrowth after coppice which is discussed in more detail in Section ~\ref{sec:3pg}
 
 A physiological growth model such as \ac{3pg} is advantageous because
 it allows variation of growth parameters and assumptions regarding
@@ -320,17 +325,23 @@ factors, including soil parameters, initial stocking conditions,
 management practices, and species
 definitions~(Figure~\ref{fig:overview}).  The \ac{3pg} model is run at
 a monthly timestep. At each step the physiological parameters are
-calculated and carried forward to the next month.  These incremental
+calculated and carried forward to the next month. Introduction of
+coppicing into the model may result in divergence of modeled results
+with empirical data depending upon the point in time within the month
+that coppicing is conducted. The \ac{3PG} model assumes a full month
+timestep when estimating growth, thus if coppice operations for
+validation stands are conducted near the end of a month the model
+estimation would overestimate the post-coppice regereration. These incremental
 physiological parameters can be compared to model predictions with
 field results at multiple stages in the plantation's history.
 
-\begin{figure}[p]
-\includegraphics[width=\linewidth]{model_overview}
-\caption{ The \ac{3pg} model's main inputs.  Running at a monthly timestep, with
-appropriate input parameters, the model predicts tree growth and a
-number of other parameters.}
-\label{fig:overview}
-\end{figure}
+% \begin{figure}[p]
+% \includegraphics[width=\linewidth]{model_overview}
+% \caption{ The \ac{3pg} model's main inputs.  Running at a monthly timestep, with
+% appropriate input parameters, the model predicts tree growth and a
+% number of other parameters.}
+% \label{fig:overview}
+% \end{figure}
 
 The original \ac{3pg} model allocates production from transpiration
 into the creation of new roots, stems and foliage.  After coppicing
