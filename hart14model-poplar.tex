@@ -224,7 +224,9 @@ evaluated the Stand to Ecosystem CaRbon and EvapoTranspiration
 Simulator (SECRETS) for modeling coppice poplar production from two
 varieties under a range of soil fertility conditions. The SECRETS
 model differs from \ac{3pg} in that....\textbf{Difference between 3PG
-  and SECRETS} To date, the use of
+  and SECRETS}. \citet{Headlee2012} deployed the \ac{3pg} model across
+several states in the northern midwest to predict growth and yield of
+hybrid poplar but did ot incorporate coppice management into the model.To date, the use of
 physiological growth models such as the \ac{3pg} to evaluate spatial
 variability in yields of coppiced \ac{SRWC} at the scale and extent of
 the results presented here has not been attempted. 
@@ -245,7 +247,7 @@ contribution of aboveground growth from the accumulated root mass
 after coppicing in order to initiate the next cycle of production.
 
 The \ac{3pg} model was validated against a number of field studies
-related to the growth of poplar as a \ac{SRWC} biofuel feedstock.  The
+related to the growth of poplar as a \ac{SRWC} biofuel feedstock\cite{Pontailler1999,Proe1999,Afas2008a}.  The
 parameterized model was then applied to the entire Pacific Northwest
 region, using appropriate climatology and soil input data.  Climate
 data included both historical patterns as well as predicted patterns
@@ -267,9 +269,8 @@ annual feedstock estimates are possible.
 \section{Methods and Calculation}
 
 The main goal of this study was to create spatially explicit poplar
-growth potential for the \ac{PNW} that can inform our participants and
-subsequent modeling efforts on the predicted yields from \ac{SRWC}
-plantations.
+growth potential for the \ac{PNW} that can reliably predicted yield from \ac{SRWC}
+plantations in the region.
 
 The study area, the Pacific Northwest of the United States,
 includes Washington, Oregon, Northern California, and Western
@@ -323,17 +324,18 @@ The \acf{3pg} model~\cite{Landsberg1997, landsberg2010physiological,
 estimations, and takes as inputs weather data, soil parameters, site
 factors, including soil parameters, initial stocking conditions,
 management practices, and species
-definitions~(Figure~\ref{fig:overview}).  The \ac{3pg} model is run at
+definitions.  The \ac{3pg} model is run at
 a monthly timestep. At each step the physiological parameters are
 calculated and carried forward to the next month. Introduction of
 coppicing into the model may result in divergence of modeled results
 with empirical data depending upon the point in time within the month
-that coppicing is conducted. The \ac{3PG} model assumes a full month
-timestep when estimating growth, thus if coppice operations for
-validation stands are conducted near the end of a month the model
-estimation would overestimate the post-coppice regereration. These incremental
+that coppicing is conducted. These incremental
 physiological parameters can be compared to model predictions with
 field results at multiple stages in the plantation's history.
+The \ac{3pg} model assumes a full month
+timestep when estimating growth, thus if coppice operations for
+validation stands are conducted near the end of a month the model
+estimation would overestimate the post-coppice regereration.
 
 % \begin{figure}[p]
 % \includegraphics[width=\linewidth]{model_overview}
@@ -348,13 +350,14 @@ into the creation of new roots, stems and foliage.  After coppicing
 however, the model has no mechanism to increase start of re-growth
 from the root.  A simple coppicing model has been developed to account
 for transference of biomass from the root system to the regenerating stem after
-coppicing.  When a \ac{SRWC} is coppiced, there is a
+coppicing.  When a \ac{SRWC} is coppiced, the root-shoot ratio no
+longer follows the expected ratio for a given species and age. There is a
 surfeit of root mass when compared to the aboveground biomass.  In the
 modified model, this surfeit is allowed to contribute to
 production at each monthly timestep, in accordance with the \ac{NPP}
-assumed in the original model.  The seasonal timing of any root contribution is
-moderated by comparing the actual \ac{NPP} to a potential \ac{NPP} the
-tree would have a specified target \ac{LAI}.\textbf{This is unclear to
+assumed in the original (non-coppice) model.  The seasonal timing of any root contribution is
+moderated by comparing the \ac{NPP} to a potential \ac{NPP} the
+tree would have un-coppiced at the specified target \ac{LAI}.\textbf{This is unclear to
 me...PT}  This difference serves
 as a maximum limit for the root contribution.  Using a potential
 \ac{NPP} from a target \ac{LAI} serves two purposes. First, it allows
