@@ -1,0 +1,30 @@
+\begin{tabularx}{\linewidth}{|c|X|c|}
+  \hline
+  Parameter & \centering{Source} & Value\\
+  \hline
+  $y$ & Assimilation use efficiency.  Used in calculation of the \NPP. & 0.47\\
+  \hline  kG (kg Pa-1) & Determines the response of the canopy conductance to the vapor pressure deficit. & 0.5\\
+  alpha (kg mol-1) & Canopy quantum efficiency. & 0.06\\
+  \BLcond~(m-1) & Canopy boundary layer conductance. Used in the calcuation of transpiration & 0.2\\
+  \hline
+  $k$  & Radiation Extinction Coefficient & 0.5\\
+  \SLA~(m2 kg-1) & Specific Leaf Area.  Defined as a function of the tree age.  Used in the calculation of LAI. &\\
+  $f0_{\SLA}$ & \SLA~at initial time & 10.8\\
+  $f1_{\SLA}$ & \SLA~at infinite timestep & 10.8\\
+  $tm_{\SLA}$~(y) & Time in years where value is the average of $f0$ and $f1$ & 1\\
+  $n$  & $n>=1$; Parameter specifing the rate of change around $tm$.  $n=1$ is approximately a linear change, as n increases, change becomes more localized around $tm$. & 2\\
+  \hline
+  % fullCanAge~(y) & Year where tree reaches full Canopy Cover. Used along with \LAI~in the productivity calculation & 1.5  \\
+  % \hline
+  % $Cond$~(m s-1) &  Canopy Conductance.  Along with a Physiological modifer, specifies the canopy conductance.  Used in calculation of transpiration & \\
+  % $mn_{Cond}$ & Minimum value, when $lai=0$ & 0.0001\\
+  % $mx_{Cond}$ & Maximum value & 0.02\\
+  % $lai_{Cond}$~(m2 m-2) & \LAI where parameter reaches a maximum value. & 3.33\\
+  % \hline
+  % $Intcptn$ & Rainfall interception fraction. & \\
+  % $mn_{Intcptn}$ & Minimum value, when $\LAI=0$ & 0\\
+  % $mx_{Intcptn}$ & Maximum value & 0.15\\
+  % $lai_{Intcptn}$~(m2 m-2) & \LAI~where parameter reaches a maximum value. & 5\\
+  % \hline
+\end{tabularx}
+

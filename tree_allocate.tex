@@ -1,0 +1,26 @@
+\begin{tabularx}{\linewidth}{|c|X|c|}
+\hline
+Parameter & Description & Value\\
+\hline
+ $pfs$  & This defines the foliage to stem ($\frac{WF}{WS}$) fraction in allocating aboveground biomass of the tree. &\\
+ $stemCnt$ & Average number of stems per stump &2.8\\
+ $stemC$ (cm-1) & Constant in relation of \dbh to woody biomass & 0.18\\
+ $stemP$ & Power in relation of \dbh to woody biomass. & 2.4\\
+ $pfsMx$ & Maximum possible pfs value allowed & 2\\
+ $pfsP$ & Power in relation of \dbh to pfs & -1.161976\\
+ $pfsC$ (cm-1) & Constant in relation of \dbh to $pfs$. & 1.92\\
+ \hline
+$pR$ & Along with a physiological parameter, specifies the amount of new growth allocated to the root system. &\\
+ $mn_{pR}$ & Minimum allocation to the root, when the physiological parameter is 1. & 0.25\\
+ $mx_{pR}$ & Maximum allocation to the root. & 0.34\\
+ $m0_{pR}$ & Dependence on \fR. $m0=0$ indicates full dependence on fertility, $m0=1$ indicates a constant allocation, independent of fertility & 0\\
+ $turnover$ & Specifies the monthly root turnover rate. & 0.005\\
+% $turnover$ [$\reciprocal\unit[30.4]{\day}$] & Specifies the monthly root turnover rate. & 0.005\\
+ \hline
+ $lf$ & Specifies the fractional monthly loss of foliage. This is a time dependent parameter.&\\
+  $f0_{\lf}$ & Value at initial timestep & 0.0015\\
+  $f1_{\lf}$ & Value at infinite timestep & 0.03\\
+  $tm_{\lf}$ (yr) & Time in years where value is the average of $f0$ and $f1$ & 2\\
+  $n_{\lf}$  & $n>=1$; Specifies the rate of change around $tm$.  $n=1$ is approximately a linear change, as $n$ increases, change becomes more localized around $tm$. & 2.5\\
+ \hline
+\end{tabularx}
