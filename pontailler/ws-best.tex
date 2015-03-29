@@ -1,22 +1,22 @@
-\documentclass[10pt]{article}
+% \documentclass[10pt]{article}
 
-% amsmath package, useful for mathematical formulas
-\usepackage{amsmath}
-% amssymb package, useful for mathematical symbols
-\usepackage{amssymb}
-% graphicx package, useful for including eps and pdf graphics
-% include graphics with the command \includegraphics
-\usepackage{graphicx}
-\usepackage{color}
-\pdfpagebox5
-\usepackage{pgfplots}
-\usepgfplotslibrary{dateplot}
+% % amsmath package, useful for mathematical formulas
+% \usepackage{amsmath}
+% % amssymb package, useful for mathematical symbols
+% \usepackage{amssymb}
+% % graphicx package, useful for including eps and pdf graphics
+% % include graphics with the command \includegraphics
+% \usepackage{graphicx}
+% \usepackage{color}
+% \pdfpagebox5
+% \usepackage{pgfplots}
+% \usepgfplotslibrary{dateplot}
 
-\newcommand{\Rdp}{\ensuremath{R_{\Delta\%}}}
-\newcommand{\fR}{\ensuremath{f_R}}
+% \newcommand{\Rdp}{\ensuremath{R_{\Delta\%}}}
+% \newcommand{\fR}{\ensuremath{f_R}}
 
 
-\begin{document}
+% \begin{document}
 
 \pgfplotscreateplotcyclelist{pontvariety}{%
 {blue},
@@ -28,7 +28,7 @@
 \newcommand{\fn}[1]{#1.csv}
 %\newcommand{\fn}[1]{validation/pontailler1999/coppice/#1.csv}
 
-\pgfplotstableread[col sep=comma]{ws.csv}\ws
+\pgfplotstableread[col sep=comma]{pontailler/ws.csv}\ws
 %\pgfplotstableread[col sep=comma]{validation/pontailler1999/ws.csv}\ws
 
 \newcommand{\plotvarieties}[1]{
@@ -79,26 +79,13 @@
     \addplot+[only marks] table [x=date, y=Robusta] {\ws};
 %    \plotvarieties{-5}
     \pgfplotsset{cycle list shift=-4}
-    \addplot table [x=date, y=WS] {\fn{pont-beaupre-best}};
-    \addplot table [x=date, y=WS] {\fn{pont-fritzi-best}};
-    \addplot table [x=date, y=WS] {\fn{pont-raspalje-best}};
-    \addplot table [x=date, y=WS] {\fn{pont-robusta-best}};
-    \addplot+[color=black] table [x=date, y=WS] {\fn{pont-raspalje}};
+    \addplot table [x=date, y=WS] {\fn{pontailler/pont-beaupre-best}};
+    \addplot table [x=date, y=WS] {\fn{pontailler/pont-fritzi-best}};
+    \addplot table [x=date, y=WS] {\fn{pontailler/pont-raspalje-best}};
+    \addplot table [x=date, y=WS] {\fn{pontailler/pont-robusta-best}};
+    \addplot+[color=black] table [x=date, y=WS] {\fn{pontailler/pont-raspalje}};
 
   \end{axis}
 \end{tikzpicture}
 
-\begin{figure}[p]
-  \centering
-  \input{rdp-by-type.tex}
-  \caption{ { \bf Coppice regrowth model results for various levels of Root
-      contribution \Rdp.}  Y-axis is the dry mass of each component of the
-    plantation, in terms of $\frac{T}{ha}$. $\Rdp=100$ and $\fR=1$.}
-  \label{fig:rdp}
-\end{figure}
-
-\begin{figure}
-  \includegraphics[width=0.45\linewidth]{../soil_triangle}
-  \input{../soil-fsw.tex}
-  \caption{\acs{swc} and \acs{swp} as determined by soil composition.  Included is a graph for the function  }
-\end{document}
+% \end{document}                  
