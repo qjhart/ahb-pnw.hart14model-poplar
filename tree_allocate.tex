@@ -1,16 +1,15 @@
 \begin{tabularx}{\linewidth}{|c|X|c|c|}
 \hline
-Parameter & Description & HW1 & Other Parameter sets\\
-$pR$ & Along with a physiological parameter, specifies the amount of new growth allocated to the root system. &\\
- $mn_{pR}$ & Minimum allocation to the root, when the physiological parameter is 1. & 0.25 & 0.17\\
- $mx_{pR}$ & Maximum allocation to the root. & 0.34 & 0.7\\
- $m0_{pR}$ & Dependence on \fR. $m0=0$ indicates full dependence on fertility, $m0=1$ indicates a constant allocation, independent of fertility & 0 &  0.5\\
- $turnover$ & Specifies the monthly root turnover rate. & 0.005 & 0.02\\
+Parameter & Description & HW1 & All Others\\
+\hline
+ $n_{pR}$ & Minimum \acf{pR} & 0.25 & 0.17\\
+ $x_{pR}$ & Maximum \ac{pR} & 0.34 & 0.7\\
+ $0_{pR}$ & Dependence of \ac{pR} on \ac{fNutr}  & 0 &  0.5\\
+ $turnover$ & Monthly root turnover rate. & 0.005 & 0.02\\
  \hline
- $lf$ & Specifies the fractional monthly loss of foliage. This is a time dependent parameter.&\\
-  $f0_{\lf}$ & Value at initial timestep & 0.0015 & 0.0015\\
-  $f1_{\lf}$ & Value at infinite timestep & 0.03 & 0.03\\
-  $tm_{\lf}$ (yr) & Time in years where value is the average of $f0$ and $f1$ & 2 &2 \\
-  $n_{\lf}$  & $n>=1$; Specifies the rate of change around $tm$.  $n=1$ is approximately a linear change, as $n$ increases, change becomes more localized around $tm$. & 2.5 & 2.5\\
+  $f0_{lf}$ & \acf{lf} at initial timestep & 0.0015 & 0.0015\\
+  $f1_{lf}$ & \ac{lf} infinite timestep & 0.03 & 0.03\\
+  $tm_{lf}$ (yr) & Where value is the average of $f0$ and $f1$ & 2 &2 \\
+  $n_{lf}$  & Rate of change around $tm$ & 2.5 & 2.5\\
  \hline
 \end{tabularx}

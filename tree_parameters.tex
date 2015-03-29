@@ -1,0 +1,30 @@
+\begin{tabularx}{\linewidth}{|c|X|c|c|}
+  \hline
+  Parameter & \centering{Source} & HW1 & Others\\
+  \hline
+  $y$ & Assimilation use efficiency & 0.47 & 0.47\\
+  \acs{BLcond}~(m-1) & \acl{BLcond} & 0.2 & 0.04\\
+  $f0_{\ac{SLA}}$ & \acs{SLA}~at initial time & 10.8 & 19 \\
+  $f1_{\ac{SLA}}$ & \acs{SLA}~at infinite timestep & 10.8 & 10.8\\
+  $tm_{\ac{SLA}}$~(y) & When average of $f0$ and $f1$ & 1 & 5\\
+  $n_{\ac{SLA}}$  & Rate of change around $tm$ & 2 & 2\\
+  $k$  & Radiation Extinction Coefficient & 0.5 & 0.5\\
+  $n_{Intcptn}$ & Minimum rainfall interception, when $\acs{LAI}=0$ & 0 & 0\\
+  $x_{Intcptn}$ & Maximum ran & 0.24 & 0.24 \\
+  $lai_{Intcptn}$~(m2 m-2) & \ac{LAI}~where parameter reaches a maximum value. & 7.3 & 7.3\\
+  $n_{Cond}$ & Minimum canopy conductance & 0.0001 & 0.0001\\
+  $x_{Cond}$ & Maximum canopy conductance & 0.033 & varies\\
+  $lai_{Cond}$~(m2 m-2) & \ac{LAI} for maximum & 3.33 & 2.6 \\
+  $kG$ (kg Pa-1) & Response of the canopy conductance to the vapor pressure deficit & 0.85 & varies\\
+  $Canopy Age$~(y) & When tree reaches full Canopy Cover & 1.5 & varies  \\
+  $alpha$ (kg mol-1) & Canopy quantum efficiency. & 0.08 & varies \\
+  $f0_{nutr}$ & Minimum \acf{fNutr} & 1 & varies\\
+  $n_{\acs{fT}}$ (\celsius) &  Minimum respiration temperature & 5 & 0\\
+  $opt_{\acs{fT}}$ (\celsius) & Optimum respiration temperature & 20 & 20 \\
+  $x_{\acs{fT}}$  (\celsius) & Maximum respiration temperature & 40 & varies\\
+  $f0_{\acs{fAge}}$ &  \acf{fAge} at initial time & 1 & 1 \\
+  $f1_{\acs{fAge}}$ & \acs{fAge} at infinite time & 0 & 0 \\
+  $tm_{\acs{fAge}}$ [y] & When average of $f0$ and $f1$ & 47.5 & varies\\
+  $n_{\acs{fAge}}$ & Rate of change around $tm$  & 3.5 & varies\\
+\hline
+\end{tabularx}
