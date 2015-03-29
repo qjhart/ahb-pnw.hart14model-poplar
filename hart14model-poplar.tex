@@ -160,20 +160,25 @@
 %% Text of abstract
 The \acf{AHB} is a consortium of university and industry partners
 investigating the development of a sustainable hardwood biofuels
-industry in Washington, Oregon, Northern California and western Idaho
-in the U.S.  Inspired in part by the U.S. Energy Independence and
+industry in Washington, Oregon, northern California and northern Idaho
+in the United States.  Inspired in part by the U.S. Energy Independence and
 Security Act 2022 targets for renewable fuel, \ac{AHB} is carrying out
 research and development to support a system for growing and
-converting hardwoods, such as hybrid poplars, into liquid biofuels
-that are fully compatible with existing liquid transportation fuel infrastructure.
+converting hardwoods, such as hybrid poplars, into liquid biofuels.
+This research and development initiative has focused on fuels fully compatible with existing liquid transportation fuel infrastructure.
 
 To support economic and environmental models for a biofuels industry,
 spatial predictions of the growth and yield of \acf{SRWC} under
 various environmental conditions and throughout the entire \acf{PNW},
-the \acf{3pg} model was utilized.  The 
-%%\end{document}
-model was modified for
-\ac{SRWC}, particularly for poplar plantation methodologies. The
+the \acf{3pg}\cite{landsberg2010physiological,Landsberg1997,Sands2004}
+model was utilized.  Empirically based growth and yield models for
+hybrid poplar have been used with some success in the region
+\cite{Clendenen1996}, however the samples used to develop allometric
+relationships did not include coppice management.  The \ac{SECRETS}
+model \cite{Sampson2001} is another process based model. the \ac{3pg}
+model was selected instead of \ac{SECRETS} for its more detailed
+approach to above-ground biomass allocation and thus its relevance
+modeling the response of the plant to coppice management.The \ac{3pg} model was modified for\ac{SRWC}, particularly for poplar plantation methodologies. The
 motivation for the use of spatially resolved yield estimate is two-fold:
 \begin{description}
 \item[Biofuels production system optimization] Substantial investment
@@ -220,11 +225,8 @@ production. \citet{Amichev2010} used the \ac{3pg} to predict growth of
 the Walker poplar hybrid (\textit{Populus deltoides} x \textit{Populus
   nigra}) in Saskatchewan, Canada. This analysis did not investigate
 the growth dynamics related to coppicing. \citet{Deckmyn2004}
-evaluated the Stand to Ecosystem CaRbon and EvapoTranspiration
-Simulator (SECRETS) for modeling coppice poplar production from two
-varieties under a range of soil fertility conditions. The SECRETS
-model differs from \ac{3pg} in that....\textbf{Difference between 3PG
-  and SECRETS}. \citet{Headlee2012} deployed the \ac{3pg} model across
+evaluated the \ac{SECRETS} for coppice poplar production from two
+varieties under a range of soil fertility conditions. \citet{Headlee2012} deployed the \ac{3pg} model across
 several states in the northern midwest to predict growth and yield of
 hybrid poplar but did ot incorporate coppice management into the model.To date, the use of
 physiological growth models such as the \ac{3pg} to evaluate spatial
@@ -244,22 +246,8 @@ productivity. The extended model presented in this paper includes coppicing with
 general model that allows a monthly growth contribution from an
 existing root mass.  The model specifies a relatively small
 contribution of aboveground growth from the accumulated root mass
-after coppicing in order to initiate the next cycle of production.
+after coppicing in order to initiate the next cycle of production \cite{Deckmyn2004}.
 
-The \ac{3pg} model was validated against a number of field studies
-related to the growth of poplar as a \ac{SRWC} biofuel feedstock\cite{Pontailler1999,Proe1999,Afas2008a}.  The
-parameterized model was then applied to the entire Pacific Northwest
-region, using appropriate climatology and soil input data.  Climate
-data included both historical patterns as well as predicted patterns
-from simulations predicting climate change.  These inputs produce
-poplar yield prediction maps and expected bounds on the variation of
-these yields useful for determining when it becomes economically
-feasible for poplar to be grown within the study area. 
-
-This yield model is overlaid with surface and land cover
-parameters to predict yields for potential plantation locations.
-Yield maps are the results of running the \ac{3pg} model for the
-entire \ac{AHB} region. 
 
 With appropriate input information, the \ac{3pg} model can predict
 yields for the entire Pacific Northwest study region, under various
@@ -374,12 +362,29 @@ is modeled the same way, however with different parameters to model
 initial root dynamics.
 
 Hart et al.~\cite{Hart2014} validated a set of \ac{3pg} tree
-parameters, primarily following a poplar parameterization of Headlee
-et al.~\cite{Headlee2012} that reasonably model a generic poplar
-species.  In addition, and set of 6 additional variations on these
+parameters that reasonably model a generic poplar
+species.  
+
+The \ac{3pg} model was validated against a number of field studies
+related to the growth of poplar as a \ac{SRWC} biofuel
+feedstock\cite{Pontailler1999,Proe1999,Afas2008a}. , The model was
+parameterized following a poplar parameterization of
+.~\cite{Headlee2012}.  A set of 6 additional variations on these
 parameters were derived to match reported field study results.  These
 sets of parameters were used as an ensemble of inputs to the yield
-predictions below.
+predictions below. The parameterized model was then applied to the
+entire Pacific Northwest region, using appropriate climatology and
+soil input data.  Climate data included both historical patterns as
+well as predicted patterns from simulations predicting climate change.
+These inputs produce poplar yield prediction maps and expected bounds
+on the variation of these yields useful for determining when it becomes economically
+feasible for poplar to be grown within the study area. 
+
+This yield model is overlaid with surface and land cover
+parameters to predict yields for potential plantation locations.
+Yield maps are the results of running the \ac{3pg} model for the
+entire \ac{AHB} region. 
+
 
 \subsubsection{Climatic and Radiation Data}
 \label{sec:climate}
