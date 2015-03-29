@@ -366,61 +366,29 @@ studies to represent the growth of a representative hybrid poplar.
 Alternatively, there have been several reported field tests on
 coppiced poplar
 plantations~\cite{Proe2002,Proe1999,Pontailler1999,Afas2008a} that
-show large variations in above ground biomass production.
+show large variations in above ground biomass production, among
+different poplar species.  To represent some of this variability, a
+strategy was used where a set of default input values were modified on
+a per variety basis to match field reported production.  These sets
+were all run on the region, and the average production was
+reported.
 
-As shown in
-Section~\ref{sec:validation}, when compared to field trials the different
-Populus clones vary considerably in their growth patterns. Many of these changes
-can be modeled with appropriate changes to the 3PG input parameters
-(Tables~\ref{tab:3pg-tree-productivity}, \ref{tab:3pg-tree-modifiers},
-\ref{tab:3pg-tree-allocate}).
+A \emph{Base} parameter set is altered for five additional parameter
+sets estimated from
+Pontailler~\cite{Pontailler1999,pontailler97-volume-index,Ceulemans1993},
+a field test that described biomass measurements over 5 two year
+coppicing events for a five different poplar species, grown in Orsay,
+France from 1987 through 1997. The clones studied included fast
+growing, interspecific Interamerican (\textit{Populus trichocarpa
+  $\times$ P deltoides}) hybrid clones (Parameter sets Beaupré and
+Raspalje), a native American \textit{P. trichocarpa} (Fritzi Pauley)
+and one Euramerican reference clone \textit{P.~deltoides $\times$
+  P.~nigra}, cv., (Robusta).
 
-% \begin{figure}[p]
-% \includegraphics[width=\linewidth]{model_overview}
-% \caption{ The \ac{3pg} model's main inputs.  Running at a monthly timestep, with
-% appropriate input parameters, the model predicts tree growth and a
-% number of other parameters.}
-% \label{fig:overview}
-% \end{figure}
-
-The original \ac{3pg} model allocates production from transpiration
-into the creation of new roots, stems and foliage.  After coppicing
-however, the model has no mechanism to increase start of re-growth
-from the root.  A simple coppicing model has been developed to account
-for transference of biomass from the root system to the regenerating
-stem after coppicing.  When a \ac{SRWC} is coppiced, the root-shoot
-ratio no longer follows the expected ratio for a given species and
-age. There is a surfeit of root mass when compared to the aboveground
-biomass.  In the modified model, this surfeit is allowed to contribute
-to production at each monthly timestep, in accordance with the
-\ac{NPP} assumed in the original (non-coppice) model.  The seasonal
-timing of any root contribution is moderated by comparing the \ac{NPP}
-to a potential \ac{NPP} the tree would have un-coppiced at the
-specified target \ac{LAI}.\textbf{This is unclear to me...PT} This
-difference serves as a maximum limit for the root contribution.  Using
-a potential \ac{NPP} from a target \ac{LAI} serves two
-purposes. First, it allows root contributions up to, but not beyond a
-certain foliage amount, as specified by the \ac{LAI}.  More
-importantly, since the root contribution is tied to a potential
-\ac{NPP}, the method times regrowth with climatic conditions that are
-favorable for growth, and does not initiate growth when conditions are
-not favorable.  A maximum allowable monthly root contribution fraction
-limits the total contribution for any one month, and affects the
-length of time for the contribution to be made.  In poplar
-plantations, where plantings are initiated with bare cuttings as
-propagation, the initial growth is modeled the same way, however with
-different parameters to model initial root dynamics.
-
-Table~\ref{tab:3pg-tree-coppice} shows the values used for the
-coppicing calculations, for both the initial cuttings, and the
-coppiced trees.
-
-\begin{table}%[p]
-\caption{3PG Coppicing Parameters}
-\input{tree_coppice.tex}
-\label{tab:3pg-tree-coppice}
- \end{table}
-
+The \ac{3pg} model was modified in two ways to allow modeling of
+\ac{SRWC}; a modification to the allocation of biomass among roots,
+foliage and stem, and the inclusion of a coppicing model to allow for
+regrowth.
 
 An important component of 3PG is the allocations of \NPP~to roots, stems, and
 foliage.  This is controlled primarily with the \pfs, the ratio of \WF~to \WS,
@@ -432,29 +400,94 @@ relations are typically determined from comparisons of more mature trees, for
 example, Headlee's estimates are based on poplars with a range in \dbh~of about
 3.5~-~25 (cm)~\cite{Headlee2012}%,Fortier2010}.
 
-For frequent coppicing with small trees at harvest, an alternative set of
-allometric relationships to determine \pfs~for the 3PG might be required. For
-\ac{SRWC}, Pontailler et al.~\cite{pontailler97-volume-index} proposed a set of
-parameterizations based on volume index (\VI) where $VI = HD^2$, $H$ is height
-(m), and $D$ is tree diameter (m) at 22cm.
+For \ac{SRWC}, Pontailler et al.~\cite{pontailler97-volume-index}
+proposed a set of parameterizations based on volume index (\VI) where
+$VI = HD^2$, $H$ is height (m), and $D$ is tree diameter (m) at 22cm.
+They described power relationships between \VI~and both above ground
+dry matter and leaf area per stem. These can be used in a similar
+manner to define \pfs, where \WS~is used to estimate \VI~for each stem
+where \sps is the average number of stems per coppiced stump, and \VI
+then used to predict leaf area per stem (\LA) and along with specific
+leaf area (\SLA), \WF~and \pfs. As these relationships were defined
+for each poplar variation in the field tests, the 3PG model was
+modified to calculate \pfs~with these relationships, and the model run
+with the parameters shown in Table~\ref{tab:pont-3pg}.  In that table,
+the parameter set Base, is an otherwise unmodified base set of poplar
+parameter assumptions.
 
-Pontailler et al.~\cite{pontailler97-volume-index} described power relationships
-between \VI~and both above ground dry matter and leaf area per stem. These can
-be used in a similar manner to define \pfs, where \WS~is inverted to estimate
-\VI~for each stem, and then used to predict leaf area per stem (\LA) and along
-with specific leaf area (\SLA), \WF~and \pfs. As these relationships were
-defined for each poplar variation in the field tests, the 3PG model was modified
-to predict \pfs~with these relationships, and the model run with the parameters
-shown in Table~\ref{tab:pont-3pg}.  Because of the high density of tree
-plantings, the canopy coverage (\cancover), which determines when the poplar
-canopy has closed was scaled from 1.5 years post-coppicing to 0.6 yrs
-(Figure~\ref{fig:pont-biomass}). The poplar stem biomass demonstrates a wide
-variation under the same management practices. However, without more information
-relating to the various \pop clones, modifying 3PG parameters to obtain a better
-fit is mostly speculative. The 3PG inputs can be adjusted to more closely match
-the predictions for each clone, but justifying which particular parameters to
-adjust from one field test is more problematic and the selection essentially
-arbitrary.
+\begin{table}%[p]
+  \caption{\VI~parameter variations of \ac{3pg} among parameter sets.}
+  \begin{tabular}{|l|c|c|c|c|c|}
+    \hline
+    Parameter & Beaupre & Fritzi Pauley & Raspalje & Robusta & Base\\
+    \hline
+    $\gamma_{DM}$ &  0.854 & 0.863 & 0.887 & 0.838 & 0.887\\
+    $\beta_{DM}$  & 166.0 & 157.6 & 161.5 & 162 & 161.5\\
+    $\gamma_{LA}$ &  0.428 &  0.481 & 0.495 & 0.496 & 0.495\\ 
+    $\beta_{LA}$ & $e^{-0.161}$ & $e^{-0.198}$ & $e^{-0.287}$ & $e^{-0.273}$ & $e^{-0.287}$\\
+    \sps & 4 & 3.5 & 2.8 & 5 \\
+    \hline 
+  \end{tabular}
+  \begin{flushleft}$DM=\sps(\beta_{DM} VI^{\gamma_{DM}})$, and $LA = \beta_{LA} VI^{\gamma_{LA}}$~\cite{pontailler97-volume-index}.
+\end{flushleft}  
+\label{tab:pont-3pg}
+\end{table}
+
+Two additional parameter sets HW1 and HW2 used the original
+\pfs~formulation; $DM=\sps(C_{stem} \dbh^{P_{stem}})$, and $\pfs =
+C_{pfs} \dbh^{P_{pfs}}$, with $\sps=2.8$, $C_{stem}=0.18$,
+$P_{stem}=2.4$, $C_{pfs}=1.92$, $P_{pfs}=-1.162$ for HW1 and $\sps=1$,
+$C_{stem}=0.08$, $P_{stem}=2.46$, $C_{pfs}=1.2$, $P_{pfs}=-0.77$ for
+HW2 with a maximum allowable $\pfs=2$, when the coppiced trees small.
+
+In \ac{3pg} foilage is required for growth.  After coppicing however,
+with no foliage, there is no mechanism for initial regrowth. A simple
+coppicing model has been developed to transfer biomass from the root
+system to the regenerating foliage after coppicing.  When a \ac{SRWC}
+is coppiced, the root-shoot ratio no longer follows the expected ratio
+for a given species and age. There is extra root mass when compared to
+the aboveground biomass.  In the coppice submodel, this surfeit is
+allowed to contribute to production, \RP~at each monthly timestep.
+The seasonal timing of any root contribution is moderated by comparing
+a monthly \ac{NPP} to a productivity (\NPPt)~the tree would have for a
+target \ac{LAIt}. $\NPPt-\NPP$ serves as a limit on the root
+contribution.  Using a potential \ac{NPPt} serves two purposes. First,
+it allows root contributions up to, but not beyond a certain foliage
+amount, as specified by the \ac{LAI}.  More importantly, since the
+root contribution is regulated by \ac{NPP}, the method times regrowth
+with conditions that are favorable, and does not initiate growth when
+conditions are not.  A maximum allowable monthly root contribution
+fraction, \Rdp, limits the total contribution from the root excess
+$\WR(\WR/\W-\pRx)$, where \pRx~is root fraction required by the
+growing tree.  The value of \Rdp affects both the amount and the
+timeliness where contributions are made.  In poplar, starch and sugar
+content can be as much as 20\% of a coarse root, though this varies
+seasonally~\cite{Regier2010}.
+
+The monthly root contribution is $\RP =
+min(\WR(\WR/\W-\pRx)\Rdp,\NPPt-\NPP)$ which simply says the root can
+contribute up to $\NPPt-\NPP$ for growth, as long as there is excess
+root mass available, limited to the \Rdp~fraction per month.
+
+In poplar plantations, where plantings are initiated with bare
+cuttings as propagation, the initial growth is modeled the same way,
+however with different parameters to model initial root dynamics.
+Table~\ref{tab:3pg-tree-coppice} shows the values used for the
+coppicing calculations, both for the initial cuttings and the coppiced
+trees.  These values were used for all parameter sets.
+
+\begin{table}%[p]
+\caption{3PG Coppicing Parameters}
+\input{tree_coppice.tex}
+\label{tab:3pg-tree-coppice}
+ \end{table}
+
+ Even with changes in the \pfs~calculations and the coppice model,
+ contributions to the root mass are a fraction of \NPP ranging from a
+ minimum to maximum as determined by the plant stress and nutrition,
+ as in the original \ac{3pg} model.  These values, along with root
+ turnover and litterfall are shown in
+ table~\cite{tab:3pg-tree-allocate}.
 
 \begin{table}%[p]
 \caption{3PG Tree allocation Parameters}
@@ -462,16 +495,7 @@ arbitrary.
 \label{tab:3pg-tree-allocate}
 \end{table}
 
-A number of studies have described parameterization of the \ac{3pg}
-
-Hart et al.~\cite{Hart2014} validated a set of \ac{3pg} tree
-parameters, primarily following a poplar parameterization of Headlee
-et al.~\cite{Headlee2012} that reasonably model a generic poplar
-species.  In addition, and set of 6 additional variations on these
-parameters were derived to match reported field study results.  These
-sets of parameters were used as an ensemble of inputs to the yield
-predictions below.
-
+\end{document}
 
 \begin{figure}%[p]
   \centering
