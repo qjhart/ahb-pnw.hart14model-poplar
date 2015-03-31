@@ -1,0 +1,140 @@
+\begin{thebibliography}{10}
+
+\bibitem{landsberg2010physiological}
+Landsberg JJ, Sands P. {Physiological ecology of forest production:
+  principles, processes and models}, Vol.~4, Academic Press, 2010.
+
+\bibitem{Landsberg1997}
+Landsberg JJ, Waring R. {A generalised model of forest productivity using
+  simplified concepts of radiation-use efficiency, carbon balance and
+  partitioning}, Forest Ecology and Management 95~(3) (1997) 209--228.
+
+\bibitem{Sands2004}
+Sands P. {3PG PJS - a user-friendly interface to 3-PG , the Landsberg and
+  Waring model of forest productivity}, Tech. Rep. May, Cooperative Research
+  Centre for Sustainable Production Forestry (2004).
+
+\bibitem{Clendenen1996}
+Clendenen GW. {Use of harmonized equations to estimate above-ground woody
+  biomass for two hybrid poplar clones in the Pacific Northwest}, Biomass and
+  Bioenergy 11~(6) (1996) 475--482.
+
+\bibitem{Sampson2001}
+Sampson DA, Janssens IA, Ceulemans R. {Simulated
+  soil CO2 efflux and net ecosystem exchange in a 70-year-old belgian Scots
+  pine stand using the process model SECRETS}, Annals of Forest Science 58~(1)
+  (2001) 31--46.
+
+\bibitem{Parker2010a}
+Parker N, Tittmann P, Hart Q, Nelson R, Skog K, Schmidt A, Gray E,
+  Jenkins BM. {Development of a biorefinery optimized biofuel supply curve for
+  the Western United States}, Biomass and Bioenergy 34~(11) (2010) 1597--1607.
+
+\bibitem{Pimentel2008}
+Pimentel D, Marklein A, Toth M, Karpoff M, Paul G, McCormack R,
+  Kyriazis J, Krueger T. {Biofuel Impacts on World Food Supply: Use of Fossil
+  Fuel, Land and Water Resources}, Energies 1~(2) (2008) 41--78.
+
+\bibitem{Amichev2010}
+Amichev BY, Johnston M, Van~Rees KCJ. {Hybrid poplar growth in bioenergy
+  production systems: Biomass prediction with a simple process-based model
+  (3PG)}, Biomass and Bioenergy 34~(5) (2010) 687--702.
+
+\bibitem{Deckmyn2004}
+Deckmyn G, Laureysens I, Garcia J, Muys B, Ceulemans R. {Poplar growth and
+  yield in short rotation coppice: model simulations using the process model
+  SECRETS}, Biomass and Bioenergy 26~(3) (2004) 221--227.
+
+\bibitem{Headlee2012}
+Headlee WL, Zalesny RS, Donner DM, Hall RB. {Using a Process-Based Model (3-PG)
+  to Predict and Map Hybrid Poplar Biomass Productivity in Minnesota and
+  Wisconsin, USA}, BioEnergy Research 6~(1) (2012) 196--210.
+
+\bibitem{Verwijst1996}
+Verwijst T. {Cyclic and progressive changes in short-rotation willow coppice
+  systems}, Biomass and Bioenergy~(11) (1996) 161--165.
+
+\bibitem{Afas2008a}
+Afas NA, Marron N, {Van Dongen} S, Laureysens I, Ceulemans R. {Dynamics of
+  biomass production in a poplar coppice culture over three rotations (11
+  years)}, Forest Ecology and Management 255~(5-6) (2008) 1883--1891.
+
+\bibitem{Sennerby-Forsse1992}
+Sennerby-Forsse L, Ferm A, Kauppi A. {Coppicing ability and
+  sustain-ability}, in: Mitchell C, Ford-Robertson J, Hinckley T,
+  {Sennerby- Forsse} (Eds.) L, Ecophysiology of Short Rotation Forest Crop,
+  Elsevier Applied Science, Oxford, 1992, pp. 146--184.
+
+\bibitem{Butler}
+Butler H, Schmidt C, Springmeyer D, Livni J. {SpatialReference.org (SRID
+  7260)}.
+
+\bibitem{Momjian2001}
+Momjian B. {PostgreSQL: introduction and concepts}, Vol.~22, 2001.
+
+\bibitem{Holl2009}
+Holl S, Plum H. {PostGIS}, GeoInformatics 03/2009 (2009) 34--36.
+
+\bibitem{Prilepova2014}
+Prilepova O, Hart Q, Merz J, Parker N, Bandaru V, Jenkins BM. {Design of a
+  GIS-Based Web Application for Simulating Biofuel Feedstock Yields}, ISPRS
+  International Journal of Geo-Information 3~(3) (2014) 929--941.
+
+\bibitem{Proe2002}
+Proe M, Gri JH, Craig J. {Effects of spacing , species and coppicing on leaf
+  area , light interception and photosynthesis in short rotation forestry},
+  Biomass and Bioenergy 23 (2002) 315--326.
+
+\bibitem{Proe1999}
+Proe MF, Craig J, Gri JH, Wilson A, Reid E. {Comparison of biomass
+  production in coppice and single stem woodland management systems on an
+  imperfectly drained gley soil in central Scotland}, Biomass and Bioenergy 17
+  (1999) 141--151.
+
+\bibitem{Pontailler1999}
+Pontailler JY, Ceulemans R, Guittet J. {Biomass yield of poplar after five
+  2-year coppice rotations}, Forestry 72~(2) (1999) 157--163.
+
+\bibitem{pontailler97-volume-index}
+Pontailler J, Ceulemans R, Guittet J, Mau F. {Linear and non-linear
+  functions of volume index to estimate woody biomass in high density young
+  poplar stands}, Ann. For. Sci. 54~(4) (1997) 335--345.
+
+\bibitem{Ceulemans1993}
+Ceulemans R, Pontailler J, Mau F, Guittet J. {Leaf allometry in young
+  poplar stands: Reliability of leaf area index estimation, site and clone
+  effects}, Biomass and Bioenergy 4~(5) (1993) 315--321.
+
+\bibitem{Regier2010}
+Regier N, Streb S, Zeeman SC, Frey B. {Seasonal changes in starch and sugar
+  content of poplar (Populus deltoides x nigra cv. Dorskamp) and the impact of
+  stem girdling on carbohydrate allocation to roots.}, Tree physiology 30~(8)
+  (2010) 979--87.
+
+\bibitem{Daly2008a}
+Daly C, Halbleib M, Smith JI, Gibson WP, Doggett MK, Taylor GG, Pasteris PP. {Physiographically sensitive mapping of climatological temperature and
+  precipitation across the conterminous United States}
+
+\bibitem{Cooke2014}
+Cooke A, Rogers L, Comnick J. {Advanced Hardwoods Biofuels Northwest : A
+  suitability study using the Natural Resources Lands Database Permanently
+  Non-Suitable Mask} (2014).
+
+\bibitem{NationalAtlasoftheUnitedStates2013}
+{National Atlas of the United States}. {Federal Lands and Indian Lands} (2013).
+
+\bibitem{Gesch2007}
+Gesch DB. {The National Elevation Dataset, in Maune, D., ed., Digital Elevation
+  Model Technologies and Applications: The DEM Users Manual, 2nd Edition:},
+  American Society for Photogrammetry and Remote Sensing (2007) 99--118.
+
+\bibitem{IPCC2007}
+IPCC. {IPCC Fourth Assessment Report (AR4)}, IPCC 1 (2007) 976.
+
+\bibitem{Parry2007}
+Parry ML, Canziani OF, Palutikof JP, van~der Linden PJ, Hanson CE. {IPCC, 2007:
+  Summary for Policymakers}, in: Climate Change 2007: Impacts, Adaptation and
+  Vulnerability. Contribution ofWorking Group II to the Fourth Assessment
+  Report of the Intergovernmental Panel on Climate Change, 2007, pp. 7--22.
+
+\end{thebibliography}

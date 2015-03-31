@@ -180,12 +180,14 @@ the \acf{3pg}\cite{landsberg2010physiological,Landsberg1997,Sands2004}
 model was utilized.  Empirically based growth and yield models for
 hybrid poplar have been used with some success in the region
 \cite{Clendenen1996}, however the samples used to develop allometric
-relationships did not include coppice management.  The \ac{SECRETS}
-model \cite{Sampson2001} is another process based model. the \ac{3pg}
-model was selected instead of \ac{SECRETS} for its more detailed
-approach to above-ground biomass allocation and thus its relevance
-modeling the response of the plant to coppice management.The \ac{3pg} model was modified for\ac{SRWC}, particularly for poplar plantation methodologies. The
-motivation for the use of spatially resolved yield estimate is two-fold:
+relationships did not include coppice management.
+\ac{SECRETS}~\cite{Sampson2001} is another process based model,
+differing from \ac{3pg} in a number of ways, including biomass
+production and partitioning~\cite{SurendranNair2012}.
+
+The \ac{3pg} model was modified for\ac{SRWC}, particularly
+for poplar plantation methodologies. The motivation for the use of
+spatially resolved yield estimate is two-fold:
 \begin{description}
 \item[Biofuels production system optimization] Substantial investment
   is required to construct facilites capable of producing drop-in
@@ -208,16 +210,17 @@ motivation for the use of spatially resolved yield estimate is two-fold:
 \item
 \end{description}
 
-The \ac{3pg} model \cite{Landsberg1997} is a forest stand growth model that predicts total carbon
-based on photosynthetically active radiation and is parameterized by
-soil (water availability) and weather data. It produces monthly
-estimates of foliage stem and root biomass for up to 120 year
-cycles. In this analysis the \ac{3pg} model is run for each 16
-km\textsuperscript{2} pixel. Each pixel is modeled as a stand. Input
-parameters that vary with geography (soil,weather) are used to
-parameterize the model for each pixel. The only modification to the
-original \ac{3pg} model is the inclusion of a root contribution to
-regrowth after coppice which is discussed in more detail in Section ~\ref{sec:3pg}
+The \ac{3pg} model \cite{Landsberg1997} is a forest stand growth model
+that predicts total carbon based on photosynthetically active
+radiation and is parameterized by soil (water availability) and
+weather data. It produces monthly estimates of foliage stem and root
+biomass for up to 120 year cycles. In this analysis the \ac{3pg} model
+is run for each 16 km\textsuperscript{2} pixel. Each pixel is modeled
+as a stand. Input parameters that vary with geography (soil,weather)
+are used to parameterize the model for each pixel. The only
+modification to the original \ac{3pg} model is the inclusion of a root
+contribution to regrowth after coppice which is discussed in more
+detail in Section ~\ref{sec:3pg}
 
 A physiological growth model such as \ac{3pg} is advantageous because
 it allows variation of growth parameters and assumptions regarding
@@ -230,15 +233,19 @@ The \ac{3pg} model has been used extensively to model \ac{SRWC}
 production. \citet{Amichev2010} used the \ac{3pg} to predict growth of
 the Walker poplar hybrid (\textit{Populus deltoides} x \textit{Populus
   nigra}) in Saskatchewan, Canada. This analysis did not investigate
-the growth dynamics related to coppicing. \citet{Deckmyn2004}
-evaluated the \ac{SECRETS} for coppice poplar production from two
-varieties under a range of soil fertility conditions. \citet{Headlee2012} deployed the \ac{3pg} model across
-several states in the northern midwest to predict growth and yield of
-hybrid poplar but did ot incorporate coppice management into the model.To date, the use of
-physiological growth models such as the \ac{3pg} to evaluate spatial
-variability in yields of coppiced \ac{SRWC} at the scale and extent of
-the results presented here has not been attempted. 
+the growth dynamics related to coppicing. \citet{Deckmyn2004} modified
+and evaluated the \ac{SECRETS} for coppice poplar production from two
+varieties under a range of soil fertility conditions.  The
+\ac{SECRETS} coppice modified paritioning fractions with the presence
+of a large root mass, one of the outcomes of the coppicing model
+described here for \ac{3pg}.
 
+\citet{Headlee2012} deployed the \ac{3pg} model across several states
+in the northern midwest to predict growth and yield of hybrid poplar
+but did ot incorporate coppice management into the model.  To date,
+the use of physiological growth models such as the \ac{3pg} to
+evaluate spatial variability in yields of coppiced \ac{SRWC} at the
+scale and extent of the results presented here has not been attempted.
 
 The original \ac{3pg} model does not include coppicing as a management
 practice, which is problematic as it cannot reasonably account for
@@ -246,14 +253,13 @@ post-coppicing regrowth.  Coppicing of \ac{SRWC} has been widely
 demonstrated to increase growth rates post-coppice in comparison to
 un-coppiced stands
 \cite{Verwijst1996,Afas2008a,Sennerby-Forsse1992}. Thus, to employ the
-\ac{3pg} model in coppice management, the
-original model must be modified to reflect this increased
-productivity. The extended model presented in this paper includes coppicing with a
-general model that allows a monthly growth contribution from an
-existing root mass.  The model specifies a relatively small
-contribution of aboveground growth from the accumulated root mass
-after coppicing in order to initiate the next cycle of production \cite{Deckmyn2004}.
-
+\ac{3pg} model in coppice management, the original model must be
+modified to reflect this increased productivity. The extended model
+presented in this paper includes coppicing with a general model that
+allows a monthly growth contribution from an existing root mass.  The
+model specifies a relatively small contribution of aboveground growth
+from the accumulated root mass after coppicing in order to initiate
+the next cycle of production \cite{Deckmyn2004}.
 
 With appropriate input information, the \ac{3pg} model can predict
 yields for the entire Pacific Northwest study region, under various
@@ -284,7 +290,7 @@ determine percentages of each landcover type for each
 pixel~(Figure~\ref{fig:land}).
 
 Data processing was carried out within a postgresql database, with the
-postgis geospatial extensions~\cite{pgsql,Holl2009,postgis}.  The
+postgis geospatial extensions~\cite{Momjian2001,Holl2009}.  The
 \ac{3pg} model implemented directly in the postgresql database via
 user-defined functions.  These function were implemented in
 Javascript, so a single library could support this study, and an
@@ -483,13 +489,13 @@ Tables~\ref{tab:3pg-tree-parameters}~and~\ref{tab:3pg-tree-parameters-vary}.
   $kG$ (kg Pa-1) & 0.5 & 0.5 & 0.4 & 0.3 & 0.5 & 0.5 \\
   $Canopy age$~(y) & 1.5 & 0.6 & 0.5 & 0.7 & 0.9 & 1.2 \\
   $alpha$ (kg mol-1) & 0.08 & 0.08 & 0.11 & 0.09 & 0.08 & 0.06 \\
-  \acs{fN0}  & 0.26 & 0.26 & 1 & 0.8 & 0.3 & 1 \\
+  $f0_{nutr}$  & 0.26 & 0.26 & 1 & 0.8 & 0.3 & 1 \\
   $x_{\acs{fT}}$ & 50 & 50 & 60 & 60 & 50 & 50 \\
   $tm_{\acs{fAge}}$ [y] & 47.5 & 47.5 & 12 & 47.5 & 25  & 25 \\
   $n_{\acs{fAge}}$ & 3.5 & 3.5 & 5 & 3.5 & 3.5 & 3.5 \\
   \hline
 \end{tabularx}
-\label{tab:3pg-parameter-set-varying}
+\label{tab:3pg-tree-parameters-vary}
  \end{table}
 
  Each parameter set was then applied to the entire Pacific Northwest
@@ -638,7 +644,7 @@ used, derived from a suitability analysis for potential plantation
 locations~\cite{Cooke2014}. Permanently non-suitable land was
 identified for removal from consideration. Lands under Federal
 ownership~\cite{NationalAtlasoftheUnitedStates2013} and currently
-developed land~\cite{nlcd2011} were excluded from consideration.
+developed land were excluded from consideration.
 Physical features including slopes greater than 15\%~\cite{Gesch2007},
 and soil salinity greater than 4 (dS / m) were also
 excluded~(Figure~\ref{fig:nonirrigated_yield}).
@@ -910,17 +916,7 @@ Institute of Food and Agriculture (NIFA).
 \bibliographystyle{elsarticle-num} 
 \bibliography{ahb-pnw}
 
-%% else use the following coding to input the bibitems directly in the
-%% TeX file.
-
-% \begin{thebibliography}{00}
-
-% %% \bibitem{label}
-% %% Text of bibliographic item
-
-% \bibitem{}
-
-% \end{thebibliography}
+%%\input{hart14model-poplar-custom.bbl}
 
 \end{document}
 \endinput
