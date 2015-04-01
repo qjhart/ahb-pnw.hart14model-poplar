@@ -98,17 +98,17 @@
 %% \address[label2]{}
 
 \author[lawr]{Q. J. Hart}
-%\author[en]{N. C. Parker}
+\author[cf]{P.W. Tittmann}
 %\author[plant]{B.L. Yeo}
 %\author[lawr]{J. R. Merz}
-\author[pfc]{A. Cooke}
+%\author[pfc]{A. Cooke}
 \author[bioag]{V. Bandaru}
 \author[bioag]{B. M. Jenkins}
 
 \address{Department of Land, Air, and Water, University of California, Davis, USA\fnref{lawr}}
-\address{Precision Forestry Cooperative, University of Washington, USA\fnref{pfc}}
+%\address{Precision Forestry Cooperative, University of Washington, USA\fnref{pfc}}
 %\address{Department of Plant Sciences, University of California, Davis, USA\fnref{plant}}
-%\address{Energy Institute, University of California, Davis, USA\fnref{en}}
+\address{Center for Forestry, University of California, Berkeley, USA\fnref{cf}}
 \address{Department of Biological and Agricultural Engineering, University of California, Davis, USA\fnref{bioag}}
 
 \begin{abstract}
@@ -129,7 +129,7 @@
   throughout the $\approx$8 million km\textsuperscript{2} of the study
   region. Existing agricultural cultivation patterns were used to
   estimate regional water availability for irrigation, and for
-  nonirrigated regions, land cover features including ownership, slope
+  non-irrigated regions, land cover features including ownership, slope
   , soil salinity and water table depth where used to limit
   predictions to areas with a real potential to support a \ac{SRWC}
   plantation.
@@ -184,7 +184,7 @@ hybrid poplar have been used with some success in the region
  relationships did not include coppice management.
 \ac{SECRETS}~\cite{Sampson2001} is another process based model,
 differing from \ac{3pg} in a number of ways, including biomass
-production and partitioning~\cite{SurendranNair2012}.
+production and aboveground partitioning~\cite{SurendranNair2012}.
 
 The \ac{3pg} model was modified for\ac{SRWC}, particularly
 for poplar plantation methodologies. The motivation for the use of
@@ -244,7 +244,8 @@ described here for \ac{3pg}.
 
 The \ac{3pg} model\cite{Headlee2012} has been deployed across several states
 in the northern midwest United States to predict growth and yield of hybrid poplar
-but did not evaluate the impact of coppice management into the model.  To date,
+but did not evaluate the impact of coppice management into the model
+at a 32 km\textsuperscript{2} resolution.  To date,
 the use of physiological growth models such as the \ac{3pg} to
 evaluate spatial variability in yields of coppiced \ac{SRWC} at the
 scale and extent of the results presented here has not been attempted.
@@ -275,16 +276,19 @@ growth potential for the \ac{PNW} that can reliably predicted yield from \ac{SRW
 plantations in the region.
 
 The study area, the Pacific Northwest of the United States,
-includes Washington, Oregon, Northern California, and Western
-Idaho.  A regular grid partitions the region.  The individual pixel size is
-relatively coarse $8192 \times 8192$ (m\^2), and designed to reduce
-some of the complexity of subsequent regional optimization models.
-The projection is an Albers equal area projection with standard
+includes Washington, Oregon, Northern California, Idaho, and western Montana.  A regular grid partitions the region.  The individual pixel size is
+relatively coarse $8192$(m)$ \times 8192$(m) or $2^{13}$~(m), and designed to reduce
+some of the complexity of subsequent regional optimization models. The
+spatial aggregation will necessarily result in yield estimates that do not
+capture local variability. However, the intent of the study is to
+identify areas of high productivity within the study region. Another
+similar study \cite{Headlee2012} used 32 km\textsuperscript{2}
+spatial resolution. 
+
+The geographic projection used is an Albers equal area projection with standard
 longitude 120\degree West, and parallels at latitudes 41\degree and
 47\degree North \footnote{\href{http://spatialreference.org/ref/sr-org/7260/}{http://spatialreference.org/ref/sr-org/7260/}}. This projection insures the pixels
-maintain a constant area, while maintaining good conformity for
-transportation networks.  The pixel edge length is $8192 =
-2^{13}$~(m). Other input datasets (climate, soils) were scaled to match the
+maintain a constant area. Other input datasets (climate, soils) were scaled to match the
 base pixel size and raster origin. For example, the \ac{NLCD} dataset,
 used in this study, was originally  imported and projected to $2^5$
 (m), and aggregated upwards to determine percentages of each landcover
@@ -294,8 +298,8 @@ Data processing was carried out within a postgresql database, with the
 postgis geospatial extensions~\cite{pgsql,Holl2009,postgis}.  The
 \ac{3pg} model was implemented directly in the postgresql database via
 user-defined functions adapted from the spreadsheet model procured
-from the University of British Columbia \ac{3pg} support website \footnote{\href{http://3pg.forestry.ubc.ca/}{http://3pg.forestry.ubc.ca/}}.  These function were implemented in
-Javascript, so that a single library could support this database (postgresql), and an
+from the University of British Columbia \ac{3pg} support website \footnote{\href{http://3pg.forestry.ubc.ca/}{http://3pg.forestry.ubc.ca/}}.  The functions were implemented in
+Javascript, so that a single library could support this database (PostgreSQL), and an
 online application documented in~\cite{Prilepova2014}.
 
 \subsection{\acs{3pg} Model Formulation}
@@ -329,16 +333,15 @@ Alternatively, there have been several reported field tests on
 coppiced poplar
 plantations~\cite{Proe2002,Proe1999,Pontailler1999,Afas2008a} that
 show large variations in above ground biomass production among
-different poplar species.  To represent this variability, a strategy
-was used in which a set of default input values were modified on a per
+different poplar species.  To represent this variability, a set of default input values were modified on a per
 variety basis to match field reported production.  All sets were all
-run on the region, and the average production was reported.
+run on the region, and the average yield across all species was reported.
 
-A \emph{base} parameter set is altered for five additional parameter
-sets estimated from
+The \emph{base} parameters used to model poplar in \ac{3pg} were
+altered for each of five species. Parameters were estimated from
 Pontailler~\cite{Pontailler1999,pontailler97-volume-index,Ceulemans1993},
 a field test that described biomass measurements over 5 two year
-coppicing events for a five different poplar species, grown in Orsay,
+coppicing events for five different poplar species, grown in Orsay,
 France from 1987 through 1997. The clones studied included fast
 growing, interspecific Interamerican (\textit{Populus trichocarpa
   $\times$ P deltoides}) hybrid clones (Parameter sets \emph{Beaupre}
@@ -516,7 +519,7 @@ entire \ac{AHB} region.
 
 The \ac{3pg} model was run with seven representative poplar
 parameterizations across the \ac{AHB} region, using both a
-model that included irrigation and one that was nonirrigated.  The
+model that included irrigation and one that was non-irrigated.  The
 results were averaged over the set of species parameters.  The runs
 were over an 18 year growth period, with a 2.5 year initial coppicing
 event followed by 5 additional events on a three year cycle.  Initial
@@ -723,16 +726,18 @@ the area weighted average of any smaller pixels.
 \subsection{Climate Change}
 
 To demonstrate the effect of potential climate change on yield
-predictions in the near future, the A1B climate change scenario was
-used as an example for predicting yields with a plantation initially
-planted in 2040.
+predictions in the near future, the A1B climate change scenario
+articulated by the \ac{IPCC} as a plausible yet optimistic
+scenario for climate change adaptation strategy policy summary~\cite{IPCC2007,Parry2007} was
+used. Yields were predicted based A1B scenario outcomes on a
+plantation initiated in 2040.
 
 The A1B scenario predicts a balanced utilization of available energy
 sources, with similar improvement rates applied to all energy supply
 and end-use.  The future is one of rapid economic growth, global
 population that peaks in mid-century and declines thereafter, and a
 rapid introduction of new and more efficient
-technologies~\cite{IPCC2007,Parry2007}.
+technologies.
 
 Estimations of the expected change in temperature and precipitation
 were derived from the \ac{CCSM3}.  The \ac{CCSM3} is a climate model
@@ -766,7 +771,7 @@ in along the coast~(Figure~\ref{fig:change}).
 \end{figure}
 
 \section{Results and Discussion}
- Results show an average yield over the entire region of 19.7 (Mg/ha).
+ Results show an average annual yield over the entire region of 19.7 (Mg/ha).
  38000 ($km^2$) were included in the estimate.  Yields were highest in the central valley
 of California, a rich agricultural center, with similar yields along
 the temperate western parts of Oregon and Washington.  Yields
@@ -780,11 +785,11 @@ section of the study region~(Figure~\ref{fig:irrigated_yield}).
   \label{fig:irrigated_yield}
 \end{figure}
 
-Similarly, the nonirrigated yield predictions were masked with the
+Similarly, the non-irrigated yield predictions were masked with the
 areas excluded in the land suitability study to include those areas
-likely to support nonirrigated poplar plantations.  Results for the
-nonirrigated lands predict a yield of 6.6 (Mg/ha) over an area under
-consideration of 57000 ($km^2$).  In the case of nonirrigated yields, the
+likely to support non-irrigated poplar plantations.  Results for the
+non-irrigated lands predict an annual yield of 6.6 (Mg/ha) over an area under
+consideration of 57000 ($km^2$).  In the case of non-irrigated yields, the
 highest yields were along the Pacific coast where precipitation is
 most plentiful, and more uniform in the inland areas of the \ac{AHB}
 region~(Figure~\ref{fig:nonirrigated_yield}).
@@ -792,7 +797,7 @@ region~(Figure~\ref{fig:nonirrigated_yield}).
 \begin{figure}[hp]
   \centering
   \includegraphics[width=1.0\linewidth]{nonirrigated_yield}
-  \caption{Predicted annual nonirrigated yields for a 18 year 5 coppice plantation cycle for areas in the \ac{PNW} identified as rangeland or marginal land.  The image only includes pixels with more than \%20 area identified as marginal or rangeland.  The isolines on the maps describe the standard deviation over the 7 parameterizations.}
+  \caption{Predicted annual non-irrigated yields for a 18 year 5 coppice plantation cycle for areas in the \ac{PNW} identified as rangeland or marginal land.  The image only includes pixels with more than \%20 area identified as marginal or rangeland.  The isolines on the maps describe the standard deviation over the 7 parameterizations.}
   \label{fig:nonirrigated_yield}
 \end{figure}
 
@@ -822,7 +827,7 @@ regions~(Figure~\ref{fig:new_irrigated}).
   \label{fig:new_irrigated}
 \end{figure}
 
-For nonirrigated plantations, the predicted decrease in precipitation
+For non-irrigated plantations, the predicted decrease in precipitation
 decreases yields along the areas with the current highest yields,
 along the wet Pacific coast.  Higher temperatures continue to increase
 yields in most of the inland areas~(Figure~\ref{fig:new_nonirrigated})
@@ -830,7 +835,7 @@ yields in most of the inland areas~(Figure~\ref{fig:new_nonirrigated})
 \begin{figure}[hp]
   \centering
   \includegraphics[width=1\linewidth]{climate_nonirrigated}
-  \caption{Changes in predicted nonirrigated yield for \ac{IPCC} scenario A1B
+  \caption{Changes in predicted non-irrigated yield for \ac{IPCC} scenario A1B
     for a plantation planting in 2040-2058.}
   \label{fig:new_nonirrigated}
 \end{figure}
@@ -873,10 +878,10 @@ viable product.
  
 For non-irrigated land, marginal and under utilized lands can be added
 into the overall agricultural economy as newly utilized lands.  For
-nonirrigated plantations, crop budgets can give estimates of farm gate
+non-irrigated plantations, crop budgets can give estimates of farm gate
 costs (\$/Mg) which are affected by the predicted yields.
 
-Both the irrigated and nonirrigated regions, total amount of available
+Both the irrigated and non-irrigated regions, total amount of available
 feedstock for a particular farm gate price can then be estimated.
 These are also spatially distributed.  Another \ac{AHB} model, the
 \acf{GBSM} takes as inputs these spatially distributed price curves,
@@ -898,8 +903,13 @@ include irrigation which increases yields from most areas in the region.
 
 With additional layers showing current croplands, areas the can be
 irrigated are identified.  Poplar suitability maps limit consideration
-on nonirrigated plantations to regions that are amenable to such
+on non-irrigated plantations to regions that are amenable to such
 management.
+
+Limitations of the model presented here are primarily related to
+reliability of the predicted yield at the local scale. As the spatial
+unit of measure is a 64 km\textsuperscript{2} land area, variability
+in growth and yield at a local scale may be great.
 
 Spatially distributed yield predictions inform regional models as to
 the expected costs of producing a poplar biofuel feedstock and the
