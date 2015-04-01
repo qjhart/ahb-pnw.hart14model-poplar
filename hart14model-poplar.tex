@@ -56,8 +56,8 @@
 \usepackage{tabularx}
 \usepackage{lineno}
 \usepackage{graphicx}
-\usepackage{ednotes}
 \usepackage{color}
+\usepackage{hyperref}
 \pdfpagebox5
 \usepackage{pgfplots}
 \usepgfplotslibrary{dateplot}
@@ -166,7 +166,8 @@
 %% Text of abstract
 The \acf{AHB} is a consortium of university and industry partners
 investigating the development of a sustainable hardwood biofuels
-industry in Washington, Oregon, northern California and northern Idaho
+industry in Washington, Oregon, northern California, Idaho, and
+western Montana
 in the United States.  Inspired in part by the U.S. Energy Independence and
 Security Act 2022 targets for renewable fuel, \ac{AHB} is carrying out
 research and development to support a system for growing and
@@ -180,7 +181,7 @@ the \acf{3pg}\cite{landsberg2010physiological,Landsberg1997,Sands2004}
 model was utilized.  Empirically based growth and yield models for
 hybrid poplar have been used with some success in the region
 \cite{Clendenen1996}, however the samples used to develop allometric
-relationships did not include coppice management.
+ relationships did not include coppice management.
 \ac{SECRETS}~\cite{Sampson2001} is another process based model,
 differing from \ac{3pg} in a number of ways, including biomass
 production and partitioning~\cite{SurendranNair2012}.
@@ -281,20 +282,20 @@ The projection is an Albers equal area projection with standard
 longitude 120\degree West, and parallels at latitudes 41\degree and
 47\degree North~\cite{Butler}. This projection insures the pixels
 maintain a constant area, while maintaining good conformity for
-transportation networks.  The pixel edge length, $8192 = 2^{13}$~(m)
-is defined as a binary factor to allow easy scaling up and down of the
-data to different resolutions while maintaining common edges.  For
-example, the \ac{NLCD} dataset, used in this study, was originally
-imported and projected to $2^5$ (m), and aggregated upwards to
-determine percentages of each landcover type for each
-pixel~(Figure~\ref{fig:land}).
+transportation networks.  The pixel edge length is $8192 =
+2^{13}$~(m). Other input datasets (climate, soils) were scaled to match the
+base pixel size and raster origin. For example, the \ac{NLCD} dataset,
+used in this study, was originally  imported and projected to $2^5$
+(m), and aggregated upwards to determine percentages of each landcover
+type for each pixel~(Figure~\ref{fig:land}). 
 
 Data processing was carried out within a postgresql database, with the
-postgis geospatial extensions~\cite{Momjian2001,Holl2009}.  The
-\ac{3pg} model implemented directly in the postgresql database via
-user-defined functions.  These function were implemented in
-Javascript, so a single library could support this study, and an
-online application~\cite{Prilepova2014}.
+postgis geospatial extensions~\cite{pgsql,Holl2009,postgis}.  The
+\ac{3pg} model was implemented directly in the postgresql database via
+user-defined functions adapted from the spreadsheet model procured
+from the University of British Columbia \ac{3pg} support website \footnote{\href{http://3pg.forestry.ubc.ca/}{http://3pg.forestry.ubc.ca/}}.  These function were implemented in
+Javascript, so that a single library could support this database (postgresql), and an
+online application documented in~\cite{Prilepova2014}.
 
 \subsection{\acs{3pg} Model Formulation}
 \label{sec:3pg}
@@ -307,6 +308,7 @@ species definitions.  The \ac{3pg} model is run at a monthly
 timestep. At each step the physiological parameters are calculated and
 carried forward to the next month.
 % Not sure bout this
+% Addressing temporal resolution is requested by a reviewer...PT
 %Introduction of coppicing into the model may result in
 %divergence of modeled results with empirical data depending upon the
 %point in time within the month that coppicing is conducted. The
@@ -319,7 +321,7 @@ can be compared to model predictions with field results at multiple
 stages in the plantation's history.
 
 A few studies have specifically modeled poplar using the 3PG
-model~\cite{Amichev2010,Headlee2012}. Headlee~\cite{Headlee2012} in
+model~\cite{Amichev2010,Headlee2012,Zalesny2012}. Headlee~\cite{Headlee2012} in
 particular, developed parameters from a review of laboratory and field
 studies to represent the growth of a representative hybrid poplar.
 Alternatively, there have been several reported field tests on
@@ -327,7 +329,7 @@ coppiced poplar
 plantations~\cite{Proe2002,Proe1999,Pontailler1999,Afas2008a} that
 show large variations in above ground biomass production among
 different poplar species.  To represent this variability, a strategy
-was used where a set of default input values were modified on a per
+was used in which a set of default input values were modified on a per
 variety basis to match field reported production.  All sets were all
 run on the region, and the average production was reported.
 
@@ -398,20 +400,20 @@ HW2 with a maximum allowable $\ac{pfs}=2$, when the coppiced trees small.
 
 In \ac{3pg} foilage is required for growth.  After coppicing however,
 with no foliage, there is no mechanism for initial regrowth. A simple
-coppicing model has been developed to transfer biomass from the root
+coppicing model was developed to transfer biomass from the root
 system to the regenerating foliage after coppicing.  When a \ac{SRWC}
-is coppiced thee is no foliage, but extra root mass.  In the coppice
-submodel, this surfeit is allowed to contribute to production,
-\ac{RP}~at each monthly timestep.  The seasonal timing of any root
-contribution is moderated by comparing a monthly \ac{NPP} to a
-productivity (\ac{NPPt})~the tree would have for a target
-\ac{LAIt}. $\ac{NPPt}-\ac{NPP}$ serves as a limit on the root
-contribution.  Using a potential \ac{NPPt} serves two purposes. First,
-it allows root contributions up to, but not beyond a certain foliage
-amount, as specified by the \ac{LAI}.  More importantly, since the
-root contribution is regulated by \ac{NPP}, the method times regrowth
-with conditions that are favorable, and does not initiate growth when
-conditions are not.  
+is coppiced the root-shoot ratio changes dramatically.  To reflect
+the dramatic change and subsequent regrowth in \ac{3pg}, the root mass
+is allowed to contribute to production of above ground biomass,
+\ac{RP}~at each monthly timestep.  No empirical evidence reflecting
+root contribution to stem regeneration could be found. The seasonal timing of root
+contribution is moderated by the \ac{LAI}. $\ac{NPPt}-\ac{NPP}$ serves
+as a limit on the root contribution.  Using a potential \ac{NPPt}
+serves two purposes. First, it allows root contribution post-coppice up to, but
+not beyond a certain foliage amount, as specified by the \ac{LAI}.
+More importantly, since the root contribution is regulated by
+\ac{NPP}, the method allows the model to function as in the field
+wherein seasonality (climate) determines regrowth.
 
 Excess root mass needs to exist of course.  \ac{3pg} specifies a
 \ac{pRx}, and excess root is the difference of this from the fraction
@@ -511,6 +513,19 @@ parameters to predict yields for potential plantation locations.
 Yield maps are the average yield from the seven parameter sets over the
 entire \ac{AHB} region. 
 
+The \ac{3pg} model was run with seven representative poplar
+parameterizations across the \ac{AHB} region, using both a
+model that included irrigation and one that was nonirrigated.  The
+results were averaged over the set of species parameters.  The runs
+were over an 18 year growth period, with a 2.5 year initial coppicing
+event followed by 5 additional events on a three year cycle.  Initial
+planting was in March, with all coppicing events occurring in
+November.  The 6 total harvest events were annualized over the 18 year
+time span to report predicted yields on a per year basis.
+
+Finally, the layer of current croplands was used to mask the yield
+maps to include only those areas where irrigation is likely, to
+determine an overall predicted irrigated yield.
 
 \subsubsection{Climatic and Radiation Data}
 \label{sec:climate}
@@ -536,8 +551,8 @@ topographic position, and orographic effectiveness of the terrain.
 16 years of \ac{PRISM} data were interpolated (cubic spline) to the
 \ac{AHB} grid averaged to determine a representative weather pattern
 used near term modeling for the \ac{AHB} yield predictions.
-Figure~\ref{fig:temp} shows annual mean temperature and total
-precipitation variation of the region.  Isolines show the standard
+Annual mean temperature is shown in figure~\ref{fig:temp} and total
+precipitation variation of the region is shown in figure~\ref{fig:precip}.  Isolines show the standard
 deviation between annual mean temperature to the monthly mean
 temperature.  Similarly isolines shown on the precipitation map show
 the maximum monthly contribution of precipitation.
@@ -565,7 +580,8 @@ from geostationary weather satellites, daily snow cover data, and
 monthly averages of atmospheric water vapor, trace gases, aerosols are
 used to calculate the hourly total direct and diffuse insolation
 falling on a horizontal surface.  Existing ground measurement stations
-validate the data where available.
+validate the data where available. Where no existing ground weather
+stations exist, the model is assumed to be the best estimate.
 
 The incident radiation data is available on a gridded format with a
 scale similar to this project and is interpolated (cubic-spline)
@@ -636,12 +652,12 @@ of growing poplar.
 In addition, the ability to irrigate a poplar plantation can have
 large effects on the predicted yields of poplar.  Determining which
 areas in the \ac{PNW} region are liable to be available for irrigation
-can significantly influence regional polar harvest estimations.  
+can significantly influence regional poplar harvest estimations.  
 
 In order to limit the areas within the \ac{AHB} region to areas that
 are technically suitable to poplar plantations, a set of masks were
 used, derived from a suitability analysis for potential plantation
-locations~\cite{Cooke2014}. Permanently non-suitable land was
+locations. Permanently non-suitable land was
 identified for removal from consideration. Lands under Federal
 ownership~\cite{NationalAtlasoftheUnitedStates2013} and currently
 developed land were excluded from consideration.
@@ -687,6 +703,10 @@ fractions over nay county in the \ac{AHB} region match the reported
 number of hectares harvested for that county and commodity.  This
 method allows the spatial patterns of the CDL to be retained with
 fractions that add to the \ac{NASS} reported values.
+
+All native image (raster) formats were scaled to match the $\approx$16
+km\textsuperscript{2} project pixel resolution. Scaled pixels reflect
+the area weighted average of any smaller pixels.
 
 \begin{figure}[hp]
   \centering
@@ -745,25 +765,11 @@ in along the coast~(Figure~\ref{fig:change}).
 \end{figure}
 
 \section{Results and Discussion}
-
-The \ac{3pg} model was run with seven representative poplar
-parameterizations were run over the \ac{AHB} region, using both a
-model that included irrigation and one that was nonirrigated.  The
-results were averaged over the set of species parameters.  The runs
-were over an 18 total lifetime, with a 2.5 year initial coppicing
-event followed by 5 additional events on a three year cycle.  Initial
-planting was in March, with all coppicing events occurring in
-November.  The 6 total harvest events were annualized over the 18 year
-time span to report predicted yields on a per year basis.
-
-Finally, the layer of current croplands was used to mask the yield
-maps to include only those areas where irrigation is likely, to
-determine an overall predicted irrigated yield.  The results show an
-average yield over the entire region of 19.7 (Mg/ha).  38000 ($km^2$) were
-included in the estimate.  Yields were highest in the central valley
+ Results show an average yield over the entire region of 19.7 (Mg/ha).
+ 38000 ($km^2$) were included in the estimate.  Yields were highest in the central valley
 of California, a rich agricultural center, with similar yields along
 the temperate western parts of Oregon and Washington.  Yields
-decreased in the Northern plains, reaching lows in the Northeastern
+decreased in eastern Washington, reaching lows in the Northeastern
 section of the study region~(Figure~\ref{fig:irrigated_yield}).
 
 \begin{figure}[hp]
