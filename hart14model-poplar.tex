@@ -139,7 +139,7 @@
   Important findings from the model include; validation of the
   \ac{3pg} model for coppiced \ac{SRWC} plantings, estimates of
   biomass feedstock yields under different irrigation patterns and
-  weather conditions, and annual estimates for feedstock availability
+  weather conditions, and estimates for feedstock availability
   when combined with crop adoption scenarios.
 
 \end{abstract}
@@ -167,12 +167,13 @@
 The \acf{AHB} is a consortium of university and industry partners
 investigating the development of a sustainable hardwood biofuels
 industry in Washington, Oregon, northern California, Idaho, and
-western Montana
-in the United States.  Inspired in part by the U.S. Energy Independence and
-Security Act 2022 targets for renewable fuel, \ac{AHB} is carrying out
-research and development to support a system for growing and
-converting hardwoods, such as hybrid poplars, into liquid biofuels.
-This research and development initiative has focused on fuels fully compatible with existing liquid transportation fuel infrastructure.
+western Montana in the United States.  Inspired in part by the
+U.S. Energy Independence and Security Act 2022 targets for renewable
+fuel, \ac{AHB} is carrying out research and development to support a
+system for growing and converting hardwoods, such as hybrid poplars,
+into liquid biofuels.  This research and development initiative has
+focused on fuels fully compatible with existing liquid transportation
+fuel infrastructure.
 
 To support economic and environmental models for a biofuels industry,
 spatial predictions of the growth and yield of \acf{SRWC} under
@@ -267,40 +268,45 @@ the next cycle of production \cite{Deckmyn2004}.
 With appropriate input information, the \ac{3pg} model can predict
 yields for the entire Pacific Northwest study region, under various
 irrigation scenarios.  When linked with models of crop adoption,
-annual feedstock estimates are possible.
+biofuel feedstock estimates are possible.
 
 \section{Methods and Calculation}
 
 The main goal of this study was to create spatially explicit poplar
-growth potential for the \ac{PNW} that can reliably predicted yield from \ac{SRWC}
-plantations in the region.
+growth potential for the \ac{PNW} that can reliably predicted yield
+from \ac{SRWC} plantations in the region.
 
-The study area, the Pacific Northwest of the United States,
-includes Washington, Oregon, Northern California, Idaho, and western Montana.  A regular grid partitions the region.  The individual pixel size is
-relatively coarse $8192$(m)$ \times 8192$(m) or $2^{13}$~(m), and designed to reduce
-some of the complexity of subsequent regional optimization models. The
-spatial aggregation will necessarily result in yield estimates that do not
-capture local variability. However, the intent of the study is to
-identify areas of high productivity within the study region. Another
-similar study \cite{Headlee2012} used 32 km\textsuperscript{2}
-spatial resolution. 
+The study area, the Pacific Northwest of the United States, includes
+Washington, Oregon, Northern California, Idaho, and western Montana.
+A regular grid partitions the region.  The individual pixel size is
+relatively coarse $8192$(m)$ \times 8192$(m), and results in a number
+of pixels that are compatible with complexity of subsequent regional
+optimization models. The spatial aggregation will necessarily result
+in yield estimates that do not capture local variability. However, the
+intent of the study is to identify areas of high productivity within
+the study region. Another similar study \cite{Headlee2012} used 32
+km\textsuperscript{2} spatial resolution.
 
-The geographic projection used is an Albers equal area projection with standard
-longitude 120\degree West, and parallels at latitudes 41\degree and
-47\degree North \footnote{\href{http://spatialreference.org/ref/sr-org/7260/}{http://spatialreference.org/ref/sr-org/7260/}}. This projection insures the pixels
-maintain a constant area. Other input datasets (climate, soils) were scaled to match the
-base pixel size and raster origin. For example, the \ac{NLCD} dataset,
-used in this study, was originally  imported and projected to $2^5$
-(m), and aggregated upwards to determine percentages of each landcover
-type for each pixel~(Figure~\ref{fig:land}). 
+The geographic projection used is an Albers equal area projection with
+standard longitude 120\degree West, and parallels at latitudes
+41\degree and 47\degree North
+\footnote{\href{http://spatialreference.org/ref/sr-org/7260/}{http://spatialreference.org/ref/sr-org/7260/}}. This
+projection insures the pixels maintain a constant area. Other input
+datasets (climate, soils) were scaled to match the base pixel size and
+raster projection. For example, the \ac{NLCD} dataset used in this
+study, was originally imported and projected at a much finer scale,
+$32 \times 32$ (m), then aggregated upwards to determine percentages of
+each landcover type for each pixel~(Figure~\ref{fig:land}).
 
 Data processing was carried out within a postgresql database, with the
 postgis geospatial extensions~\cite{pgsql,Holl2009,postgis}.  The
 \ac{3pg} model was implemented directly in the postgresql database via
 user-defined functions adapted from the spreadsheet model procured
-from the University of British Columbia \ac{3pg} support website \footnote{\href{http://3pg.forestry.ubc.ca/}{http://3pg.forestry.ubc.ca/}}.  The functions were implemented in
-Javascript, so that a single library could support this database (PostgreSQL), and an
-online application documented in~\cite{Prilepova2014}.
+from the University of British Columbia \ac{3pg} support website
+\footnote{\href{http://3pg.forestry.ubc.ca/}{http://3pg.forestry.ubc.ca/}}.
+The functions were implemented in Javascript, so that a single library
+could support this database (PostgreSQL), and an online application
+documented in~\cite{Prilepova2014}.
 
 \subsection{\acs{3pg} Model Formulation}
 \label{sec:3pg}
@@ -406,18 +412,18 @@ In \ac{3pg} foilage is required for growth.  After coppicing however,
 with no foliage, there is no mechanism for initial regrowth. A simple
 coppicing model was developed to transfer biomass from the root
 system to the regenerating foliage after coppicing.  When a \ac{SRWC}
-is coppiced the root-shoot ratio changes dramatically.  To reflect
-the dramatic change and subsequent regrowth in \ac{3pg}, the root mass
-is allowed to contribute to production of above ground biomass,
-\ac{RP}~at each monthly timestep.  No empirical evidence reflecting
-root contribution to stem regeneration could be found. The seasonal timing of root
-contribution is moderated by the \ac{LAI}. $\ac{NPPt}-\ac{NPP}$ serves
-as a limit on the root contribution.  Using a potential \ac{NPPt}
-serves two purposes. First, it allows root contribution post-coppice up to, but
-not beyond a certain foliage amount, as specified by the \ac{LAI}.
-More importantly, since the root contribution is regulated by
-\ac{NPP}, the method allows the model to function as in the field
-wherein seasonality (climate) determines regrowth.
+is coppiced thee is no foliage, but extra root mass.  In the coppice
+submodel, this surfeit is allowed to contribute to production,
+\ac{RP}~at each monthly timestep.  The seasonal timing of any root
+contribution is moderated by comparing a monthly \ac{NPP} to a
+productivity (\ac{NPPt})~the tree would have for a target
+\ac{LAIt}. $\ac{NPPt}-\ac{NPP}$ serves as a limit on the root
+contribution.  Using a potential \ac{NPPt} serves two purposes. First,
+it allows root contributions up to, but not beyond a certain foliage
+amount, as specified by the \ac{LAI}.  More importantly, since the
+root contribution is regulated by \ac{NPP}, the method times regrowth
+with conditions that are favorable, and does not initiate growth when
+conditions are not.  
 
 Excess root mass needs to exist of course.  \ac{3pg} specifies a
 \ac{pRx}, and excess root is the difference of this from the fraction
@@ -524,8 +530,7 @@ results were averaged over the set of species parameters.  The runs
 were over an 18 year growth period, with a 2.5 year initial coppicing
 event followed by 5 additional events on a three year cycle.  Initial
 planting was in March, with all coppicing events occurring in
-November.  The 6 total harvest events were annualized over the 18 year
-time span to report predicted yields on a per year basis.
+November.
 
 Finally, the layer of current croplands was used to mask the yield
 maps to include only those areas where irrigation is likely, to
@@ -708,7 +713,7 @@ number of hectares harvested for that county and commodity.  This
 method allows the spatial patterns of the CDL to be retained with
 fractions that add to the \ac{NASS} reported values.
 
-All native image (raster) formats were scaled to match the $\approx$16
+All native image (raster) formats were scaled to match the $\approx$64
 km\textsuperscript{2} project pixel resolution. Scaled pixels reflect
 the area weighted average of any smaller pixels.
 
@@ -771,33 +776,35 @@ in along the coast~(Figure~\ref{fig:change}).
 \end{figure}
 
 \section{Results and Discussion}
- Results show an average annual yield over the entire region of 19.7 (Mg/ha).
- 38000 ($km^2$) were included in the estimate.  Yields were highest in the central valley
-of California, a rich agricultural center, with similar yields along
-the temperate western parts of Oregon and Washington.  Yields
-decreased in eastern Washington, reaching lows in the Northeastern
-section of the study region~(Figure~\ref{fig:irrigated_yield}).
+
+Results show an average coppice yield for irrigated poplar over the
+entire region of 19.7 (Mg/ha).  38000 ($km^2$) were included in the
+estimate.  Yields were highest in the central valley of California, a
+rich agricultural center, with similar yields along the temperate
+western parts of Oregon and Washington.  Yields decreased in eastern
+Washington, reaching lows in the Northeastern section of the study
+region~(Figure~\ref{fig:irrigated_yield}).
 
 \begin{figure}[hp]
   \centering
   \includegraphics[width=1.0\linewidth]{irrigated_yield}
-  \caption{Predicted annual irrigated yields for a 18 year 5 coppice plantation cycle for areas in the \ac{PNW} currently under agricultural practice.  The image only includes pixels with more that \%20 area identified as cropland.  The isolines on the maps describe the standard deviation over the 7 parameterizations.}
+  \caption{Predicted irrigated yield of a 3 year coppice harvest for areas in the \ac{PNW} currently under agricultural practice.  The image only includes pixels with more that \%20 area identified as cropland.  The isolines on the maps describe the standard deviation over the 7 parameterizations.}
   \label{fig:irrigated_yield}
 \end{figure}
 
 Similarly, the non-irrigated yield predictions were masked with the
 areas excluded in the land suitability study to include those areas
 likely to support non-irrigated poplar plantations.  Results for the
-non-irrigated lands predict an annual yield of 6.6 (Mg/ha) over an area under
-consideration of 57000 ($km^2$).  In the case of non-irrigated yields, the
-highest yields were along the Pacific coast where precipitation is
-most plentiful, and more uniform in the inland areas of the \ac{AHB}
-region~(Figure~\ref{fig:nonirrigated_yield}).
+non-irrigated lands predict an average coppice yield of 6.6 (Mg/ha)
+over an area under consideration of 57000 ($km^2$).  In the case of
+non-irrigated yields, the highest yields were along the Pacific coast
+where precipitation is most plentiful, and more uniform in the inland
+areas of the \ac{AHB} region~(Figure~\ref{fig:nonirrigated_yield}).
 
 \begin{figure}[hp]
   \centering
   \includegraphics[width=1.0\linewidth]{nonirrigated_yield}
-  \caption{Predicted annual non-irrigated yields for a 18 year 5 coppice plantation cycle for areas in the \ac{PNW} identified as rangeland or marginal land.  The image only includes pixels with more than \%20 area identified as marginal or rangeland.  The isolines on the maps describe the standard deviation over the 7 parameterizations.}
+  \caption{Predicted non-irrigated yields of a 3 year coppice harvest for areas in the \ac{PNW} identified as rangeland or marginal land.  The image only includes pixels with more than \%20 area identified as marginal or rangeland.  The isolines on the maps describe the standard deviation over the 7 parameterizations.}
   \label{fig:nonirrigated_yield}
 \end{figure}
 
@@ -807,10 +814,10 @@ region~(Figure~\ref{fig:nonirrigated_yield}).
 To assess the predicted change in yields from the A1B example study,
 the model was rerun with the same parameters as the previously, but
 with the predicted changes in temperature and precipitation.  The
-results were averaged and summarized as above to determine annualized
-yields.  The yields were then compared to the current yield estimates
-to determine the difference in predicted yields under that one example
-climate change scenario.  
+results were averaged and summarized as above to predict yields.  The
+yields were then compared to the current yield estimates to determine
+the difference in predicted yields under that one example climate
+change scenario.
 
 Under irrigated conditions, the higher predicted temperatures
 generally improve yields through most of the region, with the
