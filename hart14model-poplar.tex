@@ -288,10 +288,10 @@ the study region. Another similar study \cite{Headlee2012} used 32
 km\textsuperscript{2} spatial resolution.
 
 The geographic projection used is an Albers equal area projection with
-standard longitude 120\degree West, and parallels at latitudes
-41\degree and 47\degree North
-\footnote{\href{http://spatialreference.org/ref/sr-org/7260/}{http://spatialreference.org/ref/sr-org/7260/}}. This
-projection insures the pixels maintain a constant area. Other input
+reference longitude 120\degree~W, latitude 44\degree~N and parallels
+at 41\degree~N and 47\degree~N.
+%\footnote{\href{http://spatialreference.org/ref/sr-org/7260/}{http://spatialreference.org/ref/sr-org/7260/}}.
+This projection insures the pixels maintain a constant area. Other input
 datasets (climate, soils) were scaled to match the base pixel size and
 raster projection. For example, the \ac{NLCD} dataset used in this
 study, was originally imported and projected at a much finer scale,
@@ -385,7 +385,7 @@ an otherwise unmodified base set of poplar parameter assumptions.
 
 \begin{table}%[p]
   \caption{\ac{VI}~parameter variations of \ac{3pg} among parameter sets.}
-  \begin{tabular}{|l|c|c|c|c|c|}
+  \begin{tabular}{|lccccc|}
     \hline
     Parameter & Beaupre & Fritzi Pauley & Raspalje & Robusta & Base\\
     \hline
@@ -393,7 +393,7 @@ an otherwise unmodified base set of poplar parameter assumptions.
     $\beta_{DM}$  & 166.0 & 157.6 & 161.5 & 162 & 161.5\\
     $\gamma_{LA}$ &  0.428 &  0.481 & 0.495 & 0.496 & 0.495\\ 
     $\beta_{LA}$ & $e^{-0.161}$ & $e^{-0.198}$ & $e^{-0.287}$ & $e^{-0.273}$ & $e^{-0.287}$\\
-    \ac{sps} & 4 & 3.5 & 2.8 & 5 \\
+    \ac{sps} & 4 & 3.5 & 2.8 & 5 & 2.8\\
     \hline 
   \end{tabular}
   \begin{flushleft}$DM=\ac{sps}(\beta_{DM} VI^{\gamma_{DM}})$, and $LA = \beta_{LA} VI^{\gamma_{LA}}$~\cite{pontailler97-volume-index}.
@@ -410,29 +410,28 @@ HW2 with a maximum allowable $\ac{pfs}=2$, when the coppiced trees small.
 
 In \ac{3pg} foilage is required for growth.  After coppicing however,
 with no foliage, there is no mechanism for initial regrowth. A simple
-coppicing model was developed to transfer biomass from the root
-system to the regenerating foliage after coppicing.  When a \ac{SRWC}
-is coppiced thee is no foliage, but extra root mass.  In the coppice
-submodel, this surfeit is allowed to contribute to production,
+coppicing model was developed to transfer biomass from the root system
+to the regenerating foliage after coppicing.  When a \ac{SRWC} is
+coppiced there is no foliage, but a large root mass.  In the coppice
+submodel, a small portion of this mass is allowed to contribute as
 \ac{RP}~at each monthly timestep.  The seasonal timing of any root
 contribution is moderated by comparing a monthly \ac{NPP} to a
-productivity (\ac{NPPt})~the tree would have for a target
+\ac{NPPt}, corresponding to a specified
 \ac{LAIt}. $\ac{NPPt}-\ac{NPP}$ serves as a limit on the root
 contribution.  Using a potential \ac{NPPt} serves two purposes. First,
 it allows root contributions up to, but not beyond a certain foliage
-amount, as specified by the \ac{LAI}.  More importantly, since the
-root contribution is regulated by \ac{NPP}, the method times regrowth
-with conditions that are favorable, and does not initiate growth when
-conditions are not.  
+amount, as specified by \ac{LAIt}.  More importantly, since the root
+contribution is regulated by \ac{NPP}, \ac{RP} is timed with
+conditions that are favorable for plant regrowth.
 
 Excess root mass needs to exist of course.  \ac{3pg} specifies a
 \ac{pRx}, and excess root is the difference of this from the fraction
-of \ac{WS} and \ac{W}, $\ac{WR}(\ac{WR}/\acs{W}-\acs{pRx})$.  \ac{Rdp}
-limits the contribution of this excess to the small fraction that can
-be used for regrowth. \ac{Rdp} affects both the amount and the timeliness where
-contributions are made.  In poplar, starch and sugar content can be as
-much as 20\% in coarse roots, though this varies
-seasonally~\cite{Regier2010}.
+of \ac{WS} and \ac{W}, $\ac{WR}(\ac{WR}/\acs{W}-\acs{pRx})$.  The
+\ac{Rdp} limits the contribution of this excess to the small fraction
+that can be used for regrowth. \ac{Rdp} affects both the amount and
+the timeliness where contributions are made.  In poplar, starch and
+sugar content can be as much as 20\% in coarse roots, though this
+varies seasonally~\cite{Regier2010}.
 
 With an additional \ac{Re} for transfer from root to above ground
 biomass, per-month $\ac{RP} =
@@ -493,7 +492,7 @@ Tables~\ref{tab:3pg-tree-parameters}~and~\ref{tab:3pg-tree-parameters-vary}.
 
 \begin{table}%[p]
 \caption{3PG Parameter set variation}
-\begin{tabularx}{\linewidth}{|X|c|c|c|c|c|c|}
+\begin{tabularx}{\linewidth}{|Xcccccc|}
 \hline
  Parameter & HW2 & Base & Raspalje & Beaupre & Fritzi & Robusta\\
   \hline   
@@ -804,7 +803,7 @@ areas of the \ac{AHB} region~(Figure~\ref{fig:nonirrigated_yield}).
 \begin{figure}[hp]
   \centering
   \includegraphics[width=1.0\linewidth]{nonirrigated_yield}
-  \caption{Predicted non-irrigated yields of a 3 year coppice harvest for areas in the \ac{PNW} identified as rangeland or marginal land.  The image only includes pixels with more than \%20 area identified as marginal or rangeland.  The isolines on the maps describe the standard deviation over the 7 parameterizations.}
+5   \caption{Predicted non-irrigated yields of a 3 year coppice harvest for areas in the \ac{PNW} identified as rangeland or marginal land.  The image only includes pixels with more than \%20 area identified as marginal or rangeland.  The isolines on the maps describe the standard deviation over the 7 parameterizations.}
   \label{fig:nonirrigated_yield}
 \end{figure}
 
