@@ -235,16 +235,16 @@ production. One\cite{Amichev2010} used the \ac{3pg} to predict growth of
 the Walker poplar hybrid (\textit{Populus deltoides} x \textit{Populus
   nigra}) in Saskatchewan, Canada. This analysis did not investigate
 the growth dynamics related to coppicing. In a separate study
-\citet{Deckmyn2004} the \ac{SECRETS} model was modified
+\cite{Deckmyn2004} the \ac{SECRETS} model was modified
 and evaluated for coppice poplar production from two
 varieties under a range of soil fertility conditions.  The
 \ac{SECRETS} coppice modified paritioning fractions with the presence
 of a large root mass, one of the outcomes of the coppicing model
 described here for \ac{3pg}.
 
-\citet{Headlee2012} deployed the \ac{3pg} model across several states
-in the northern midwest to predict growth and yield of hybrid poplar
-but did ot incorporate coppice management into the model.  To date,
+The \ac{3pg} model\cite{Headlee2012} has been deployed across several states
+in the northern midwest United States to predict growth and yield of hybrid poplar
+but did not evaluate the impact of coppice management into the model.  To date,
 the use of physiological growth models such as the \ac{3pg} to
 evaluate spatial variability in yields of coppiced \ac{SRWC} at the
 scale and extent of the results presented here has not been attempted.
@@ -281,7 +281,7 @@ relatively coarse $8192 \times 8192$ (m\^2), and designed to reduce
 some of the complexity of subsequent regional optimization models.
 The projection is an Albers equal area projection with standard
 longitude 120\degree West, and parallels at latitudes 41\degree and
-47\degree North~\cite{Butler}. This projection insures the pixels
+47\degree North \footnote{\href{http://spatialreference.org/ref/sr-org/7260/}{http://spatialreference.org/ref/sr-org/7260/}}. This projection insures the pixels
 maintain a constant area, while maintaining good conformity for
 transportation networks.  The pixel edge length is $8192 =
 2^{13}$~(m). Other input datasets (climate, soils) were scaled to match the
@@ -461,7 +461,7 @@ decreased by $(\ac{pRx}/(\ac{WR}/\ac{W}))^2$
 
 Figure~\ref{fig:pont-best} shows the five parameter set variations
 used to match reported variation in the five poplar types.  The lines
-indicate the \ac{3PG} model predictions, with the black line being the
+indicate the \ac{3pg} model predictions, with the black line being the
 \emph{base} parameter set.  The dots indicate reported stem biomass at
 each coppice event.
 
@@ -541,7 +541,7 @@ mountain ranges, which moderate both the precipitation, and the
 temperatures throughout the year.
 
 In order to predict temperatures and precipitation on the near term,
-the \acf{PRISM} dataset was used~\cite{Daly2008a}.  \ac{PRISM}
+the \acf{PRISM} dataset was used ~\cite{Daly2008}.  \ac{PRISM}
 extrapolates station data spatially to a uniform grid using weights
 derived from the physiographic similarity of the station to the grid
 cell. These similarity measures include location, elevation, coastal
@@ -574,7 +574,7 @@ the maximum monthly contribution of precipitation.
 
 In order to determine incoming monthly solar radiation, monthly
 \acf{NREL} global incident radiation data were
-utilized~\cite{perez2002new,nrel-l48-ghi}.  The incident radiation data product
+utilized ~\cite{Perez2002}.  The incident radiation data product
 provides monthly average and annual average daily total solar resource
 averaged over surface cells of 0.1 degrees.  Hourly radiance images
 from geostationary weather satellites, daily snow cover data, and
@@ -598,7 +598,7 @@ water in the soil, and the soil type.  These require a number of soil
 parameters.
 
 These parameters are all determined using the \acf{STATSGO}
-database~\cite{SoilSurveyStaff2012-STATSGO}.  \ac{STATSGO} is a
+database~\cite{STATSGO}.  \ac{STATSGO} is a
 national soil database, distributed by the \ac{NRCS}.  \ac{STATSGO}
 maps are designed for regional studies, and the soil inventories are
 typically generalized from more detailed surveys, or from a
@@ -689,14 +689,14 @@ agricultural crops in the region.  The USDA, NASS Cropland Data Layer
 (CDL) is a nationally available raster of crop specific land cover
 data layer with a ground resolution of 30 meters.  The CDL is produced
 using satellite imagery with a classification emphasis on agricultural
-land cover~\cite{cdl2011}.  The CDL was projected unto the \ac{AHB}
+land cover~\cite{Boryan2011a}.  The CDL was projected unto the \ac{AHB}
 region as a scale of $2^5$.  Individual pixels from the CDL were then
 aggregated within the larger model's $2^{13}$ size pixels to determine
 fractional composition of each large pixel~(Figure~\ref{fig:land}).  An
 additional step was used to adjust the total area in each county to
 the values of hectares reported to the \ac{NASS}.  \ac{NASS} publishes
 U.S., State and County agricultural statistics for many
-commodities~\cite{nass-quick-stats}.  Later modeling efforts rely on
+commodities~\cite{Service2015}.  Later modeling efforts rely on
 the \ac{NASS} reported hectares of the various commodities harvested.
 This was accomplished by uniformly adjusting the CDL derived pixel
 fractions, (the \ac{AHB} 8192 edge length pixels) so that sum of pixel
