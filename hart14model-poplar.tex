@@ -277,12 +277,12 @@ from \ac{SRWC} plantations in the region.
 The study area, the Pacific Northwest of the United States, includes
 Washington, Oregon, northern California, Idaho, and western Montana.
 A regular grid partitions the region.  The individual pixel size is
-relatively coarse $8192$(m)$ \times 8192$(m), and results in a number
-of pixels that are compatible with complexity of subsequent regional
-optimization models. The spatial aggregation will necessarily result
+relatively coarse $8192$(m)$ \times 8192$(m). The spatial aggregation will necessarily result
 in yield estimates that do not capture local variability. However, the
 intent of the study is to identify areas of high productivity within
-the study region. Another similar study~\cite{Headlee2012} used 32
+the study region. A coarse geographic unit was selected to strike a
+balance between geographic specificity and complexity of subsequent
+modeling steps not covered in this paper. Another similar study~\cite{Headlee2012} used 32
 km\textsuperscript{2} spatial resolution.
 
 An Albers equal area projection with reference longitude 120\degree~W,
@@ -292,17 +292,15 @@ utilized.
 Other input datasets (eg. climate, soils) were scaled to match the base
 pixel size and raster projection. For example, the \ac{NLCD} dataset
 used in this study, was originally imported and projected at a much
-finer scale, $32 \times 32$ (m), then aggregated upwards to determine
-percentages of each landcover type for each
-pixel~(Figure~\ref{fig:land}).
+finer scale, $32 \times 32$ (m), then aggregated upwards and used to determine
+proportion of landcover types within each 64 km\textsuperscript{2} unit~(Figure~\ref{fig:land}).
 
 Data processing was carried out within a postgresql database, with the
 postgis geospatial extensions~\cite{pgsql,Holl2009,postgis}.  The
 \ac{3pg} model was implemented directly in the postgresql database via
 user-defined functions adapted from the spreadsheet model procured
 from the University of British Columbia \ac{3pg} support website
-\footnote{\href{http://3pg.forestry.ubc.ca/}{http://3pg.forestry.ubc.ca/}}.
-The functions were implemented in Javascript, so that a single library
+\footnote{\href{http://3pg.forestry.ubc.ca/}{http://3pg.forestry.ubc.ca/}}.The functions were implemented in JavaScript\texttrademark, so that a single library
 could support this database (PostgreSQL), and an online application
 documented in~\cite{Prilepova2014}.
 
@@ -351,17 +349,17 @@ France from 1987 through 1997. The clones studied included fast
 growing, interspecific Interamerican (\textit{Populus trichocarpa
   $\times$ P deltoides}) hybrid clones (Parameter sets \emph{Beaupre}
 and \emph{Raspalje}), a native American \textit{P. trichocarpa}
-(\emph{Fritzi Pauley}) and one Euramerican reference clone
+(\emph{Fritzi Pauley}) and one Euroamerican reference clone
 \textit{P.~deltoides $\times$ P.~nigra}, cv., (\emph{Robusta}).
 
 \ac{3pg} was modified in two ways to allow modeling of \ac{SRWC}; a
 modification to the allocation of biomass among roots, foliage and
 stem, and the inclusion of a coppicing model.
 
-An important component of 3PG is the allocations of \ac{NPP}~to
+An important component of 3PG is the allocation of \ac{NPP}~to
 \ac{WR}, \ac{WS}, and \ac{WF}.  This is controlled primarily with the
 \ac{pfs}, a function of \ac{WS} which helps determine the aboveground
-allocations.  \ac{pfs}~is in turn calculated from a pair of allometric
+allocations.  The parameter \ac{pfs}~is in turn calculated from a pair of allometric
 relations.  In 3PG, \ac{pfs}~is obtained in a two step process, first
 obtaining an estimate of \ac{dbh}~from the current \ac{WS}, and then
 using \ac{dbh}~to determine \ac{pfs}~through an empirical
@@ -379,9 +377,9 @@ manner to define \ac{pfs}, where \ac{WS}~is used to estimate
 \ac{VI}~with \ac{sps} specified and \ac{VI} then used to predict
 \ac{LA}, which along with \ac{SLA}, predicts \ac{WF}~and \ac{pfs}. As
 these relationships were defined for the poplar in the field tests,
-\ac{3PG} was modified to calculate \ac{pfs} using these relationships.
-Table~\ref{tab:pont-3pg} summarizes these inputs.  The parameter set
-\emph{Base}, is the base paramter set for poplar.
+\ac{3pg} was modified to calculate \ac{pfs} using these relationships.
+Table~\ref{tab:pont-3pg} contains summarizes these inputs.  The parameter set
+\emph{Base}, is the \ac{3PG} default parameter set for poplar.
 
 \begin{table}%[p]
   \caption{\acf{VI}~parameter variations of \ac{3pg} among parameter sets.}
@@ -409,7 +407,7 @@ $P_{pfs}=-1.162$ for \emph{HW1} and $\ac{sps}=1$, $C_{stem}=0.08$,
 $P_{stem}=2.46$, $C_{pfs}=1.2$, $P_{pfs}=-0.77$ for \emph{HW2} with a
 maximum allowable $\ac{pfs}=2$, when the coppiced trees are small.
 
-In \ac{3pg} foliage is required for growth.  After coppicing however,
+In \ac{3pg}, foliage is required for growth.  After coppicing however,
 with no foliage, there is no mechanism for initial regrowth. A simple
 coppicing model was developed to transfer biomass from the root system
 to the regenerating foliage after coppicing.  When a \ac{SRWC} is
@@ -425,7 +423,7 @@ amount, as specified by \ac{LAIt}.  More importantly, since the root
 contribution is regulated by \ac{NPP}, \ac{RP} is timed with
 conditions that are favorable for plant regrowth.
 
-There needs to be available root mass.  \ac{3pg} specifies a \ac{pRx},
+In addition to foliage, 3PG modeling requires available root mass for .  \ac{3pg} specifies a \ac{pRx},
 and any mass above this fractional amount,
 $\ac{WR}(\ac{WR}/\acs{W}-\acs{pRx})$, is considered available.  A
 \ac{Rdp} value limits the contribution of this excess to the small
@@ -434,12 +432,12 @@ amount and the timeliness where contributions are made.  In poplar,
 starch and sugar content can be as much as 20\% in coarse roots,
 though this varies seasonally~\cite{Regier2010}.
 
-With an additional \ac{Re} for transfer from root to above ground
+We are thus able to effectively model post-coppice regrowth using an additional \ac{Re} for transfer from root to above ground
 biomass, per-month $\ac{RP} =
 \ac{WR}(\ac{WR}/\acs{W}-\ac{pRx})\ac{Rdp}*\ac{Re}$, subject to the
 constraint that $\ac{RP} <= \ac{NPPt}-\ac{NPP}$.
 
-In poplar plantations, where plantings are initiated with bare
+In poplar plantations initiated with bare
 cuttings as propagation, the initial growth is modeled the same way,
 however with different parameters to model initial root dynamics.
 Table~\ref{tab:3pg-tree-coppice} shows the values used for the
@@ -522,9 +520,9 @@ predict yields only for potential plantation locations.  Yield maps
 show the average yield from the seven parameter sets over the entire
 \ac{AHB} region.
 
-Predictions were made for both irrigated, and non-irrigated
-conditions, run over a 20 year period, with one 2.5 year initial
-coppicing event followed by 5 additional events on a three year cycle.
+Predictions were made for both irrigated and non-irrigated
+conditions over a 17.5 year period. Coppicing was modeled with an
+initial harvest at  2.5 years followed by 5 additional events on a three year cycle.
 Initial planting was in March, with coppicing in November.
 
 A layer of current croplands was used to mask the yield maps to
@@ -728,22 +726,22 @@ the area weighted average of any smaller pixels.
 
 \subsection{Climate Change}
 
-To demonstrate the effect of potential climate change on yield
-predictions in the near future, the A1B climate change scenario
-articulated by the \ac{IPCC} as a plausible yet optimistic
-scenario for climate change adaptation strategy policy summary~\cite{IPCC2007,Parry2007} was
-used. Yields were predicted based A1B scenario outcomes on a
-plantation initiated in 2040.
-
-The A1B scenario predicts a balanced utilization of available energy
+The A1B climate change scenario
+articulated in the \ac{IPCC} 2007 Summary for Policymakers is
+plausible, somewhat optimistic
+scenario for climate change~\cite{IPCC2007,Parry2007}. The A1B scenario predicts a balanced utilization of available energy
 sources, with similar improvement rates applied to all energy supply
 and end-use.  The future is one of rapid economic growth, global
 population that peaks in mid-century and declines thereafter, and a
 rapid introduction of new and more efficient
-technologies.
+technologies. 
 
-Estimations of the expected change in temperature and precipitation
-were derived from the \ac{CCSM3}.  The \ac{CCSM3} is a climate model
+We used expected conditions based on the A1B
+scenario to demonstrate the effect of potential climate change on yield
+predictions in the near future. Yields were predicted based A1B scenario outcomes on a
+plantation initiated in 2040.
+
+Estimations of the expected change in temperature and precipitation were derived from the \ac{CCSM3}.  The \ac{CCSM3} is a climate model
 with components including the atmosphere, ocean, sea ice, and land
 surface. \ac{CCSM3} is designed to produce realistic simulations over
 a wide range of spatial and temporal resolutions.  \ac{CCSM3}
@@ -807,7 +805,7 @@ areas of the \ac{AHB} region~(Figure~\ref{fig:nonirrigated_yield}).
 \end{figure}
 
 To assess the predicted change in yields from the A1B example study,
-the model was rerun with the same parameters as the previously, but
+the model was rerun
 with the predicted changes in temperature and precipitation.  The
 results were averaged and summarized as above to predict yields.  The
 yields were then compared to the current yield estimates to determine
