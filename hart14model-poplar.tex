@@ -105,11 +105,11 @@
 \author[bioag]{V. Bandaru}
 \author[bioag]{B. M. Jenkins}
 
-\address[lawr]{Department of Land, Air, and Water, University of California, Davis, USA\fnref{lawr}}
+\address[lawr]{Dept. of Land, Air, and Water, University of California, Davis, USA\fnref{lawr}}
 %\address{Precision Forestry Cooperative, University of Washington, USA\fnref{pfc}}
 %\address{Department of Plant Sciences, University of California, Davis, USA\fnref{plant}}
 \address[cf]{Center for Forestry, University of California, Berkeley, USA\fnref{cf}}
-\address[bioag]{Department of Biological and Agricultural Engineering, University of California, Davis, USA\fnref{bioag}}
+\address[bioag]{Dept. of Biological and Agricultural Engineering, University of California, Davis, USA\fnref{bioag}}
 
 \begin{abstract}
   Predicting the economic viability and environmental sustainability
@@ -124,7 +124,7 @@
   management regimes.
 
   The parameterized model was applied to the entire Pacific Northwest
-  of the United States, using appropriate climatological and soil
+  of the United States, using appropriate climate and soil
   input data.  Results predict the yield of poplar cultivation at a
   spatial resolution of $\approx$ 64 km\textsuperscript{2} throughout
   the $\approx$8 million km\textsuperscript{2} of the study
@@ -192,11 +192,11 @@ for poplar plantation methodologies. The motivation for the use of
 spatially resolved yield estimates is two-fold:
 \begin{description}
 \item[Biofuels production system optimization] Substantial investment
-  is required to construct facilites capable of producing drop-in
-  fuels~\cite{Parker2010a}. Capitalization of these facilties will
+  is required to construct facilities capable of producing drop-in
+  fuels~\cite{Parker2010a}. Capitalization of these facilities will
   depend upon a demonstrated
   consistent supply of feedstock. While spot or commodity markets may
-  emerge to supply the demand for these facilties via bulk rail or
+  emerge to supply the demand for these facilities via bulk rail or
   marine supply chains, first mover facilities will
   likely depend on contracts with regional producers to supply a
   substantial percent of the facility demand. This analysis helps
@@ -277,12 +277,13 @@ from \ac{SRWC} plantations in the region.
 The study area, the Pacific Northwest of the United States, includes
 Washington, Oregon, northern California, Idaho, and western Montana.
 A regular grid partitions the region.  The individual pixel size is
-relatively coarse $8192$(m)$ \times 8192$(m). The spatial aggregation will necessarily result
-in yield estimates that do not capture local variability. However, the
-intent of the study is to identify areas of high productivity within
-the study region. A coarse geographic unit was selected to strike a
-balance between geographic specificity and complexity of subsequent
-modeling steps not covered in this paper. Another similar study~\cite{Headlee2012} used 32
+relatively coarse $8192$(m)$ \times 8192$(m). The spatial aggregation
+will necessarily result in yield estimates that do not capture local
+variability. However, the intent of the study is to identify areas of
+high productivity within the study region. A coarse geographic unit
+was selected to strike a balance between geographic specificity and
+complexity of subsequent modeling steps not covered in this
+paper. Another similar study~\cite{Headlee2012} used 32
 km\textsuperscript{2} spatial resolution.
 
 An Albers equal area projection with reference longitude 120\degree~W,
@@ -321,7 +322,7 @@ parameters are calculated and carried forward to the next month.
 %\ac{3PG} model assumes a full month timestep when estimating growth,
 %thus if coppice operations for validation stands are conducted near
 %the end of a month the model estimation would overestimate the
-%post-coppice regereration.
+%post-coppice regeneration.
 These incremental physiological parameters
 can be compared to model predictions with field results at multiple
 stages in the plantation's history.
@@ -378,8 +379,8 @@ manner to define \ac{pfs}, where \ac{WS}~is used to estimate
 \ac{LA}, which along with \ac{SLA}, predicts \ac{WF}~and \ac{pfs}. As
 these relationships were defined for the poplar in the field tests,
 \ac{3pg} was modified to calculate \ac{pfs} using these relationships.
-Table~\ref{tab:pont-3pg} contains summarizes these inputs.  The parameter set
-\emph{Base}, is the \ac{3PG} default parameter set for poplar.
+Table~\ref{tab:pont-3pg} describes these inputs.  The parameter set
+\emph{Base}, is the \ac{3pg} default parameter set for poplar.
 
 \begin{table}%[p]
   \caption{\acf{VI}~parameter variations of \ac{3pg} among parameter sets.}
@@ -569,7 +570,7 @@ precipitation map show the maximum monthly contribution.
 \begin{figure}[hp]
   \centering  
   \includegraphics[width=1.0\linewidth]{precip}  
-\caption{Total annual preciptation, with iso lines showing the maximum monthly precipitation.}
+\caption{Total annual precipitation, with isolines showing the maximum monthly precipitation.}
   \label{fig:precip}
 \end{figure}
 
@@ -618,7 +619,7 @@ horizon over the topmost 1 (m) of soil (Figure~\ref{fig:aws}).
 \begin{figure}
   \centering
 \includegraphics[width=1\linewidth]{maxaws}
-  \caption{\ac{STATSGO} derived maximum available water estimates. }
+  \caption{\ac{STATSGO} derived maximum water holding capacity.}
   \label{fig:aws}
 \end{figure}
 
@@ -636,7 +637,7 @@ soil component.
   \centering
   \includegraphics[width=0.52\linewidth]{soil_triangle}
   \input{soil-fsw.tex}
-  \caption{(\acs{swc},\acs{swp}) tuple as determined by soil
+  \caption{(\acs{swc},\acs{swp}) pairs as determined by soil
     composition.  Included is a graph for the function $\acs{fSW} =
     \frac{1-(1-\acs{AWS}/\acs{maxAWS})^{\acs{swp}}}{1+((1-\acs{AWS}/\acs{maxAWS})/\acs{swc})^{\acs{swp}}}$
     for sand,silt and clay. }
@@ -648,8 +649,8 @@ soil component.
 
 Available climatic data makes it possible to make estimations for
 poplar growth throughout the \ac{PNW} region.  This may provide
-interesting comparisons of changes in yield, but is not very suitable
-for determining regional trends, as not all lands are equally likely
+interesting comparisons of changes in yield, but is not suitable
+for determining regional estimations, as not all lands are equally likely
 to be available for poplar plantations.  Variables like land
 ownership, topography and salinity, influence the technical capability
 of growing poplar.  
@@ -659,59 +660,56 @@ large effects on the predicted yields of poplar.  Determining which
 areas in the \ac{PNW} region are liable to be available for irrigation
 can significantly influence regional poplar harvest estimations.  
 
-In order to limit the areas within the \ac{AHB} region to areas that
-are technically suitable to poplar plantations, a set of masks were
-used, derived from a suitability analysis for potential plantation
-locations. Permanently non-suitable land was
-identified for removal from consideration. Lands under Federal
-ownership~\cite{NationalAtlasoftheUnitedStates2013} and currently
-developed land were excluded from consideration.
-Physical features including slopes greater than 15\%~\cite{Gesch2007},
-and soil salinity greater than 4 (dS / m) were also
-excluded~(Figure~\ref{fig:nonirrigated_yield}).
+To limit the areas within the \ac{PNW} region to areas that are
+technically suitable to poplar plantations, a set of masks were used.
+Permanently non-suitable land was removed from consideration. Lands
+under Federal ownership~\cite{NationalAtlasoftheUnitedStates2013} and
+currently developed land were excluded from consideration.  Physical
+features including slopes greater than 15\%~\cite{Gesch2007}, and soil
+salinity greater than 4 ($dS/m$) were also
+excluded.
 
-The land suitability study included other factors for poplar
-suitability; nine variables considered important for poplar growth
-were identified: growing season precipitation, temperature, and
-length; soil texture and drainage, pH, salinity, and depth; water
-table depth; and slope.  Most of these parameters are included more
-explicitly in the \ac{3pg} model, and directly affect yield
-predictions.  Soil salinity and pH have not yet been integrated into
-the \ac{3pg} model.
+%The land suitability study included other factors for poplar
+%suitability; nine variables considered important for poplar growth
+%were identified: growing season precipitation, temperature, and
+%length; soil texture and drainage, pH, salinity, and depth; water
+%table depth; and slope.  Most of these parameters are included more
+%explicitly in the \ac{3pg} model, and directly affect yield
+%predictions.  Soil salinity and pH have not yet been integrated into
+%the \ac{3pg} model.
 
 % References FAO. 1976. FAO A framework for land evaluation. Soils Bulletin 32. Food and Agriculture Organization of the United Nations, Rome (1976).
 
-Available water for irrigation is a difficult question when dealing
+Available water for irrigation is an important question when dealing
 with crops in the \ac{PNW}.  Irrigation is a combination of
 availability and rights, that is hard to track on a regional scale.
 However, one aspect of irrigation is that if it's available it is
-likely being used currently.  Therefore, for determining irrigated
-yield predictions for poplar, a mask of existing irrigated
-agricultural areas was used.  These locations were determined in two
-steps.  First, the a cropland data layer was used to spatially locate
-agricultural crops in the region.  The USDA, NASS Cropland Data Layer
-(CDL) is a nationally available raster of crop specific land cover
-data layer with a ground resolution of 30 meters.  The CDL is produced
-using satellite imagery with a classification emphasis on agricultural
-land cover~\cite{Boryan2011a}.  The CDL was projected unto the \ac{AHB}
-region as a scale of $2^5$.  Individual pixels from the CDL were then
-aggregated within the larger model's $2^{13}$ size pixels to determine
-fractional composition of each large pixel~(Figure~\ref{fig:land}).  An
-additional step was used to adjust the total area in each county to
-the values of hectares reported to the \ac{NASS}.  \ac{NASS} publishes
-U.S., State and County agricultural statistics for many
-commodities~\cite{Service2015}.  Later modeling efforts rely on
-the \ac{NASS} reported hectares of the various commodities harvested.
-This was accomplished by uniformly adjusting the CDL derived pixel
-fractions, (the \ac{AHB} 8192 edge length pixels) so that sum of pixel
-fractions over nay county in the \ac{AHB} region match the reported
+likely being used.  Therefore, for determining irrigated yield
+predictions for poplar, a mask of existing irrigated agricultural
+areas was used.  These locations were determined in two steps.  First,
+the a cropland data layer was used to spatially locate agricultural
+crops in the region.  The USDA, NASS Cropland Data Layer (CDL) is a
+nationally available raster of crop specific land cover data layer
+with a ground resolution of 30 meters.  The CDL is produced using
+satellite imagery with a classification emphasis on agricultural land
+cover~\cite{Boryan2011a}.  The CDL was projected unto the \ac{AHB}
+region.  Individual pixels from the CDL were then aggregated within
+the larger model's pixels to determine fractional composition of each
+pixel~(Figure~\ref{fig:land}).  An additional step was used to adjust
+the total area in each county to the values of hectares reported to
+the \ac{NASS}.  \ac{NASS} publishes U.S., State and County
+agricultural statistics for many commodities~\cite{Service2015}.
+Later modeling efforts rely on the \ac{NASS} reported hectares of the
+various commodities harvested.  This was accomplished by uniformly
+adjusting the CDL derived pixel fractions, so that sum of pixel
+fractions over any county in the \ac{AHB} region match the reported
 number of hectares harvested for that county and commodity.  This
 method allows the spatial patterns of the CDL to be retained with
 fractions that add to the \ac{NASS} reported values.
 
-All native image (raster) formats were scaled to match the $\approx$64
-km\textsuperscript{2} project pixel resolution. Scaled pixels reflect
-the area weighted average of any smaller pixels.
+All images were scaled to match the $\approx$64 km\textsuperscript{2}
+project pixel resolution. Scaled pixels reflect the area weighted
+average of any smaller pixels.
 
 \begin{figure}[hp]
   \centering
@@ -784,7 +782,9 @@ region~(Figure~\ref{fig:irrigated_yield}).
 \begin{figure}[hp]
   \centering
   \includegraphics[width=1.0\linewidth]{irrigated_yield}
-  \caption{Predicted irrigated yield of a 3 year coppice harvest for areas in the \ac{PNW} currently under agricultural practice.  The image only includes pixels with more that \%20 area identified as cropland.  The isolines on the maps describe the standard deviation over the 7 parameterizations.}
+  \caption{Predicted irrigated yield of a 3 year coppice harvest for
+    areas under agricultural practice.  The image only
+    includes pixels with more that \%20 area identified as cropland.}
   \label{fig:irrigated_yield}
 \end{figure}
 
@@ -800,7 +800,9 @@ areas of the \ac{AHB} region~(Figure~\ref{fig:nonirrigated_yield}).
 \begin{figure}[hp]
   \centering
   \includegraphics[width=1.0\linewidth]{nonirrigated_yield}
-5   \caption{Predicted non-irrigated yields of a 3 year coppice harvest for areas in the \ac{PNW} identified as rangeland or marginal land.  The image only includes pixels with more than \%20 area identified as marginal or rangeland.  The isolines on the maps describe the standard deviation over the 7 parameterizations.}
+  \caption{Predicted non-irrigated yields of a 3 year coppice
+    harvest for areas identified as rangeland or marginal land.  The
+    image only includes pixels with areas more than \%20.}
   \label{fig:nonirrigated_yield}
 \end{figure}
 
@@ -885,7 +887,7 @@ Both the irrigated and non-irrigated regions, total amount of available
 feedstock for a particular farm gate price can then be estimated.
 These are also spatially distributed.  Another \ac{AHB} model, the
 \acf{GBSM} takes as inputs these spatially distributed price curves,
-and use them in coordination with feedstock transport and refinery
+ and use them in coordination with feedstock transport and refinery
 costs, to optimize the size and location of a set of refineries, to
 most efficiently process the poplar into a biofuel.  The results from
 the \ac{GBSM} model include both the predicted refinery system as well
@@ -915,7 +917,7 @@ Spatially distributed yield predictions inform regional models as to
 the expected costs of producing a poplar biofuel feedstock and the
 price at which that commodity becomes economically viable.
 
-\section{Acknowledgements}
+\section{Acknowledgments}
 This work is supported by an Agriculture and Food Research Initiative
 Competitive Grant no. 2011-68005-30407 from the USDA National
 Institute of Food and Agriculture (NIFA).
@@ -944,4 +946,6 @@ Institute of Food and Agriculture (NIFA).
 %  LocalWords:  postgis PLSQL Javascript timestep coppicing datasets
 %  LocalWords:  biorefinery aboveground coppiced biofuels feedstock
 %  LocalWords:  SRWC parameterized physiographic orographic Isolines
-%  LocalWords:  isolines parameterizations allometric
+%  LocalWords:  isolines parameterizations allometric coppice biofuel
+%  LocalWords:  photosynthetically parameterize litterfall insolation
+%  LocalWords:  rangeland
