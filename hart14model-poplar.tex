@@ -105,42 +105,41 @@
 \author[bioag]{V. Bandaru}
 \author[bioag]{B. M. Jenkins}
 
-\address{Department of Land, Air, and Water, University of California, Davis, USA\fnref{lawr}}
+\address[lawr]{Department of Land, Air, and Water, University of California, Davis, USA\fnref{lawr}}
 %\address{Precision Forestry Cooperative, University of Washington, USA\fnref{pfc}}
 %\address{Department of Plant Sciences, University of California, Davis, USA\fnref{plant}}
-\address{Center for Forestry, University of California, Berkeley, USA\fnref{cf}}
-\address{Department of Biological and Agricultural Engineering, University of California, Davis, USA\fnref{bioag}}
+\address[cf]{Center for Forestry, University of California, Berkeley, USA\fnref{cf}}
+\address[bioag]{Department of Biological and Agricultural Engineering, University of California, Davis, USA\fnref{bioag}}
 
 \begin{abstract}
   Predicting the economic viability and environmental sustainability
-  of a biofuels industry based on intensively cultivated \acf{SRWC} requires spatial
-  predictions of growth and yield under various
-  environmental conditions and across large regions.  The \acf{3pg}
+  of a biofuels industry based on intensively cultivated \acf{SRWC}
+  requires spatial predictions of growth and yield under various
+  environmental conditions and across large regions.  The \ac{3pg}
   model was modified to evaluate the growth and yield of coppiced
-  poplar (\emph{Polulus spp}).  This included developing a sub-model 
-  which takes into account the impact of coppicing on post harvest
-  regeneration thus extending the applicability of the \acf{3pg} model
-  to coppice management regimes.
+  poplar (\emph{Polulus spp}).  This included an additional biomass
+  partitioning method and developing a sub-model which takes into
+  account the impact of coppicing on post harvest regeneration,
+  extending the applicability of the \ac{3pg} model to coppice
+  management regimes.
 
-  The parameterized model was then applied to the entire Pacific
-  Northwest of the United States, using appropriate climatological and
-  soil input data.  Results predict the yield of poplar cultivation at
-  a spatial resolution of $\approx$ 64 km\textsuperscript{2}
-  throughout the $\approx$8 million km\textsuperscript{2} of the study
+  The parameterized model was applied to the entire Pacific Northwest
+  of the United States, using appropriate climatological and soil
+  input data.  Results predict the yield of poplar cultivation at a
+  spatial resolution of $\approx$ 64 km\textsuperscript{2} throughout
+  the $\approx$8 million km\textsuperscript{2} of the study
   region. Existing agricultural cultivation patterns were used to
   estimate regional water availability for irrigation, and for
-  non-irrigated regions, land cover features including ownership, slope
-  , soil salinity and water table depth where used to limit
-  predictions to areas with a real potential to support a \ac{SRWC}
-  plantation.
+  non-irrigated regions, land cover features including ownership,
+  slope , soil salinity and water table depth where used to select
+  areas with a real potential to support a \ac{SRWC} plantation.
 
   Results can be integrated with other models that allow for
-  optimizing the crop selection and biorefinery site selection.
-  Important findings from the model include; validation of the
-  \ac{3pg} model for coppiced \ac{SRWC} plantings, estimates of
-  biomass feedstock yields under different irrigation patterns and
-  weather conditions, and estimates for feedstock availability
-  when combined with crop adoption scenarios.
+  optimizing crop selection and biorefinery site selection.  Important
+  results include; an updated \ac{3pg} model for coppiced \ac{SRWC}
+  plantings, estimates of biomass feedstock yields under different
+  irrigation patterns and weather conditions, and estimates for
+  feedstock availability when combined with crop adoption scenarios.
 
 \end{abstract}
 
@@ -176,24 +175,25 @@ focused on fuels fully compatible with existing liquid transportation
 fuel infrastructure.
 
 To support economic and environmental models for a biofuels industry,
-spatial predictions of the growth and yield of \acf{SRWC} under
-various environmental conditions and throughout the entire \acf{PNW},
-the \acf{3pg}\cite{landsberg2010physiological,Landsberg1997,Sands2004}
-model was utilized.  Empirically based growth and yield models for
-hybrid poplar have been used with some success in the region
-\cite{Clendenen1996}, however the samples used to develop allometric
- relationships did not include coppice management.
+spatial predictions of yield for \acf{SRWC} under various
+environmental conditions are required throughout the entire \acf{PNW}
+region.  The
+\acf{3pg}~\cite{landsberg2010physiological,Landsberg1997,Sands2004}
+model was utilized for this purpose.  Empirically based growth and
+yield models for hybrid poplar have been used with some success in the
+region~\cite{Clendenen1996}, however the samples used to develop
+allometric relationships did not include coppice management.
 \ac{SECRETS}~\cite{Sampson2001} is another process based model,
 differing from \ac{3pg} in a number of ways, including biomass
 production and aboveground partitioning~\cite{SurendranNair2012}.
 
-The \ac{3pg} model was modified for\ac{SRWC}, particularly
+The \ac{3pg} model was modified for \ac{SRWC}, particularly
 for poplar plantation methodologies. The motivation for the use of
-spatially resolved yield estimate is two-fold:
+spatially resolved yield estimates is two-fold:
 \begin{description}
 \item[Biofuels production system optimization] Substantial investment
   is required to construct facilites capable of producing drop-in
-  fuels \cite{Parker2010a}. Capitalization of these facilties will
+  fuels~\cite{Parker2010a}. Capitalization of these facilties will
   depend upon a demonstrated
   consistent supply of feedstock. While spot or commodity markets may
   emerge to supply the demand for these facilties via bulk rail or
@@ -204,66 +204,64 @@ spatially resolved yield estimate is two-fold:
   supply.
 \item[Land use] The potential for displacement of food crops from
   agricultural lands is a possible outcome of expanding biofuel
-  markets \textbf{Citation}. The impacts associated with an increase in food
-  prices on global food security raises ethical issues that relatively
-  developed and food-secure societies must consider
-  \cite{Pimentel2008}. This exercise helps identify land not currently
-  in food production most likely to be viable for \ac{SRWC} production.
+  markets.
+%PETER ! 
+%\textbf{Citation}.
+  The impacts associated with an increase in food prices on global
+  food security raises ethical issues that relatively developed and
+  food-secure societies must consider~\cite{Pimentel2008}. This
+  exercise helps identify land not currently in food production that
+  is potentially viable for \ac{SRWC} production.
 \item
 \end{description}
 
-The \ac{3pg} model \cite{Landsberg1997} is a forest stand growth model
-that predicts total carbon based on photosynthetically active
-radiation and is parameterized by soil (water availability) and
-weather data. It produces monthly estimates of foliage stem and root
-biomass for up to 120 year cycles. In this analysis the \ac{3pg} model
-is run for each 16 km\textsuperscript{2} pixel. Each pixel is modeled
-as a stand. Input parameters that vary with geography (soil,weather)
-are used to parameterize the model for each pixel. The only
-modification to the original \ac{3pg} model is the inclusion of a root
-contribution to regrowth after coppice which is discussed in more
-detail in Section ~\ref{sec:3pg}
+\ac{3pg} predicts total carbon based on photosynthetically active
+radiation and is parameterized by variables relating to the tree, soil
+(water availability) and weather data. It produces monthly estimates
+of foliage stem and root biomass. In this analysis \ac{3pg} is run for
+each pixel within a grid of the \ac{PNW}. Each pixel is modeled as a
+stand with input parameters that vary with geography (soil,weather)
+are used to parameterize the model. Modifications to the original
+\ac{3pg} model include changes to the biomass partitioning, and the
+inclusion of a root contribution to regrowth after coppicing.
 
 A physiological growth model such as \ac{3pg} is advantageous because
 it allows variation of growth parameters and assumptions regarding
 management practices for poplar species.  In addition to biomass
 growth and yield estimations, allocations for both above and below
-ground biomass can be tracked for life-cycle analysis of the product
-fuels.  This is because carbon allocations are balanced in the model.
+ground biomass can be tracked for more complete life-cycle analysis of
+the carbon budget related to the fuels.
 
-The \ac{3pg} model has been used extensively to model \ac{SRWC}
-production. One\cite{Amichev2010} used the \ac{3pg} to predict growth of
-the Walker poplar hybrid (\textit{Populus deltoides} x \textit{Populus
-  nigra}) in Saskatchewan, Canada. This analysis did not investigate
-the growth dynamics related to coppicing. In a separate study
-\cite{Deckmyn2004} the \ac{SECRETS} model was modified
-and evaluated for coppice poplar production from two
-varieties under a range of soil fertility conditions.  The
-\ac{SECRETS} coppice modified paritioning fractions with the presence
-of a large root mass, one of the outcomes of the coppicing model
-described here for \ac{3pg}.
+The \ac{3pg} model has been used previously to model \ac{SRWC}
+production. One~\cite{Amichev2010} used the \ac{3pg} to predict growth
+of the Walker poplar hybrid (\textit{Populus deltoides} x
+\textit{Populus nigra}) in Saskatchewan, Canada. This analysis did not
+investigate the growth dynamics related to coppicing. In a separate
+study~\cite{Deckmyn2004} the \ac{SECRETS} model was modified and
+evaluated for coppice poplar production from two varieties under a
+range of soil fertility conditions.  The \ac{SECRETS} coppice modified
+paritioning fractions with the presence of a large root mass, one of
+the outcomes of the coppicing model described here for \ac{3pg}.
 
-The \ac{3pg} model\cite{Headlee2012} has been deployed across several states
-in the northern midwest United States to predict growth and yield of hybrid poplar
-but did not evaluate the impact of coppice management into the model
-at a 32 km\textsuperscript{2} resolution.  To date,
-the use of physiological growth models such as the \ac{3pg} to
-evaluate spatial variability in yields of coppiced \ac{SRWC} at the
-scale and extent of the results presented here has not been attempted.
+The \ac{3pg} model~\cite{Headlee2012} has been deployed across several
+states in the northern midwest United States to predict growth and
+yield of hybrid poplar but did not evaluate the impact of coppice
+management.  To date, the use of physiological growth models such as
+the \ac{3pg} to evaluate spatial variability in yields of coppiced
+\ac{SRWC} at the scale and extent of the results presented here has
+not been attempted.
 
 The original \ac{3pg} model does not include coppicing as a management
 practice, which is problematic as it cannot reasonably account for
 post-coppicing regrowth.  Coppicing of \ac{SRWC} has been widely
 demonstrated to increase growth rates post-coppice in comparison to
-un-coppiced stands
-\cite{Verwijst1996,Afas2008a,Sennerby-Forsse1992}. Thus, to employ the
-\ac{3pg} model in coppice management, the original model must be
-modified to reflect this increased productivity. The extended model
-presented in this paper includes coppicing with a general model that
-allows a monthly growth contribution from an existing root mass.  The
-model specifies a relatively small contribution of aboveground growth
-from the accumulated root mass after coppicing in order to initiate
-the next cycle of production \cite{Deckmyn2004}.
+un-coppiced stands~\cite{Verwijst1996,Afas2008a,Sennerby-Forsse1992}.
+The extensions presented in this paper include coppicing with a
+general sub-model that allows a monthly growth contribution from an
+existing root mass.  The model specifies a relatively small
+contribution of aboveground growth from the accumulated root mass
+after coppicing in order to initiate the next cycle of
+production~\cite{Deckmyn2004}.
 
 With appropriate input information, the \ac{3pg} model can predict
 yields for the entire Pacific Northwest study region, under various
@@ -273,30 +271,30 @@ biofuel feedstock estimates are possible.
 \section{Methods and Calculation}
 
 The main goal of this study was to create spatially explicit poplar
-growth potential for the \ac{PNW} that can reliably predicted yield
+growth potential for the \ac{PNW} that can reliably predict yield
 from \ac{SRWC} plantations in the region.
 
 The study area, the Pacific Northwest of the United States, includes
-Washington, Oregon, Northern California, Idaho, and western Montana.
+Washington, Oregon, northern California, Idaho, and western Montana.
 A regular grid partitions the region.  The individual pixel size is
 relatively coarse $8192$(m)$ \times 8192$(m), and results in a number
 of pixels that are compatible with complexity of subsequent regional
 optimization models. The spatial aggregation will necessarily result
 in yield estimates that do not capture local variability. However, the
 intent of the study is to identify areas of high productivity within
-the study region. Another similar study \cite{Headlee2012} used 32
+the study region. Another similar study~\cite{Headlee2012} used 32
 km\textsuperscript{2} spatial resolution.
 
-The geographic projection used is an Albers equal area projection with
-reference longitude 120\degree~W, latitude 44\degree~N and parallels
-at 41\degree~N and 47\degree~N.
-%\footnote{\href{http://spatialreference.org/ref/sr-org/7260/}{http://spatialreference.org/ref/sr-org/7260/}}.
-This projection insures the pixels maintain a constant area. Other input
-datasets (climate, soils) were scaled to match the base pixel size and
-raster projection. For example, the \ac{NLCD} dataset used in this
-study, was originally imported and projected at a much finer scale,
-$32 \times 32$ (m), then aggregated upwards to determine percentages of
-each landcover type for each pixel~(Figure~\ref{fig:land}).
+An Albers equal area projection with reference longitude 120\degree~W,
+latitude 44\degree~N and parallels at 41\degree~N and 47\degree~N was
+utilized.
+%\footnote{\href{http://spatialreference.org/ref/sr-org/7260/}{http://spatialreference.org/ref/sr-org/7260/}}
+Other input datasets (eg. climate, soils) were scaled to match the base
+pixel size and raster projection. For example, the \ac{NLCD} dataset
+used in this study, was originally imported and projected at a much
+finer scale, $32 \times 32$ (m), then aggregated upwards to determine
+percentages of each landcover type for each
+pixel~(Figure~\ref{fig:land}).
 
 Data processing was carried out within a postgresql database, with the
 postgis geospatial extensions~\cite{pgsql,Holl2009,postgis}.  The
@@ -311,13 +309,12 @@ documented in~\cite{Prilepova2014}.
 \subsection{\acs{3pg} Model Formulation}
 \label{sec:3pg}
 
-The \acf{3pg} model~\cite{Landsberg1997, landsberg2010physiological,
-  Sands2004} is the primary tool used for the \ac{SRWC} yield
-estimations, and takes as inputs weather data, soil parameters, site
+The \ac{3pg} model takes as inputs weather data, soil parameters, site
 factors, initial stocking conditions, management practices, and
-species definitions.  The \ac{3pg} model is run at a monthly
-timestep. At each step the physiological parameters are calculated and
-carried forward to the next month.
+species
+definitions~\cite{landsberg2010physiological,Landsberg1997,Sands2004}.
+\ac{3pg} runs at a monthly timestep. At each step the physiological
+parameters are calculated and carried forward to the next month.
 % Not sure bout this
 % Addressing temporal resolution is requested by a reviewer...PT
 %Introduction of coppicing into the model may result in
@@ -332,18 +329,20 @@ can be compared to model predictions with field results at multiple
 stages in the plantation's history.
 
 A few studies have specifically modeled poplar using the 3PG
-model~\cite{Amichev2010,Headlee2012,Zalesny2012}. Headlee~\cite{Headlee2012} in
-particular, developed parameters from a review of laboratory and field
-studies to represent the growth of a representative hybrid poplar.
-Alternatively, there have been several reported field tests on
-coppiced poplar
+model~\cite{Amichev2010,Headlee2012,Zalesny2012}. Headlee~\cite{Headlee2012}
+in particular, developed parameters from a review of laboratory and
+field studies to represent the growth of a representative hybrid
+poplar.  Alternatively, there have been several reported field tests
+on coppiced poplar
 plantations~\cite{Proe2002,Proe1999,Pontailler1999,Afas2008a} that
 show large variations in above ground biomass production among
-different poplar species.  To represent this variability, a set of default input values were modified on a per
-variety basis to match field reported production.  All sets were all
-run on the region, and the average yield across all species was reported.
+different poplar species.  To represent this variability, a base input
+parameter set was modified on a per variety basis to match field
+reported production, resulting in seven separate parameter sets.  All
+sets were run over the region and the average yield across all
+species is reported.
 
-The \emph{base} parameters used to model poplar in \ac{3pg} were
+The \emph{Base} parameter set used to model poplar in \ac{3pg} was
 altered for each of five species. Parameters were estimated from
 Pontailler~\cite{Pontailler1999,pontailler97-volume-index,Ceulemans1993},
 a field test that described biomass measurements over 5 two year
@@ -355,19 +354,21 @@ and \emph{Raspalje}), a native American \textit{P. trichocarpa}
 (\emph{Fritzi Pauley}) and one Euramerican reference clone
 \textit{P.~deltoides $\times$ P.~nigra}, cv., (\emph{Robusta}).
 
-The \ac{3pg} model was modified in two ways to allow modeling of
-\ac{SRWC}; a modification to the allocation of biomass among roots,
-foliage and stem, and the inclusion of a coppicing model.
+\ac{3pg} was modified in two ways to allow modeling of \ac{SRWC}; a
+modification to the allocation of biomass among roots, foliage and
+stem, and the inclusion of a coppicing model.
 
-An important component of 3PG is the allocations of \ac{NPP}~to \ac{WR}, \ac{WS}, and
-\ac{WS}.  This is controlled primarily with the \ac{pfs}, the ratio of \ac{WF}~to \ac{WS},
-$\ac{pfs}=\ac{WF}/\ac{WS}$, which helps determine the aboveground allocations.  \ac{pfs}~is in
-turn calculated from a pair of allometric relations.  In 3PG, \ac{pfs}~is obtained
-in a two step process, first obtaining an estimate of \ac{dbh}~from the current \ac{WS},
-and then using \ac{dbh}~to determine \ac{pfs}~through a measured relationship.  These
-relations are typically determined from comparisons of more mature trees, for
-example, Headlee's estimates are based on poplars with a range in \ac{dbh}~of about
-3.5~-~25 (cm)~\cite{Headlee2012}%,Fortier2010}.
+An important component of 3PG is the allocations of \ac{NPP}~to
+\ac{WR}, \ac{WS}, and \ac{WF}.  This is controlled primarily with the
+\ac{pfs}, a function of \ac{WS} which helps determine the aboveground
+allocations.  \ac{pfs}~is in turn calculated from a pair of allometric
+relations.  In 3PG, \ac{pfs}~is obtained in a two step process, first
+obtaining an estimate of \ac{dbh}~from the current \ac{WS}, and then
+using \ac{dbh}~to determine \ac{pfs}~through an empirical
+relationship.  These relations are typically determined from
+comparisons of more mature trees, for example, Headlee's estimates are
+based on poplars with a range in \ac{dbh}~of about 3.5~-~25
+(cm)~\cite{Headlee2012}%,Fortier2010}.
 
 For \ac{SRWC}, Pontailler et al.~\cite{pontailler97-volume-index}
 proposed a set of parameterizations based on \ac{VI} where $VI =
@@ -376,18 +377,17 @@ described power relationships between \ac{VI}~and both above ground
 dry matter and leaf area per stem. These can be used in a similar
 manner to define \ac{pfs}, where \ac{WS}~is used to estimate
 \ac{VI}~with \ac{sps} specified and \ac{VI} then used to predict
-\ac{LA} and along with \ac{SLA}, \ac{WF}~and \ac{pfs}. As these
-relationships were defined for each poplar variation in the field
-tests, the 3PG model was modified to calculate \ac{pfs}~with these
-relationships, and the model run with the parameters shown in
-Table~\ref{tab:pont-3pg}.  In that table, the parameter set Base, is
-an otherwise unmodified base set of poplar parameter assumptions.
+\ac{LA}, which along with \ac{SLA}, predicts \ac{WF}~and \ac{pfs}. As
+these relationships were defined for the poplar in the field tests,
+\ac{3PG} was modified to calculate \ac{pfs} using these relationships.
+Table~\ref{tab:pont-3pg} summarizes these inputs.  The parameter set
+\emph{Base}, is the base paramter set for poplar.
 
 \begin{table}%[p]
-  \caption{\ac{VI}~parameter variations of \ac{3pg} among parameter sets.}
+  \caption{\acf{VI}~parameter variations of \ac{3pg} among parameter sets.}
   \begin{tabular}{|lccccc|}
     \hline
-    Parameter & Beaupre & Fritzi Pauley & Raspalje & Robusta & Base\\
+    Parameter & \emph{Beaupre} & \emph{Fritzi Pauley} & \emph{Raspalje} & \emph{Robusta} & \emph{Base}\\
     \hline
     $\gamma_{DM}$ &  0.854 & 0.863 & 0.887 & 0.838 & 0.887\\
     $\beta_{DM}$  & 166.0 & 157.6 & 161.5 & 162 & 161.5\\
@@ -401,22 +401,23 @@ an otherwise unmodified base set of poplar parameter assumptions.
 \label{tab:pont-3pg}
 \end{table}
 
-Two additional parameter sets HW1 and HW2 used the original
-\ac{pfs}~formulation; $DM=\ac{sps}(C_{stem} \ac{dbh}^{P_{stem}})$, and $\ac{pfs} =
-C_{pfs} \ac{dbh}^{P_{pfs}}$, with $\ac{sps}=2.8$, $C_{stem}=0.18$,
-$P_{stem}=2.4$, $C_{pfs}=1.92$, $P_{pfs}=-1.162$ for HW1 and $\ac{sps}=1$,
-$C_{stem}=0.08$, $P_{stem}=2.46$, $C_{pfs}=1.2$, $P_{pfs}=-0.77$ for
-HW2 with a maximum allowable $\ac{pfs}=2$, when the coppiced trees small.
+Two additional parameter sets \emph{HW1} and \emph{HW2} used the
+original \ac{pfs}~formulation; $DM=\ac{sps}(C_{stem}
+\ac{dbh}^{P_{stem}})$, and $\ac{pfs} = C_{pfs} \ac{dbh}^{P_{pfs}}$,
+with $\ac{sps}=2.8$, $C_{stem}=0.18$, $P_{stem}=2.4$, $C_{pfs}=1.92$,
+$P_{pfs}=-1.162$ for \emph{HW1} and $\ac{sps}=1$, $C_{stem}=0.08$,
+$P_{stem}=2.46$, $C_{pfs}=1.2$, $P_{pfs}=-0.77$ for \emph{HW2} with a
+maximum allowable $\ac{pfs}=2$, when the coppiced trees are small.
 
-In \ac{3pg} foilage is required for growth.  After coppicing however,
+In \ac{3pg} foliage is required for growth.  After coppicing however,
 with no foliage, there is no mechanism for initial regrowth. A simple
 coppicing model was developed to transfer biomass from the root system
 to the regenerating foliage after coppicing.  When a \ac{SRWC} is
-coppiced there is no foliage, but a large root mass.  In the coppice
-submodel, a small portion of this mass is allowed to contribute as
-\ac{RP}~at each monthly timestep.  The seasonal timing of any root
-contribution is moderated by comparing a monthly \ac{NPP} to a
-\ac{NPPt}, corresponding to a specified
+coppiced there is no foliage, but there is a large root mass.  In the
+coppice sub-model, a small portion of this mass is allowed to
+contribute as \ac{RP}~at each monthly timestep.  The seasonal timing
+of any root contribution is moderated by comparing a monthly \ac{NPP}
+to a \ac{NPPt}, corresponding to a specified
 \ac{LAIt}. $\ac{NPPt}-\ac{NPP}$ serves as a limit on the root
 contribution.  Using a potential \ac{NPPt} serves two purposes. First,
 it allows root contributions up to, but not beyond a certain foliage
@@ -424,26 +425,26 @@ amount, as specified by \ac{LAIt}.  More importantly, since the root
 contribution is regulated by \ac{NPP}, \ac{RP} is timed with
 conditions that are favorable for plant regrowth.
 
-Excess root mass needs to exist of course.  \ac{3pg} specifies a
-\ac{pRx}, and excess root is the difference of this from the fraction
-of \ac{WS} and \ac{W}, $\ac{WR}(\ac{WR}/\acs{W}-\acs{pRx})$.  The
-\ac{Rdp} limits the contribution of this excess to the small fraction
-that can be used for regrowth. \ac{Rdp} affects both the amount and
-the timeliness where contributions are made.  In poplar, starch and
-sugar content can be as much as 20\% in coarse roots, though this
-varies seasonally~\cite{Regier2010}.
+There needs to be available root mass.  \ac{3pg} specifies a \ac{pRx},
+and any mass above this fractional amount,
+$\ac{WR}(\ac{WR}/\acs{W}-\acs{pRx})$, is considered available.  A
+\ac{Rdp} value limits the contribution of this excess to the small
+fraction that can be used for regrowth. \ac{Rdp} affects both the
+amount and the timeliness where contributions are made.  In poplar,
+starch and sugar content can be as much as 20\% in coarse roots,
+though this varies seasonally~\cite{Regier2010}.
 
 With an additional \ac{Re} for transfer from root to above ground
 biomass, per-month $\ac{RP} =
 \ac{WR}(\ac{WR}/\acs{W}-\ac{pRx})\ac{Rdp}*\ac{Re}$, subject to the
-constraint that $\ac{RP} <= \ac{NPPt}-\ac{NPP})$.
+constraint that $\ac{RP} <= \ac{NPPt}-\ac{NPP}$.
 
 In poplar plantations, where plantings are initiated with bare
 cuttings as propagation, the initial growth is modeled the same way,
 however with different parameters to model initial root dynamics.
 Table~\ref{tab:3pg-tree-coppice} shows the values used for the
-coppicing calculations, both for the initial cuttings and the coppiced
-trees.  These values were used for all parameter sets.
+coppicing calculations for both the initial cuttings and the coppiced
+trees.  These values are constant for all parameter sets.
 
 \begin{table}%[p]
 \caption{3PG Coppicing Parameters}
@@ -494,7 +495,7 @@ Tables~\ref{tab:3pg-tree-parameters}~and~\ref{tab:3pg-tree-parameters-vary}.
 \caption{3PG Parameter set variation}
 \begin{tabularx}{\linewidth}{|Xcccccc|}
 \hline
- Parameter & HW2 & Base & Raspalje & Beaupre & Fritzi & Robusta\\
+ Parameter & \emph{HW2} & \emph{Base} & \emph{Raspalje} & \emph{Beaupre} & \emph{Fritzi} & \emph{Robusta}\\
   \hline   
   $x_{Cond}$  & 0.02 & 0.02 & 0.04 & 0.03 & 0.04 & 0.03 \\
   $kG$ (kg Pa-1) & 0.5 & 0.5 & 0.4 & 0.3 & 0.5 & 0.5 \\
@@ -507,33 +508,29 @@ Tables~\ref{tab:3pg-tree-parameters}~and~\ref{tab:3pg-tree-parameters-vary}.
   \hline
 \end{tabularx}
 \label{tab:3pg-tree-parameters-vary}
- \end{table}
+\end{table}
 
- Each parameter set was then applied to the entire Pacific Northwest
- region, using appropriate climatology and soil input data.  Climate
- data included both historical patterns as well as predicted patterns
- from simulations predicting climate change.  These inputs produce
- poplar yield prediction maps and expected bounds on the variation of
- these yields useful for determining when it becomes economically
- feasible for poplar to be grown within the study area.
+Each parameter sets was applied to the entire Pacific Northwest
+region.  Climate data included both historical patterns as well as
+predicted patterns from simulations predicting climate change.  These
+inputs produce poplar yield prediction maps and expected bounds on the
+variation of these yields useful for determining when it becomes
+economically feasible for poplar to be grown within the study area.
 
-This yield model is overlaid with surface and land cover
-parameters to predict yields for potential plantation locations.
-Yield maps are the average yield from the seven parameter sets over the
-entire \ac{AHB} region. 
+The predictions are overlaid with surface and land cover parameters to
+predict yields only for potential plantation locations.  Yield maps
+show the average yield from the seven parameter sets over the entire
+\ac{AHB} region.
 
-The \ac{3pg} model was run with seven representative poplar
-parameterizations across the \ac{AHB} region, using both a
-model that included irrigation and one that was non-irrigated.  The
-results were averaged over the set of species parameters.  The runs
-were over an 18 year growth period, with a 2.5 year initial coppicing
-event followed by 5 additional events on a three year cycle.  Initial
-planting was in March, with all coppicing events occurring in
-November.
+Predictions were made for both irrigated, and non-irrigated
+conditions, run over a 20 year period, with one 2.5 year initial
+coppicing event followed by 5 additional events on a three year cycle.
+Initial planting was in March, with coppicing in November.
 
-Finally, the layer of current croplands was used to mask the yield
-maps to include only those areas where irrigation is likely, to
-determine an overall predicted irrigated yield.
+A layer of current croplands was used to mask the yield maps to
+include only those areas where irrigation is likely, to determine an
+overall predicted irrigated yield.  Non-irrigated plantations were
+limited to areas with potentially usable marginal land.
 
 \subsubsection{Climatic and Radiation Data}
 \label{sec:climate}
@@ -547,23 +544,22 @@ months of October through March, and the location and size of the
 mountain ranges, which moderate both the precipitation, and the
 temperatures throughout the year.
 
-In order to predict temperatures and precipitation on the near term,
-the \acf{PRISM} dataset was used ~\cite{Daly2008}.  \ac{PRISM}
-extrapolates station data spatially to a uniform grid using weights
-derived from the physiographic similarity of the station to the grid
-cell. These similarity measures include location, elevation, coastal
-proximity, topographic facet orientation, vertical atmospheric layer,
-topographic position, and orographic effectiveness of the terrain.
-\ac{PRISM} data is available on a 2.5 minute geographic grid.
+To predict current temperatures and precipitation the \acf{PRISM}
+dataset was used ~\cite{Daly2008}.  \ac{PRISM} extrapolates station
+data spatially to a uniform grid using weights derived from the
+physiographic similarity of the station to the grid cell. These
+similarity measures include location, elevation, coastal proximity,
+topographic facet orientation, vertical atmospheric layer, topographic
+position, and orographic effectiveness of the terrain.  \ac{PRISM}
+data is available on a 2.5 minute geographic grid.
 
 16 years of \ac{PRISM} data were interpolated (cubic spline) to the
-\ac{AHB} grid averaged to determine a representative weather pattern
-used near term modeling for the \ac{AHB} yield predictions.
-Annual mean temperature is shown in figure~\ref{fig:temp} and total
-precipitation variation of the region is shown in figure~\ref{fig:precip}.  Isolines show the standard
-deviation between annual mean temperature to the monthly mean
-temperature.  Similarly isolines shown on the precipitation map show
-the maximum monthly contribution of precipitation.
+\ac{AHB} grid and averaged to determine a representative weather
+pattern used for yield predictions.  Annual mean temperature is shown
+in figure~\ref{fig:temp}. Isolines show the standard deviation between
+annual mean temperature to the monthly mean temperature.  Total
+precipitation is shown in figure~\ref{fig:precip}.  Isolines on the
+precipitation map show the maximum monthly contribution.
 
 \begin{figure}[hp]
   \centering  
@@ -591,9 +587,9 @@ falling on a horizontal surface.  Existing ground measurement stations
 validate the data where available. Where no existing ground weather
 stations exist, the model is assumed to be the best estimate.
 
-The incident radiation data is available on a gridded format with a
-scale similar to this project and is interpolated (cubic-spline)
-onto the \ac{AHB} grid for use.
+The incident radiation data is available as a grid with a scale
+similar to this project and is interpolated (cubic-spline) onto the
+\ac{AHB} pixels.
 
 \subsubsection{Soil Parameters}
 \label{sec:soil}
@@ -601,23 +597,22 @@ onto the \ac{AHB} grid for use.
 \ac{3pg} uses a single layer soil model that maintains an estimate of
 the amount of water available at any timestep in the model.  In
 addition, \ac{3pg} includes a growth limiter related to the available
-water in the soil, and the soil type.  These require a number of soil
-parameters.
+water in the soil, and the soil type.
 
-These parameters are all determined using the \acf{STATSGO}
-database~\cite{STATSGO}.  \ac{STATSGO} is a
-national soil database, distributed by the \ac{NRCS}.  \ac{STATSGO}
-maps are designed for regional studies, and the soil inventories are
-typically generalized from more detailed surveys, or from a
-combination of ancillary datasets.  Individual \ac{STATSGO} areas can
-contain multiple soil components, and the map units are linked to
-attributes the soil data base which gives the proportionate extent of
-the component soils and their associated properties.  The \ac{mmu} is
-about 625 (ha).  For each pixel in the modeling grid, intersecting map
-units are averaged for the estimated pixel values.  1887 different
-soil were used, contributing anywhere from 144 to 1.3M (ha).
+These soil parameters are determined with the \acf{STATSGO}
+database~\cite{STATSGO}.  \ac{STATSGO} is a national soil database,
+distributed by the \ac{NRCS}.  \ac{STATSGO} maps are designed for
+regional studies, and the soil inventories are typically generalized
+from more detailed surveys, or from a combination of ancillary
+datasets.  Individual \ac{STATSGO} areas can contain multiple soil
+components, and the map units are linked to attributes the soil data
+base which gives the proportionate extent of the component soils and
+their associated properties.  The \ac{mmu} is about 625 (ha).  For
+each pixel in the modeling grid, intersecting map units are averaged
+for the estimated pixel values.  1887 different soil delineations were
+used, contributing anywhere from 144 to 1.3M (ha).
 
-\ac{maxAWS} defines the maximum holding capacity of the soil.
+\ac{maxAWS} defines the holding capacity of the soil.
 \ac{maxAWS} is directly taken from the \ac{STATSGO} database which
 determines the maximum water holding capacity through the complete
 horizon over the topmost 1 (m) of soil (Figure~\ref{fig:aws}).
@@ -629,10 +624,11 @@ horizon over the topmost 1 (m) of soil (Figure~\ref{fig:aws}).
   \label{fig:aws}
 \end{figure}
 
-The limiter \ac{fSW} is parameterized with two values, \ac{swp} and
-\ac{swc} are functions of the soil type (Figure~\ref{fig:soil-triangle}).  The
-soil type is determined from \ac{STATSGO} report  percentages of
-silt sand and clay within each soil component.
+The \ac{fSW} is parameterized with a power \acs{swp} and a constant
+\acs{swc}, both functions of the soil type
+(Figure~\ref{fig:soil-triangle}).  The soil type is determined from
+\ac{STATSGO} report percentages of silt, sand, and clay within each
+soil component.
 
 %\begin{equation*}
 %\acs{fSW} = \frac{1-(1-\acs{AWS}/\acs{maxAWS})^{\acs{swp}}}{1+((1-\acs{AWS}/\acs{maxAWS})/\acs{swc})^{\acs{swp}}}
@@ -640,9 +636,12 @@ silt sand and clay within each soil component.
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.45\linewidth]{soil_triangle}
+  \includegraphics[width=0.52\linewidth]{soil_triangle}
   \input{soil-fsw.tex}
-  \caption{\acs{swc} and \acs{swp} as determined by soil composition.  Included is a graph for the function $\acs{fSW} = \frac{1-(1-\acs{AWS}/\acs{maxAWS})^{\acs{swp}}}{1+((1-\acs{AWS}/\acs{maxAWS})/\acs{swc})^{\acs{swp}}}$ for sand,silt and clay. }
+  \caption{(\acs{swc},\acs{swp}) tuple as determined by soil
+    composition.  Included is a graph for the function $\acs{fSW} =
+    \frac{1-(1-\acs{AWS}/\acs{maxAWS})^{\acs{swp}}}{1+((1-\acs{AWS}/\acs{maxAWS})/\acs{swc})^{\acs{swp}}}$
+    for sand,silt and clay. }
   \label{fig:soil-triangle}
 \end{figure}
 
@@ -807,9 +806,6 @@ areas of the \ac{AHB} region~(Figure~\ref{fig:nonirrigated_yield}).
   \label{fig:nonirrigated_yield}
 \end{figure}
 
-%\subsection{Climate Change}
-%\label{sec:climate-change}
-
 To assess the predicted change in yields from the A1B example study,
 the model was rerun with the same parameters as the previously, but
 with the predicted changes in temperature and precipitation.  The
@@ -950,4 +946,4 @@ Institute of Food and Agriculture (NIFA).
 %  LocalWords:  postgis PLSQL Javascript timestep coppicing datasets
 %  LocalWords:  biorefinery aboveground coppiced biofuels feedstock
 %  LocalWords:  SRWC parameterized physiographic orographic Isolines
-%  LocalWords:  isolines parameterizations
+%  LocalWords:  isolines parameterizations allometric
