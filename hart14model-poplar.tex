@@ -132,7 +132,7 @@
   of the United States, using appropriate climate and soil
   input data.  Results predict the yield of poplar cultivation at a
   spatial resolution of $\approx$ 64 km\textsuperscript{2} throughout
-  the $\approx$8 million km\textsuperscript{2} of the study
+  the $\approx$8,000,000 km\textsuperscript{2} of the study
   region. Existing agricultural cultivation patterns were used to
   estimate regional water availability for irrigation, and for
   non-irrigated regions, land cover features including ownership,
@@ -245,11 +245,11 @@ investigate the growth dynamics related to coppicing. In a separate
 study~\cite{Deckmyn2004} the \ac{SECRETS} model was modified and
 evaluated for coppice poplar production from two varieties under a
 range of soil fertility conditions.  The \ac{SECRETS} coppice modified
-paritioning fractions with the presence of a large root mass, one of
+partitioning fractions with the presence of a large root mass, one of
 the outcomes of the coppicing model described here for \ac{3pg}.
 
 The \ac{3pg} model~\cite{Headlee2012} has been deployed across several
-states in the northern midwest United States to predict growth and
+states in the northern Midwest United States to predict growth and
 yield of hybrid poplar but did not evaluate the impact of coppice
 management.  To date, the use of physiological growth models such as
 the \ac{3pg} to evaluate spatial variability in yields of coppiced
@@ -293,20 +293,19 @@ km\textsuperscript{2} spatial resolution.
 
 An Albers equal area projection with reference longitude 120\degree~W,
 latitude 44\degree~N and parallels at 41\degree~N and 47\degree~N was
-utilized.
-%\footnote{\href{http://spatialreference.org/ref/sr-org/7260/}{http://spatialreference.org/ref/sr-org/7260/}}
+utilized \cite{SRORG7260}.
 Other input datasets (eg. climate, soils) were scaled to match the base
 pixel size and raster projection. For example, the \ac{NLCD} dataset
 used in this study, was originally imported and projected at a much
 finer scale, $32 \times 32$ (m), then aggregated upwards and used to determine
-proportion of landcover types within each 64 km\textsuperscript{2} unit~(Figure~\ref{fig:land}).
+proportion of landcover types within each 64 km\textsuperscript{2} unit. Section \ref{sec:land} provides additional exemplary detail.
 
 Data processing was carried out within a postgresql database, with the
 postgis geospatial extensions~\cite{pgsql,Holl2009,postgis}.  The
 \ac{3pg} model was implemented directly in the postgresql database via
 user-defined functions adapted from the spreadsheet model procured
 from the University of British Columbia \ac{3pg} support website
-\footnote{\href{http://3pg.forestry.ubc.ca/}{http://3pg.forestry.ubc.ca/}}.The functions were implemented in JavaScript\texttrademark, so that a single library
+\cite{FacultyofForestry2015}. The functions were implemented in JavaScript\texttrademark, so that a single library
 could support this database (PostgreSQL), and an online application
 documented in~\cite{Prilepova2014}.
 
@@ -435,7 +434,7 @@ $\ac{WR}(\ac{WR}/\acs{W}-\acs{pRx})$, is considered available.  A
 \ac{Rdp} value limits the contribution of this excess to the small
 fraction that can be used for regrowth. \ac{Rdp} affects both the
 amount and the timeliness where contributions are made.  In poplar,
-starch and sugar content can be as much as 20\% in coarse roots,
+starch and sugar comprise as much as 20\% of dry weight in coarse roots,
 though this varies seasonally~\cite{Regier2010}.
 
 We are thus able to effectively model post-coppice regrowth using an additional \ac{Re} for transfer from root to above ground
@@ -671,7 +670,7 @@ Permanently non-suitable land was removed from consideration. Lands
 under Federal ownership~\cite{NationalAtlasoftheUnitedStates2013} and
 currently developed land were excluded from consideration.  Physical
 features including slopes greater than 15\%~\cite{Gesch2007}, and soil
-salinity greater than 4 ($dS/m$) were also
+salinity greater than 4 dS m\textsuperscript{-1} were also
 excluded.
 
 %The land suitability study included other factors for poplar
@@ -693,7 +692,7 @@ likely being used.  Therefore, for determining irrigated yield
 predictions for poplar, a mask of existing irrigated agricultural
 areas was used.  These locations were determined in two steps.  First,
 the a cropland data layer was used to spatially locate agricultural
-crops in the region.  The USDA, NASS Cropland Data Layer (CDL) is a
+crops in the region.  The USDA, \ac{NASS} \ac{CDL} is a
 nationally available raster of crop specific land cover data layer
 with a ground resolution of 30 meters.  The CDL is produced using
 satellite imagery with a classification emphasis on agricultural land
@@ -761,9 +760,9 @@ estimations were used to determine the predicted change in temperature
 and precipitation for the \ac {AHB} region, and these changes were
 then applied to the current \ac{PRISM} estimations. For example, the
 40 year change in temperature, and precipitation for the A1B scenario
-shows a mean increase in temperature of about 1\degree Celsius, with
+shows a mean increase in temperature of about 274.15\degree K, with
 larger changes in the South and West.  Mean annual precipitation
-decreases by about 100 (mm) throughout the region with larger changes
+decreases by about 100 mm throughout the region with larger changes
 in along the coast~(Figure~\ref{fig:change}).
 
 \begin{figure}[hp]
@@ -777,7 +776,7 @@ in along the coast~(Figure~\ref{fig:change}).
 \section{Results and Discussion}
 
 Results show an average coppice yield for irrigated poplar over the
-entire region of 19.7 (Mg/ha).  38000 ($km^2$) were included in the
+entire region of 19.7 (Mg ha\textsuperscript{-1}).  38000 ($km^2$) were included in the
 estimate.  Yields were highest in the central valley of California, a
 rich agricultural center, with similar yields along the temperate
 western parts of Oregon and Washington.  Yields decreased in eastern
@@ -796,7 +795,7 @@ region~(Figure~\ref{fig:irrigated_yield}).
 Similarly, the non-irrigated yield predictions were masked with the
 areas excluded in the land suitability study to include those areas
 likely to support non-irrigated poplar plantations.  Results for the
-non-irrigated lands predict an average coppice yield of 6.6 (Mg/ha)
+non-irrigated lands predict an average coppice yield of 6.6 (Mg ha\textsuperscript{-1})
 over an area under consideration of 57000 ($km^2$).  In the case of
 non-irrigated yields, the highest yields were along the Pacific coast
 where precipitation is most plentiful, and more uniform in the inland
@@ -880,13 +879,13 @@ economic viability.  The yield predictions also include predictions in
 required water, and the \ac{BCAM} model manages water availability by
 balancing any water needs from the poplar with water saved from crops
 taken out of the agricultural system.  Outputs of the \ac{BCAM} model
-show at what farm gate price (\$/Mg) poplar becomes an economically
+show at what farm gate price (\$ Mg\textsuperscript{-1}) poplar becomes an economically
 viable product.
  
 For non-irrigated land, marginal and under utilized lands can be added
 into the overall agricultural economy as newly utilized lands.  For
 non-irrigated plantations, crop budgets can give estimates of farm gate
-costs (\$/Mg) which are affected by the predicted yields.
+costs (\$ Mg\textsuperscript{-1}) which are affected by the predicted yields.
 
 Both the irrigated and non-irrigated regions, total amount of available
 feedstock for a particular farm gate price can then be estimated.
@@ -912,7 +911,7 @@ grasslands. Table~\ref{tab:growth} shows production from this land
 base by state within the study area. States for which the data in
 Table~\ref{tab:growth} include the entire area of the state are
 Washington, Oregon, and Idaho. Total annual growth on marginal lands
-in the study area is estimated to be approximately 260 Pg/y. Further
+in the study area is estimated to be approximately 260 Pg y\textsuperscript{-1}. Further
 economic filters must be applied to assess the cost for producing fuel
 from \ac{SRWC}, however this analysis shows that feedstock produced
 from lands with little or no impact on agricultural markets can
@@ -923,7 +922,7 @@ the region.
 \begin{tabular}{ |lrrr|}
 \hline
 State &  Annual growth & Average yield & Marginal land area \\
-& (Pg/y)& (Mg/ha) & (km\textsuperscript{2}) \\
+& (Pg y\textsuperscript{-1})& (Mg ha\textsuperscript{-1}) & (km\textsuperscript{2}) \\
 \hline
 Oregon & 117.59 & 9.60 &  2,141,559 \\
 Washington & 96.33 & 7.18 &  2,346,141 \\

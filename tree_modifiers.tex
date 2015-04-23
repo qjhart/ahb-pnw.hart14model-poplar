@@ -2,16 +2,16 @@
   \hline
   Parameter & Description & Value\\
   \hline
-  \acs{fT} & The parameters specifing limitations from ambient temperature. & \\
+  \acs{fT} & The parameters specifying limitations from ambient temperature. & \\
   $mn_{\acs{fT}}$ (\celsius) & The minimum temperature for respiration & 5\\
   $opt_{\acs{fT}}$ (\celsius) & The optimum temperature for respiration & 20\\
   $mx_{\acs{fT}}$  (\celsius) & The maximum temperature for respiration & 40\\
   \hline
-  \acs{fAge} & Specifies the growth limiter as a function of the tree age.  This is a time dependant parameter. Specified with 4 parameters. & \\
+  \acs{fAge} & Specifies the growth limiter as a function of the tree age.  This is a time dependent parameter. Specified with 4 parameters. & \\
   $f0_{\acs{fAge}}$ &  Value for \acs{fAge} at Initial Time & 1\\
   $f1_{\acs{fAge}}$ & Value for \acs{fAge} at Infinite Time & 0 \\
   $tm_{\acs{fAge}}$ [y] & Time in years where value is the average of $f0$ and $f1$ & 47.5\\
-  $n_{\acs{fAge}}$ & $n>=1$ Parameter specifing the rate of change around tm.  n=1 is approximately a linear change, as n increases, change becomes more localized around tm. & 3.5\\
+  $n_{\acs{fAge}}$ & $n>=1$ Parameter specifying the rate of change around tm.  n=1 is approximately a linear change, as n increases, change becomes more localized around tm. & 3.5\\
   \hline
   \acs{fNutr} & A nutritional modifier,$fNutr$.  $fNutr$ ranges from [$fNO$,1) based on the fertility index which ranges from 0 to 1. &\\
    $fN0$ [frac] & Minimum $fNutr$ value & 0.5\\
