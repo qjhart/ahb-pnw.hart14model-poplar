@@ -67,9 +67,13 @@
 
 % All this is used for hopefully creating something elsevior will take
 % this creates a list of figures, and then the figures by number.
-%\usepackage[lists]{endfloat}
-%\usepackage{caption}
-%\captionsetup{labelsep=none,textformat=empty}
+% I uncomment these three and compile, then save only first pages to hart14model-poplar-text.pdf.
+% Then uncomment page number gobling and save  hart14model-poplar-figures-no-caption.pdf
+% and hart14model-poplar-tables-no-caption.pdf
+% Then recomment for submission of the TeX files.
+\usepackage[lists]{endfloat}
+\usepackage{caption}
+\captionsetup{labelsep=none,textformat=empty}
 % This removes pagenumbering.
 %\pagenumbering{gobble}
 
@@ -440,7 +444,7 @@ $\ac{WR}(\ac{WR}/\acs{W}-\acs{pRx})$, is considered available.  A
 \ac{Rdp} value limits the contribution of this excess to the small
 fraction that can be used for regrowth. \ac{Rdp} affects both the
 amount and the timeliness where contributions are made.  In poplar,
-starch and sugar comprise as much as 20\% of dry weight in coarse roots,
+starch and sugar can comprise 15\% the total dry matter of coarse roots,
 though this varies seasonally~\cite{Regier2010}.
 
 We are thus able to effectively model post-coppice regrowth using an additional \ac{Re} for transfer from root to above ground
