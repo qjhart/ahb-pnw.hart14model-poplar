@@ -19,7 +19,7 @@
 %% with numbered style bibliographic references
 %% SP 2008/03/01
 
-\documentclass[preprint,review,12pt]{elsarticle}
+\documentclass[final,1p,12pt]{elsarticle}
 
 %% Use the option review to obtain double line spacing
 %% \documentclass[authoryear,preprint,review,12pt]{elsarticle}
@@ -65,7 +65,13 @@
 \usepackage{pgfplots}
 \usepgfplotslibrary{dateplot}
 
-\usepackage[nolists,nofighead]{endfloat}
+% All this is used for hopefully creating something elsevior will take
+% this creates a list of figures, and then the figures by number.
+%\usepackage[lists]{endfloat}
+%\usepackage{caption}
+%\captionsetup{labelsep=none,textformat=empty}
+% This removes pagenumbering.
+%\pagenumbering{gobble}
 
 \journal{Biomass \& Bioenergy}
 
@@ -452,9 +458,9 @@ trees.  These values are constant for all parameter sets.
 
 \begin{table}%[p]
 \caption{3PG Coppicing Parameters}
-\input{tree_coppice.tex}
 \label{tab:3pg-tree-coppice}
- \end{table}
+\input{tree_coppice.tex}
+\end{table}
 
  Even with changes in the \ac{pfs}~calculations and the coppice model,
  contributions to the root mass are a fraction of \ac{NPP} ranging
@@ -978,7 +984,6 @@ Institute of Food and Agriculture (NIFA).
 \bibliography{ahb-pnw}
 
 %%\input{hart14model-poplar-custom.bbl}
-
 \end{document}
 \endinput
 %%
