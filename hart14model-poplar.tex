@@ -282,7 +282,7 @@ from \ac{SRWC} plantations in the region.
 The study area, the Pacific Northwest of the United States, includes
 Washington, Oregon, northern California, Idaho, and western Montana.
 A regular grid partitions the region.  The individual pixel size is
-relatively coarse $8192$(m)$ \times 8192$(m). The spatial aggregation
+relatively coarse $8192$ m $ \times 8192$ m. The spatial aggregation
 will necessarily result in yield estimates that do not capture local
 variability. However, the intent of the study is to identify areas of
 high productivity within the study region. A coarse geographic unit
@@ -297,7 +297,7 @@ utilized \cite{SRORG7260}.
 Other input datasets (eg. climate, soils) were scaled to match the base
 pixel size and raster projection. For example, the \ac{NLCD} dataset
 used in this study, was originally imported and projected at a much
-finer scale, $32 \times 32$ (m), then aggregated upwards and used to determine
+finer scale, $32 \times 32$ m, then aggregated upwards and used to determine
 proportion of landcover types within each 64 km\textsuperscript{2} unit. Section \ref{sec:land} provides additional exemplary detail.
 
 Data processing was carried out within a postgresql database, with the
@@ -371,11 +371,11 @@ using \ac{dbh}~to determine \ac{pfs}~through an empirical
 relationship.  These relations are typically determined from
 comparisons of more mature trees, for example, Headlee's estimates are
 based on poplars with a range in \ac{dbh}~of about 3.5~-~25
-(cm)~\cite{Headlee2012}%,Fortier2010}.
+cm~\cite{Headlee2012}%,Fortier2010}.
 
 For \ac{SRWC}, Pontailler et al.~\cite{pontailler97-volume-index}
 proposed a set of parameterizations based on \ac{VI} where $VI =
-HD^2$, $H$ is height (m), and $D$ is tree diameter (m) at 22cm.  They
+HD^2$, $H$ is height m, and $D$ is tree diameter m at 22cm.  They
 described power relationships between \ac{VI}~and both above ground
 dry matter and leaf area per stem. These can be used in a similar
 manner to define \ac{pfs}, where \ac{WS}~is used to estimate
@@ -610,15 +610,15 @@ from more detailed surveys, or from a combination of ancillary
 datasets.  Individual \ac{STATSGO} areas can contain multiple soil
 components, and the map units are linked to attributes the soil data
 base which gives the proportionate extent of the component soils and
-their associated properties.  The \ac{mmu} is about 625 (ha).  For
+their associated properties.  The \ac{mmu} is about 625 ha.  For
 each pixel in the modeling grid, intersecting map units are averaged
 for the estimated pixel values.  1887 different soil delineations were
-used, contributing anywhere from 144 to 1.3M (ha).
+used, contributing anywhere from 144 to 1.3M ha.
 
 \ac{maxAWS} defines the holding capacity of the soil.
 \ac{maxAWS} is directly taken from the \ac{STATSGO} database which
 determines the maximum water holding capacity through the complete
-horizon over the topmost 1 (m) of soil (Figure~\ref{fig:aws}).
+horizon over the topmost 1 m of soil (Figure~\ref{fig:aws}).
 
 \begin{figure}
   \centering
@@ -776,7 +776,7 @@ in along the coast~(Figure~\ref{fig:change}).
 \section{Results and Discussion}
 
 Results show an average coppice yield for irrigated poplar over the
-entire region of 19.7 (Mg ha\textsuperscript{-1}).  38000 ($km^2$) were included in the
+entire region of 19.7 Mg ha\textsuperscript{-1}.  38000 $km^2$ were included in the
 estimate.  Yields were highest in the central valley of California, a
 rich agricultural center, with similar yields along the temperate
 western parts of Oregon and Washington.  Yields decreased in eastern
@@ -796,7 +796,7 @@ Similarly, the non-irrigated yield predictions were masked with the
 areas excluded in the land suitability study to include those areas
 likely to support non-irrigated poplar plantations.  Results for the
 non-irrigated lands predict an average coppice yield of 6.6 (Mg ha\textsuperscript{-1})
-over an area under consideration of 57000 ($km^2$).  In the case of
+over an area under consideration of 57000 $km^2$.  In the case of
 non-irrigated yields, the highest yields were along the Pacific coast
 where precipitation is most plentiful, and more uniform in the inland
 areas of the \ac{AHB} region~(Figure~\ref{fig:nonirrigated_yield}).
